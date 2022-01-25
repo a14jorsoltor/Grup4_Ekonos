@@ -1,7 +1,9 @@
 package com.example.ekonos_logica.Missatges;
 
-import Main.Casella;
-import Main.Empresa;
+
+import com.example.ekonos_logica.Main.Casella;
+import com.example.ekonos_logica.Main.Empresa;
+
 
 import java.util.ArrayList;
 

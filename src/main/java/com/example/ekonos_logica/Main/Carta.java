@@ -1,5 +1,6 @@
 package com.example.ekonos_logica.Main;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -57,7 +58,7 @@ public class Carta {
         do {
 
             numCasella = input.nextInt();
-            Missatges.Normals.numCaselles(num);
+            com.example.ekonos_logica.Missatges.Normals.numCaselles(num);
             for (int i = 0; i < casellesPropietariEmpresa.size(); i++) {//RECORREM TOTES ELS CASELLES
                 if (numCasella == casellesPropietariEmpresa.get(i).getID()) {// COMPROVEM SI LA CASELLA EXISTEIX
                     if (casellesVeinesVuides.get(i).propietari.getNom().equals("vuit")) {// COOMPROVEM SI LA CASELLA ES VUIDA
@@ -66,7 +67,7 @@ public class Carta {
                         return true;
 
                     } else {
-                        Missatges.Errors.casellaIncorrecta();
+                        com.example.ekonos_logica.Missatges.Errors.casellaIncorrecta();
 
                         semaforAgafarCasella = false;
                         return false;
@@ -83,7 +84,7 @@ public class Carta {
         int numCasella;
         boolean semaforAgafarCasella = false;
         do {
-            Missatges.Normals.numeroCasella(num);
+            com.example.ekonos_logica.Missatges.Normals.numeroCasella(num);
             numCasella = input.nextInt();//LA GUARDEM EN UNA VARIABLE
             for (int i = 0; i < casellesPropietariEmpresa.size(); i++) {//RECORREM TOTES ELS CASELLES
                 if (numCasella == casellesPropietariEmpresa.get(i).getID()) {// COMPROVEM SI LA CASELLA EXISTEIX
@@ -93,7 +94,7 @@ public class Carta {
                         return true;
 
                     } else {
-                        Missatges.Errors.casellaIncorreecta();
+                        com.example.ekonos_logica.Missatges.Errors.casellaIncorreecta();
                         semaforAgafarCasella = false;
                         return false;
                     }
@@ -127,7 +128,7 @@ public class Carta {
                 //ACCIO DE CASELLA 4
                 do {
                     //PREGUNTEM QUE VOL FER SI SEGUIR O QUEDAR-SE I FER L'ACCIO DE LA CASELLA 4
-                    Missatges.Preguntas.PreguntaCasellaEsp4();
+                    com.example.ekonos_logica.Missatges.Preguntas.PreguntaCasellaEsp4();
 
                     opcioC4 = input.nextInt();// GUARDEM LA OPCIO EN LA VARIABLE
                     if (opcioC4 == 2) {// SI ES LA OPCIO 2
@@ -139,7 +140,7 @@ public class Carta {
                                 casellesPropietariEmpresa.add(caselles.get(i));//I LAS AFEGIM A UNA ARRAY LIST
                             }
                         }
-                        Missatges.Preguntas.PreguntarCaselles();
+                        com.example.ekonos_logica.Missatges.Preguntas.PreguntarCaselles();
                         opcio = input.nextInt();// LA GUARDEM EN UNA VARABLE
                         if (opcio == 1) {//SI ES OPCIO 1 HAUREM DE TREURE TOTES LES CASELLES VUIDES QUE SIGUI VEINES DE LA EMPRESA SELECIONADA
 
@@ -155,7 +156,7 @@ public class Carta {
                             }
                         }
                     } else if (opcioC4 == 2) {
-                        Missatges.Confimacio.SeguirAvancant();
+                        com.example.ekonos_logica.Missatges.Confimacio.SeguirAvancant();
                     }
                 } while (opcioC4 != 1 && opcioC4 != 2);
 
@@ -172,7 +173,7 @@ public class Carta {
                         }
                     }
 
-                    Missatges.Preguntas.PreguntarCaselles();
+                    com.example.ekonos_logica.Missatges.Preguntas.PreguntarCaselles();
                     opcioC6 = input.nextInt();// LA GUARDEM EN UNA VARABLE
 
                     if (opcioC6 == 1) {//SI ES OPCIO 1 HAUREM DE TREURE TOTES LES CASELLES VUIDES QUE SIGUI VEINES DE LA EMPRESA SELECIONADA

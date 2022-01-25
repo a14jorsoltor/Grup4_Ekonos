@@ -1,7 +1,7 @@
 package com.example.ekonos_logica.Missatges;
 
-import Main.Carta;
-import Main.Jugador;
+import com.example.ekonos_logica.Main.Carta;
+import com.example.ekonos_logica.Main.Jugador;
 
 public class Preguntas {
 

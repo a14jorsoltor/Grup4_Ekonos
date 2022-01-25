@@ -77,12 +77,12 @@ public class Tauler {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////// IMPRIMIR LA MA///////////////////////////////////////////////////////////////////////////////
         for (int i = 0; i < jugador.ma.size(); i++)
-            Missatges.Normals.EnenyarMa(jugador, i);
+            com.example.ekonos_logica.Missatges.Normals.EnenyarMa(jugador, i);
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         do {
-            Missatges.Preguntas.PreguntarCartaTirar(jugador);
+            com.example.ekonos_logica.Missatges.Preguntas.PreguntarCartaTirar(jugador);
             int idCarta = input.nextInt();
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////COMPROBEM SI LA CARTA EXISTEIX////////////////////////////////////////////////////////////////
@@ -96,7 +96,7 @@ public class Tauler {
             }
             if (!semaforIdExists) {
                 //luego try catch
-                Missatges.Errors.cartaErronea();
+                com.example.ekonos_logica.Missatges.Errors.cartaErronea();
             }
         } while (!semaforIdExists);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@ public class Tauler {
         do {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////MOSTREM LES FUINCIONS QUE TINDRA LA CARTA A TIRAR I DEMANEM A L'USARI QUINA FUNCIO TRIA//////////////////////////////////////////////////////////////////////////
-           Missatges.Preguntas.preguntaCarta(cartaATirar);
+            com.example.ekonos_logica.Missatges.Preguntas.preguntaCarta(cartaATirar);
            funcio = input.nextLine();
             if (cartaATirar.getF1().equals(funcio)) {
                 semaforFuncioExsists = true;
@@ -117,7 +117,7 @@ public class Tauler {
                 numFuncio = 2;
             } else
                 //luego try Catch
-            Missatges.Errors.colorIncorrecte();
+                com.example.ekonos_logica.Missatges.Errors.colorIncorrecte();
         } while (!semaforFuncioExsists);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for (int i = 0; i < empresas.size(); i++) {
@@ -130,7 +130,7 @@ public class Tauler {
         if (numFuncio == 0) {
             do {
                 taulerEuropeuDisponibles();
-                Missatges.Preguntas.casellaAposar();
+                com.example.ekonos_logica.Missatges.Preguntas.casellaAposar();
                 //PREGUNTEM QUINA CASELLA VOL FICARLA
                 numeroCasella = input.nextInt();//GUARDEM EL NUMERO DE CASELLA
 
@@ -138,7 +138,7 @@ public class Tauler {
                     semaforCasellaExists = true;
                     casellaAInteractuar = caselles.get(numeroCasella);
                 } else
-                    Missatges.Errors.casellaAgafada(caselles,numeroCasella);
+                    com.example.ekonos_logica.Missatges.Errors.casellaAgafada(caselles,numeroCasella);
             } while (!semaforCasellaExists);
         }
 
@@ -165,7 +165,7 @@ public class Tauler {
         else if (jugador.size() == 5)
             midaMa = 5;
         else
-            Missatges.Errors.errorMidaMa();
+            com.example.ekonos_logica.Missatges.Errors.errorMidaMa();
 
 
         baralla.repartirMa(jugador, midaMa);
@@ -191,7 +191,7 @@ public class Tauler {
     ///////////////////////METODE PER VERUE TOT EL MAPA EUROPEU////////////////////////
     public void taulerEuropeu() {
         for (int i = 0; i < caselles.size(); i++) {
-            Missatges.Taulers.ensenyarCaselles(i,caselles);
+            com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
         }
     }
 
@@ -200,7 +200,7 @@ public class Tauler {
     public void taulerEuropeuDisponibles() {
         for (int i = 0; i < caselles.size(); i++) {
             if (caselles.get(i).propietari.equals("vuit")) {
-                Missatges.Taulers.ensenyarCaselles(i,caselles);
+                com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
             }
         }
     }
@@ -218,7 +218,7 @@ public class Tauler {
 
         boolean semaforCompraVenta = false, semaforPotVenta = false;
         do {
-            Missatges.Preguntas.quinaOpcioVols();
+            com.example.ekonos_logica.Missatges.Preguntas.quinaOpcioVols();
             opcio = input.nextInt();
             input.nextLine();
             //////OPCIO VENTA///////
@@ -234,8 +234,8 @@ public class Tauler {
                     }
                     if (semaforPotVenta) {
                         do {
-                            Missatges.Normals.tensTantsTokens(jugador);
-                            Missatges.Normals.accionsDeToteslesEmpreses();
+                            com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
+                            com.example.ekonos_logica.Missatges.Normals.accionsDeToteslesEmpreses();
                             for (int i = 0; i < empresas.size(); i++) {
                                 empresas.get(i).taulerAccions();
                             }
@@ -244,7 +244,7 @@ public class Tauler {
 
                         } while (!semaforPotVenta);
                     } else {
-                        Missatges.Errors.noTensAccions();
+                        com.example.ekonos_logica.Missatges.Errors.noTensAccions();
 
 
                     }
@@ -267,7 +267,7 @@ public class Tauler {
 
                 //////SORTIR////
             } else {
-                Missatges.Errors.finalApartatAccio();
+                com.example.ekonos_logica.Missatges.Errors.finalApartatAccio();
 
             }
 
@@ -278,17 +278,17 @@ public class Tauler {
     public Empresa comprar(Jugador jugador, Empresa empresaAfectada) {
         String colorCarta;
         if (jugador.getTokens() == 0) {
-            Missatges.Errors.noTensTokens();
+            com.example.ekonos_logica.Missatges.Errors.noTensTokens();
 
         } else {
             for (int i = 0; i < empresas.size(); i++) {
                 if (empresas.get(i).isExisteix()) {
-                    Missatges.Normals.preuEmpresa(empresas,i);
+                    com.example.ekonos_logica.Missatges.Normals.preuEmpresa(empresas,i);
 
                 }
             }
-            Missatges.Normals.tensTantsTokens(jugador);
-            Missatges.Preguntas.empresaAcomprarAccions();
+            com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
+            com.example.ekonos_logica.Missatges.Preguntas.empresaAcomprarAccions();
 
             colorCarta = input.nextLine();
             input.nextLine();
@@ -301,7 +301,7 @@ public class Tauler {
             jugador.setTokens(jugador.getTokens() - tokensQueCostat);
         }
 
-       Missatges.Preguntas.comprarAcions();
+        com.example.ekonos_logica.Missatges.Preguntas.comprarAcions();
         ContinuarCOmprant = input.nextInt();
 
         return empresaAfectada;
@@ -324,7 +324,7 @@ public class Tauler {
     public Empresa vendre() {
         boolean semaforColorCorrecte = false;
         do {
-            Missatges.Preguntas.empresaVendre();
+            com.example.ekonos_logica.Missatges.Preguntas.empresaVendre();
             String color = input.nextLine();
             //COMPROVEM SI HI HA LA EMPRESA
             for (int i = 0; i < empresas.size(); i++) {

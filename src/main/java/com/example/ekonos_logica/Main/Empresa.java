@@ -2,6 +2,7 @@ package com.example.ekonos_logica.Main;
 
 import java.util.ArrayList;
 
+
 public class Empresa {
     final int[] casellesEspecial = new int[]{3, 5};
     final int numMarcador = 6;
@@ -86,7 +87,7 @@ public class Empresa {
             else
                 taulerEmpresa[getMarcador() - 1] = ' ';
         } else
-            Missatges.Errors.errorNoPotsAvancar(this);
+            com.example.ekonos_logica.Missatges.Errors.errorNoPotsAvancar(this);
     }
 
     //
@@ -131,7 +132,7 @@ public class Empresa {
     //////////////////////////////////////////////////////////////////////////
 
     public void taulerMarcador() { // FUNCIO PER IMPRIMIR EL TAULER
-    Missatges.Taulers.taulerMarcador(this);
+        com.example.ekonos_logica.Missatges.Taulers.taulerMarcador(this);
 
     }
 //////////////////////////////////////////////////////////////////////////
