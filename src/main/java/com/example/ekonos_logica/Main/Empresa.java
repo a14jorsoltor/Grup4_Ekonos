@@ -126,7 +126,7 @@ public class Empresa {
 
     //TREURE TAULER DE ACCIONS
     public void taulerAccions() {
-    Missatges.Taulers.TaulerAvancamentEmpresa(this);
+    com.example.ekonos_logica.Missatges.Taulers.TaulerAvancamentEmpresa(this);
 
     }
     //////////////////////////////////////////////////////////////////////////

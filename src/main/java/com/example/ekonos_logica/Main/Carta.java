@@ -310,7 +310,7 @@ public class Carta {
                 funcioMesID("yellow", "lBlue", "dBlue", 35);
                 break;
             default:
-                Missatges.Errors.errorAcrearCarta();
+                com.example.ekonos_logica.Missatges.Errors.errorAcrearCarta();
 
                 break;
         }

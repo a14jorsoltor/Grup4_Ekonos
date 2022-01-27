@@ -1,6 +1,5 @@
 package com.example.ekonos_logica.Main;
 
-import Exceptions.ExcepcioColors;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -207,7 +206,7 @@ public class Tauler {
 
 
     //COMPRA VENTA DE ACCIONS MITJANCANT TOKENS
-    public void compraVenta(Jugador jugador) throws ExcepcioColors {
+    public void compraVenta(Jugador jugador) {
         int opcio;
 
         int tokensQueCostat;
