@@ -50,4 +50,12 @@ public class Errors {
     public static void errorMidaMa() {
         System.out.println("ERROR EN LA CREACIO DE LA MA");
     }
+
+    public static void errorCrearJugadors6() {
+        System.out.println("No es pot crea mes de 6 jugadors");
+    }
+
+    public static void errorCrearJugadors3() {
+        System.out.println("No es pot jugar amb menys de 3 jugadors");
+    }
 }

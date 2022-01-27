@@ -14,7 +14,6 @@ import com.example.ekonos_logica.Missatges.Errors;
 import java.io.IOException;
 
 public class JugadorController {
-
     @FXML
     public TextField nomJug3;
     @FXML
@@ -27,11 +26,12 @@ public class JugadorController {
     public Label numJug4;
     @FXML
     public Label numJug5;
+    @FXML
+
     private Stage stage;
     private Scene scene;
     private Parent root;
-    static int numJugadorActuals = 2;
-
+    static int numJugadorActuals = 3;
     @FXML
     protected void switchToMainScene(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Joc.fxml"));
@@ -40,7 +40,6 @@ public class JugadorController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void switchToTutorialScene(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Tutorial.fxml"));
@@ -49,7 +48,6 @@ public class JugadorController {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     protected void afegirJugador(ActionEvent event) {
         switch (numJugadorActuals) {
@@ -57,34 +55,25 @@ public class JugadorController {
                 numJug3.setVisible(true);
                 numJug3.setText("3");
                 nomJug3.setVisible(true);
-
                 break;
             case 4:
                 numJug4.setVisible(true);
                 numJug4.setText("4");
                 nomJug4.setVisible(true);
-
                 break;
             case 5:
                 numJug5.setVisible(true);
                 numJug5.setText("5");
                 nomJug5.setVisible(true);
-
                 break;
             default:
-
                 com.example.ekonos_logica.Missatges.Errors.errorCrearJugadors6();
                 break;
-
         }
         if (numJugadorActuals < 5) {
-            System.out.println("ANTES AÑADIR "+numJugadorActuals);
             numJugadorActuals++;
-            System.out.println("DESPUES AÑADIR "+numJugadorActuals);
-
         }
     }
-
     @FXML
     protected void borrarJugador(ActionEvent event) {
         switch (numJugadorActuals) {
@@ -112,10 +101,7 @@ public class JugadorController {
                 break;
         }
         if (numJugadorActuals > 2) {
-            System.out.println("ANTES DIMINUIR" + numJugadorActuals);
             numJugadorActuals--;
-            System.out.println("DESPUES DIMINUIR" + numJugadorActuals);
-
         }
     }
 }
