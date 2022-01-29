@@ -14,15 +14,15 @@ public class Main {
         ArrayList<Jugador> jugadors = new ArrayList<>();
         //CREAR JUGADORS
         //SOUT PER SAVER QUANTS JUGADORS HI HAURAN EN AQUEST CAS HI HAN 4
-        Jugador nouJugador1 = new Jugador("Jordi", 0, 4);
+        Jugador nouJugador1 = new Jugador("Jordi", 0);
         jugadors.add(nouJugador1);
-        Jugador nouJugador2 = new Jugador("Adria", 1, 4);
+        Jugador nouJugador2 = new Jugador("Adria", 1);
         jugadors.add(nouJugador2);
-        Jugador nouJugador3 = new Jugador("Pau", 2, 4);
+        Jugador nouJugador3 = new Jugador("Pau", 2);
         jugadors.add(nouJugador3);
-        Jugador nouJugador4 = new Jugador("Abel", 3, 4);
+        Jugador nouJugador4 = new Jugador("Abel", 3);
         jugadors.add(nouJugador4);
-        Jugador jugadorVuit = new Jugador("Ningu", 4 ,4);
+        Jugador jugadorVuit = new Jugador("Ningu", 4);
 
 
         //CREAR EMPRESAS
@@ -46,10 +46,6 @@ public class Main {
         for(int i = 0; i < empresas.size(); i++) {
             empresas.get(i).president = jugadorVuit;
         }
-        for(int i = 0; i < empresas.size(); i++) {
-            empresas.get(i).taulerAccions();
-        }
-
         //CREAR TAULER
         Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit); //CREEM EL TAULER AQUI PASSANT-LI LA BARALLA CREADA ELS JUGADORS CREATS LAS EMPRESAS CREADES I LA EMPRESA "FANTASMA"
         try {

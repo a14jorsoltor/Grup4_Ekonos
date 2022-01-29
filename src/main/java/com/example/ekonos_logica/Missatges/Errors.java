@@ -58,4 +58,8 @@ public class Errors {
     public static void errorCrearJugadors3() {
         System.out.println("No es pot jugar amb menys de 3 jugadors");
     }
+
+    public static String errorsCreaJugadors() {
+    return "ERROR AL CREAR ELS JUGADORS NO DEIXIS NINGUN CAMP BUIT";
+    }
 }

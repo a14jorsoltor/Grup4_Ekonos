@@ -5,12 +5,6 @@
 <?import javafx.scene.text.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="647.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ekonos_gui.JugadorController">
-   <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" text="ΕΚΚΟΝΟΣ" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="39.0" />
-         </font></Label>
-   </top>
    <center>
       <GridPane prefHeight="399.0" prefWidth="542.0" BorderPane.alignment="CENTER">
          <columnConstraints>
@@ -58,8 +52,18 @@
       <Pane prefHeight="61.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="117.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToTutorialScene" prefHeight="40.0" prefWidth="141.0" text="Tutorial" />
-            <Button fx:id="butoComencaJoc" layoutX="462.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToMainScene" prefHeight="40.0" prefWidth="141.0" text="Començar el joc" />
+            <Button fx:id="butoComencaJoc" layoutX="462.0" layoutY="11.0" mnemonicParsing="false" onAction="#startGame" prefHeight="40.0" prefWidth="141.0" text="Començar el joc" />
          </children>
       </Pane>
    </bottom>
+   <top>
+      <Pane prefHeight="102.0" prefWidth="647.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="224.0" layoutY="23.0" prefHeight="50.0" prefWidth="200.0" text="ΕΚΚΟΝΟΣ" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="39.0" />
+               </font></Label>
+            <Label fx:id="errorLabel" layoutX="8.0" layoutY="80.0" prefHeight="17.0" prefWidth="637.0" />
+         </children></Pane>
+   </top>
 </BorderPane>

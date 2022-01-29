@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Jugador {
 
-    public Jugador(String nom, int id, int numJugadors) {
+    public Jugador(String nom, int id) {
         super();
         this.nom = nom;
         this.id = id;
