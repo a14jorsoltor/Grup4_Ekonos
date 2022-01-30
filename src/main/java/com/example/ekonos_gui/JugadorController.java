@@ -169,6 +169,7 @@ public class JugadorController {
                 empresas.get(i).president = jugadorVuit;
             }
             //CREEM LA TAULA I LI PASEM TOTS EL PARAMETRES QUE FAGI FALTA
+
             Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit);
             Parent root = FXMLLoader.load(getClass().getResource("Joc.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -210,7 +211,7 @@ public class JugadorController {
                 com.example.ekonos_logica.Missatges.Errors.errorCrearJugadors6();
                 break;
         }
-        if (numJugadorActuals < 5) {
+        if (numJugadorActuals < 6) {
             numJugadorActuals++;
         }
     }
