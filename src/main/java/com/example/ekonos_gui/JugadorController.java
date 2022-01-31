@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class JugadorController {
 
     public Button butoComencaJoc;
-    JocController joccontroller;
     @FXML
     public TextField nomJug0;
     @FXML
