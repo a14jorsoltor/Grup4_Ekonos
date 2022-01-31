@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="866.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ekonos_gui.JocController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ekonos_gui.JocController">
   <items>
-    <AnchorPane fx:id="AccionsIProgres" minHeight="0.0" minWidth="0.0">
-         <children>
-            <ImageView fx:id="mapEuropa" fitHeight="408.0" fitWidth="575.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         </children></AnchorPane>
-    <AnchorPane fx:id="europa" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+    <AnchorPane fx:id="europa" minHeight="0.0" minWidth="0.0"  />
+    <AnchorPane fx:id="AccionsIProgres" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
   </items>
 </SplitPane>
