@@ -8,15 +8,15 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="648.0">
          <children>
-            <ImageView fitHeight="396.0" fitWidth="497.0" layoutX="84.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="497.0" fitWidth="496.0" layoutX="135.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@Images/Mapa_europa/Mapa1.png">
 
             </Image>
             </ImageView>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="648.0" >
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="648.0">
       <children>
-          <ImageView fitHeight="396.0" fitWidth="497.0" layoutX="84.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+          <ImageView fitHeight="396.0" fitWidth="497.0" layoutX="135" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
               <Image url="@Images/Accions/Accions.png">
 
               </Image>
