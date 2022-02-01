@@ -4,19 +4,19 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="800.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ekonos_gui.JocController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="680.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ekonos_gui.JocController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="648.0">
          <children>
-            <ImageView fitHeight="497.0" fitWidth="496.0" layoutX="135.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@Images/Mapa_europa/Mapa1.png">
+            <ImageView fitHeight="320.0" fitWidth="615.0" layoutX="188.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/Mapa_europa/Mapa.png">
 
             </Image>
             </ImageView>
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="648.0">
       <children>
-          <ImageView fitHeight="396.0" fitWidth="497.0" layoutX="135" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+          <ImageView fitHeight="295.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
               <Image url="@Images/Accions/Accions.png">
 
               </Image>

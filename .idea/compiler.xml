@@ -11,6 +11,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eKONOS_GUI" target="11" />
+      <module name="nose" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>
