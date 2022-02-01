@@ -9,11 +9,26 @@
    <top>
       <HBox prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="infoJoc" mnemonicParsing="false" onAction="#onCLickInformacioJoc" prefHeight="50.0" prefWidth="120.0" text="Informacio Joc" />
-            <Button fx:id="infoCartes" mnemonicParsing="false" onAction="#onCLickInformacioCartes" prefHeight="50.0" prefWidth="120.0" text="Informacio Cartes" />
-            <Button fx:id="infoTorn" mnemonicParsing="false" onAction="#onCLickInformacioTorn" prefHeight="50.0" prefWidth="120.0" text="Informacio Torn" />
-            <Button fx:id="infoPresidencia" mnemonicParsing="false" onAction="#onCLickInformacioPresicencia" prefHeight="50.0" prefWidth="120.0" text="Info. Presidencia" />
-            <Button fx:id="infoPunctuation" mnemonicParsing="false" onAction="#onCLickInformacioPuntuacio" prefHeight="50.0" prefWidth="120.0" text="Info. Puntiaco" />
+            <Button fx:id="infoJoc" mnemonicParsing="false" onAction="#onCLickInformacioJoc" prefHeight="50.0" prefWidth="120.0" text="Info.Joc">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <Button fx:id="infoCartes" mnemonicParsing="false" onAction="#onCLickInformacioCartes" prefHeight="50.0" prefWidth="120.0" text="Info.Cartes">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <Button fx:id="infoTorn" mnemonicParsing="false" onAction="#onCLickInformacioTorn" prefHeight="50.0" prefWidth="120.0" text="Info.Torn">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <Button fx:id="infoPresidencia" mnemonicParsing="false" onAction="#onCLickInformacioPresicencia" prefHeight="50.0" prefWidth="120.0" text="Info. Presidencia">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
+            <Button fx:id="infoPunctuation" mnemonicParsing="false" onAction="#onCLickInformacioPuntuacio" prefHeight="50.0" prefWidth="120.0" text="Info. Punuacio">
+               <font>
+                  <Font size="12.0" />
+               </font></Button>
          </children>
       </HBox>
    </top>
@@ -29,7 +44,7 @@
          <children>
             <Label fx:id="infoText" alignment="TOP_CENTER" layoutX="14.0" layoutY="61.0" prefHeight="217.0" prefWidth="577.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="10.0" />
                </font>
             </Label>
             <Label fx:id="titolnfo" alignment="CENTER" layoutY="14.0" prefHeight="43.0" prefWidth="600.0" text="Informacio" textAlignment="CENTER">
