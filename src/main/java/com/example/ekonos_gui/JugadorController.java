@@ -173,6 +173,8 @@ public class JugadorController {
 
             Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit);
             Parent root = FXMLLoader.load(getClass().getResource("Joc.fxml"));
+
+
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
