@@ -51,7 +51,6 @@ public class JugadorController {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
     static int numJugadorActuals = 3;
 
     private boolean compJugadors(TextField nomJug, Label numJug) {
