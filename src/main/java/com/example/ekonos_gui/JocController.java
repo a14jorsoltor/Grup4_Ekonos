@@ -2,11 +2,17 @@ package com.example.ekonos_gui;
 
 import javafx.event.ActionEvent;
 
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 
 public class JocController {
-
+    public Button btcomenccarParitda;
+    public Label lblTurnActual;
+    public Button btPassarTorn;
+    Tauler tauler;
 
     public Button btCarta00;
     ////BOTONES MAPA////
@@ -66,14 +72,44 @@ public class JocController {
     public Button btCarta51;
     public Button btCarta52;
     ///////////////////////////////
-    
+    public void recivirData(ActionEvent event){
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Tauler tauler = (Tauler) stage.getUserData();
+
+        this.tauler = tauler;
+        btcomenccarParitda.setVisible(false);
+        btPassarTorn.setVisible(true);
+        lblTurnActual.setText("Torn de: " + this.tauler.jugadors.get(0).getNom());
+    }
+
+    //////////////////////////////
+    public void cambiarColorVerm(Button buto){
+        buto.setStyle("-fx-background-color: red");
+    }
+    public void cambiarColorVerd(Button buto){
+        buto.setStyle("-fx-background-color: green");
+    }
+    public void cambiarColordBlau(Button buto){
+        buto.setStyle("-fx-background-color: darkBlue");
+    }
+    public void cambiarColorlBlue(Button buto){
+        buto.setStyle("-fx-background-color: LightBlue");
+    }
+    public void cambiarColorRosa(Button buto){
+        buto.setStyle("-fx-background-color: pink");
+    }
+    public void cambiarColorGroc(Button buto){
+        buto.setStyle("-fx-background-color: yellow");
+    }
 
     public void clickButo00(ActionEvent event){
+
         ensenyarTotsBotons();
     }
 
     public void clickbtME1(ActionEvent actionEvent) {
-        btME1.setStyle("-fx-background-color: red");
+
         amagarTotsBotons();
     }
     public void clickbtME2(ActionEvent actionEvent) {

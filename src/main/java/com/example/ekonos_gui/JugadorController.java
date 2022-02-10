@@ -1,9 +1,5 @@
 package com.example.ekonos_gui;
 
-import com.example.ekonos_logica.Main.Baralla;
-import com.example.ekonos_logica.Main.Empresa;
-import com.example.ekonos_logica.Main.Jugador;
-import com.example.ekonos_logica.Main.Tauler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import com.example.ekonos_logica.Missatges.Errors;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -165,13 +160,24 @@ public class JugadorController {
             Baralla baralla = new Baralla();
             baralla.omplirBaralla();
             //POSEM QUE EL PRESIDENT DE LES EMPRESES SIGUI EL JUADOR FANTASMA PER NO TINDRE QUE COMPARA AMB NULLS
-            for(int i = 0; i < empresas.size(); i++) {
+            for (int i = 0; i < empresas.size(); i++) {
                 empresas.get(i).president = jugadorVuit;
             }
             //CREEM LA TAULA I LI PASEM TOTS EL PARAMETRES QUE FAGI FALTA
 
+
             Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit);
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("Joc.fxml"));
+            stage.setUserData(tauler);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+
+
+            /*
 
 
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -179,8 +185,12 @@ public class JugadorController {
             stage.setScene(scene);
             stage.show();
 
-        } else
-            errorLabel.setText(com.example.ekonos_logica.Missatges.Errors.errorsCreaJugadors());
+
+
+
+
+  */
+        } else errorLabel.setText(com.example.ekonos_logica.Missatges.Errors.errorsCreaJugadors());
     }
 
     @FXML

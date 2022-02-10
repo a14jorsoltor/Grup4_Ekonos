@@ -1,7 +1,7 @@
 package com.example.ekonos_logica.Missatges;
 
-import com.example.ekonos_logica.Main.Casella;
-import com.example.ekonos_logica.Main.Empresa;
+import com.example.ekonos_gui.Casella;
+import com.example.ekonos_gui.Empresa;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class Errors {
     public static void finalApartatAccio(){System.out.println("FINAL D'APARTAT ACCIO");}
     public static void noTensTokens(){  System.out.println("No tens token");}
 
-    public static void errorNoPotsAvancar(Empresa empresa) {
+    public static void errorNoPotsAvancar(com.example.ekonos_logica.Main.Empresa empresa) {
         System.out.println("Empresa " + empresa.getNom() + " no pot avancar");
     }
     public static void errorAcrearCarta(){System.out.println("Error al crear carta");};
@@ -61,5 +61,10 @@ public class Errors {
 
     public static String errorsCreaJugadors() {
     return "ERROR AL CREAR ELS JUGADORS NO DEIXIS NINGUN CAMP BUIT";
+    }
+
+
+    public static void errorNoPotsAvancar(Empresa empresa) {
+        System.out.println("Empresa " + empresa.getNom() + " no pot avancar");
     }
 }

@@ -1,9 +1,9 @@
 package com.example.ekonos_logica.Missatges;
 
 
-import com.example.ekonos_logica.Main.Jugador;
-import com.example.ekonos_logica.Main.Empresa;
-import com.example.ekonos_logica.Main.Casella;
+import com.example.ekonos_gui.Jugador;
+import com.example.ekonos_gui.Empresa;
+import com.example.ekonos_gui.Casella;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
 package com.example.ekonos_logica.Missatges;
 
 
-import com.example.ekonos_logica.Main.Casella;
-import com.example.ekonos_logica.Main.Empresa;
+import com.example.ekonos_gui.Casella;
+import com.example.ekonos_gui.Empresa;
 
 
 import java.util.ArrayList;
@@ -34,5 +34,11 @@ public class Taulers {
     public static void ensenyarCaselles(int i, ArrayList<Casella> caselles) {
         System.out.println("Empresa " + caselles.get(i).getID() + ":");
         System.out.println("Propietari: " + caselles.get(i).propietari.getNom());
+    }
+
+    public static void taulerMarcador(com.example.ekonos_logica.Main.Empresa empresa) {
+    }
+
+    public static void TaulerAvancamentEmpresa(com.example.ekonos_logica.Main.Empresa empresa) {
     }
 }

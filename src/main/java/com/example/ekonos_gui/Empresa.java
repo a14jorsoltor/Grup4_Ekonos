@@ -1,4 +1,4 @@
-package com.example.ekonos_logica.Main;
+package com.example.ekonos_gui;
 
 import java.util.ArrayList;
 
@@ -113,7 +113,7 @@ public class Empresa {
     //CAMBIAR DE PRESIDENT
     public void cambiPresi(ArrayList<Jugador> jugadors) {
         int contador = 0;
-        Jugador nouPresi = null;//PRESIDENT AUXILIAR
+        Jugador  nouPresi = null;//PRESIDENT AUXILIAR
         for (int i = 0; i < jugadors.size(); i++){
             if(contador < jugadors.get(i).getNumAccions()){
               nouPresi = jugadors.get(i);

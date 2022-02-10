@@ -1,4 +1,4 @@
-package com.example.ekonos_logica.Main;
+package com.example.ekonos_gui;
 
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class Carta {
         for (int i = 0; i < casellesPropietariEmpresa.size(); i++) {
             for (int j = 0; j < casellesPropietariEmpresa.get(i).veines.size(); j++) {
                 if (casellesPropietariEmpresa.get(i).veines.get(j).equals("vuit")) {
-                   // com.example.ekonos_logica.Missatges.Normals.casellesPropietari(casellesPropietariEmpresa,i);
+                    com.example.ekonos_logica.Missatges.Normals.casellesPropietari(casellesPropietariEmpresa,i);
 
                     casellesVeinesVuides.add(casellesPropietariEmpresa.get(i).veines.get(j));
                 }
