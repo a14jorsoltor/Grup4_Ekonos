@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class JugadorController {
 
@@ -163,10 +164,15 @@ public class JugadorController {
             for (int i = 0; i < empresas.size(); i++) {
                 empresas.get(i).president = jugadorVuit;
             }
+            Collections.shuffle(baralla.baralla);
+
             //CREEM LA TAULA I LI PASEM TOTS EL PARAMETRES QUE FAGI FALTA
 
 
             Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit);
+
+            baralla.repartirMa(jugadors, 6);
+
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("Joc.fxml"));
@@ -175,21 +181,6 @@ public class JugadorController {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-
-
-            /*
-
-
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-
-
-
-
-  */
         } else errorLabel.setText(com.example.ekonos_logica.Missatges.Errors.errorsCreaJugadors());
     }
 

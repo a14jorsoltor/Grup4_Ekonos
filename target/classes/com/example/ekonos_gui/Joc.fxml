@@ -186,13 +186,13 @@
                         <Font size="24.0" />
                     </font>
                 </Label>
-            <Button fx:id="btcomenccarParitda" layoutY="445.0" mnemonicParsing="false" onAction="#recivirData" prefHeight="29.0" prefWidth="210.0" text="Començar partida" />
-            <Label fx:id="lblTurnActual" layoutX="9.0" layoutY="368.0" prefHeight="17.0" prefWidth="195.0" text="Torn de: ">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-            <Button fx:id="btPassarTorn" layoutY="447.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" visible="false" text="PASSAR TORN" />
+                <Button fx:id="btcomenccarParitda" layoutY="445.0" mnemonicParsing="false" onAction="#recivirData" prefHeight="29.0" prefWidth="210.0" text="Començar partida" />
+                <Label fx:id="lblTurnActual" layoutX="9.0" layoutY="368.0" prefHeight="17.0" prefWidth="195.0" text="Torn de: ">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </Label>
+                <Button fx:id="btPassarTorn" layoutY="447.0" mnemonicParsing="false" onAction="#passarTorn" prefHeight="25.0" prefWidth="208.0" text="PASSAR TORN" visible="false" />
             </children>
         </Pane>
     </right>
@@ -218,61 +218,66 @@
                     </rowConstraints>
                     <children>
                         <Button fx:id="btCarta00" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo00" />
-                        <Button fx:id="btCarta01" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" />
-                        <Button fx:id="btCarta02" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" />
-                        <Button fx:id="btCarta10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" />
-                        <Button fx:id="btCarta11" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" />
-                        <Button fx:id="btCarta12" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="5" />
-                        <Button fx:id="btCarta20" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta21" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="2" />
-                        <Button fx:id="btCarta22" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta30" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Button fx:id="btCarta31" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta32" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Button fx:id="btCarta40" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta41" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                        <Button fx:id="btCarta42" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta50" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta01" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta02" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="2" />
+
+                        <Button fx:id="btCarta10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo10" GridPane.columnIndex="1" />
+                        <Button fx:id="btCarta11" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta12" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Button fx:id="btCarta20" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo20" GridPane.columnIndex="2" />
+                        <Button fx:id="btCarta21" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta22" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+                        <Button fx:id="btCarta30" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo30" GridPane.columnIndex="3" />
+                        <Button fx:id="btCarta31" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta32" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                        <Button fx:id="btCarta40" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo40" GridPane.columnIndex="4" />
+                        <Button fx:id="btCarta41" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta42" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+
+                        <Button fx:id="btCarta50" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo50" GridPane.columnIndex="5" />
                         <Button fx:id="btCarta51" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                         <Button fx:id="btCarta52" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
                 <Button fx:id="btME1" layoutX="108.0" layoutY="89.0" mnemonicParsing="false" onAction="#clickbtME1" prefHeight="27.0" prefWidth="37.0" visible="false" />
                 <Button fx:id="btME2" layoutX="152.0" layoutY="53.0" mnemonicParsing="false" onAction="#clickbtME2" prefHeight="26.0" prefWidth="31.0" visible="false" />
-                <Button fx:id="btME3" layoutX="244.0" layoutY="20.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="37.0" visible="false" />
-                <Button fx:id="btME4" layoutX="297.0" layoutY="29.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="31.0" visible="false" />
-                <Button fx:id="btME5" layoutX="342.0" layoutY="8.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="33.0" visible="false" />
-                <Button fx:id="btME6" layoutX="393.0" layoutY="15.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="37.0" visible="false" />
-                <Button fx:id="btME7" layoutX="452.0" layoutY="49.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="32.0" visible="false" />
-                <Button fx:id="btME8" layoutX="152.0" layoutY="91.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="32.0" visible="false" />
-                <Button fx:id="btME9" layoutX="206.0" layoutY="116.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="29.0" visible="false" />
-                <Button fx:id="btME10" layoutX="256.0" layoutY="79.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="33.0" visible="false" />
-                <Button fx:id="btME11" layoutX="359.0" layoutY="70.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="32.0" visible="false" />
-                <Button fx:id="btME12" layoutX="159.0" layoutY="128.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="33.0" visible="false" />
-                <Button fx:id="btME13" layoutX="202.0" layoutY="152.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="37.0" visible="false" />
-                <Button fx:id="btME14" layoutX="238.0" layoutY="127.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="36.0" visible="false" />
-                <Button fx:id="btME15" layoutX="278.0" layoutY="121.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" visible="false" />
-                <Button fx:id="btME16" layoutX="328.0" layoutY="119.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="42.0" visible="false" />
-                <Button fx:id="btME17" layoutX="421.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="39.0" visible="false" />
-                <Button fx:id="btME24" layoutX="400.0" layoutY="208.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="35.0" visible="false" />
-                <Button fx:id="btME31" layoutX="436.0" layoutY="264.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="35.0" visible="false" />
-                <Button fx:id="btME36" layoutX="383.0" layoutY="301.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="34.0" visible="false" />
-                <Button fx:id="btME30" layoutX="344.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="37.0" visible="false" />
-                <Button fx:id="btME23" layoutX="336.0" layoutY="192.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="47.0" visible="false" />
-                <Button fx:id="btME22" layoutX="296.0" layoutY="189.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="35.0" visible="false" />
-                <Button fx:id="btME21" layoutX="295.0" layoutY="154.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="38.0" visible="false" />
-                <Button fx:id="btME20" layoutX="258.0" layoutY="171.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="31.0" visible="false" />
-                <Button fx:id="btME19" layoutX="223.0" layoutY="189.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="31.0" visible="false" />
-                <Button fx:id="btME18" layoutX="169.0" layoutY="172.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="35.0" visible="false" />
-                <Button fx:id="btME32" layoutX="45.0" layoutY="268.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="30.0" visible="false" />
-                <Button fx:id="btME33" layoutX="101.0" layoutY="277.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="32.0" visible="false" />
-                <Button fx:id="btME25" layoutX="95.0" layoutY="229.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="37.0" visible="false" />
-                <Button fx:id="btME26" layoutX="140.0" layoutY="214.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="38.0" visible="false" />
-                <Button fx:id="btME27" layoutX="188.0" layoutY="217.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="29.0" visible="false" />
-                <Button fx:id="btME34" layoutX="151.0" layoutY="261.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="38.0" visible="false" />
-                <Button fx:id="btME28" layoutX="223.0" layoutY="230.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="41.0" visible="false" />
-                <Button fx:id="btME29" layoutX="270.0" layoutY="232.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="32.0" visible="false" />
-                <Button fx:id="btME35" layoutX="277.0" layoutY="272.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="42.0" visible="false" />
+                <Button fx:id="btME3" layoutX="244.0" layoutY="20.0" mnemonicParsing="false" onAction="#clickbtME3" prefHeight="33.0" prefWidth="37.0" visible="false" />
+                <Button fx:id="btME4" layoutX="297.0" layoutY="29.0" mnemonicParsing="false" onAction="#clickbtME4" prefHeight="32.0" prefWidth="31.0" visible="false" />
+                <Button fx:id="btME5" layoutX="342.0" layoutY="8.0" mnemonicParsing="false" onAction="#clickbtME5" prefHeight="30.0" prefWidth="33.0" visible="false" />
+                <Button fx:id="btME6" layoutX="393.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickbtME6" prefHeight="33.0" prefWidth="37.0" visible="false" />
+                <Button fx:id="btME7" layoutX="452.0" layoutY="49.0" mnemonicParsing="false" onAction="#clickbtME7" prefHeight="30.0" prefWidth="32.0" visible="false" />
+                <Button fx:id="btME8" layoutX="152.0" layoutY="91.0" mnemonicParsing="false" onAction="#clickbtME8" prefHeight="33.0" prefWidth="32.0" visible="false" />
+                <Button fx:id="btME9" layoutX="206.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickbtME9"  prefHeight="30.0" prefWidth="29.0" visible="false" />
+                <Button fx:id="btME10" layoutX="256.0" layoutY="79.0" mnemonicParsing="false" onAction="#clickbtME10" prefHeight="31.0" prefWidth="33.0" visible="false" />
+                <Button fx:id="btME11" layoutX="359.0" layoutY="70.0" mnemonicParsing="false" onAction="#clickbtME11" prefHeight="31.0" prefWidth="32.0" visible="false" />
+                <Button fx:id="btME12" layoutX="159.0" layoutY="128.0" mnemonicParsing="false" onAction="#clickbtME12" prefHeight="36.0" prefWidth="33.0" visible="false" />
+                <Button fx:id="btME13" layoutX="202.0" layoutY="152.0" mnemonicParsing="false" onAction="#clickbtME13" prefHeight="27.0" prefWidth="37.0" visible="false" />
+                <Button fx:id="btME14" layoutX="238.0" layoutY="127.0" mnemonicParsing="false" onAction="#clickbtME14" prefHeight="31.0" prefWidth="36.0" visible="false" />
+                <Button fx:id="btME15" layoutX="278.0" layoutY="121.0" mnemonicParsing="false" onAction="#clickbtME15" prefHeight="31.0" prefWidth="30.0" visible="false" />
+                <Button fx:id="btME16" layoutX="328.0" layoutY="119.0" mnemonicParsing="false" onAction="#clickbtME16" prefHeight="30.0" prefWidth="42.0" visible="false" />
+                <Button fx:id="btME17" layoutX="421.0" layoutY="135.0" mnemonicParsing="false" onAction="#clickbtME17" prefHeight="30.0" prefWidth="39.0" visible="false" />
+                <Button fx:id="btME24" layoutX="400.0" layoutY="208.0" mnemonicParsing="false" onAction="#clickbtME24" prefHeight="33.0" prefWidth="35.0" visible="false" />
+                <Button fx:id="btME31" layoutX="436.0" layoutY="264.0" mnemonicParsing="false" onAction="#clickbtME31" prefHeight="31.0" prefWidth="35.0" visible="false" />
+                <Button fx:id="btME36" layoutX="383.0" layoutY="301.0" mnemonicParsing="false" onAction="#clickbtME36" prefHeight="28.0" prefWidth="34.0" visible="false" />
+                <Button fx:id="btME30" layoutX="344.0" layoutY="230.0" mnemonicParsing="false" onAction="#clickbtME30" prefHeight="34.0" prefWidth="37.0" visible="false" />
+                <Button fx:id="btME23" layoutX="336.0" layoutY="192.0" mnemonicParsing="false" onAction="#clickbtME23" prefHeight="32.0" prefWidth="47.0" visible="false" />
+                <Button fx:id="btME22" layoutX="296.0" layoutY="189.0" mnemonicParsing="false" onAction="#clickbtME22" prefHeight="32.0" prefWidth="35.0" visible="false" />
+                <Button fx:id="btME21" layoutX="295.0" layoutY="154.0" mnemonicParsing="false" onAction="#clickbtME21" prefHeight="30.0" prefWidth="38.0" visible="false" />
+                <Button fx:id="btME20" layoutX="258.0" layoutY="171.0" mnemonicParsing="false" onAction="#clickbtME20" prefHeight="27.0" prefWidth="31.0" visible="false" />
+                <Button fx:id="btME19" layoutX="223.0" layoutY="189.0" mnemonicParsing="false" onAction="#clickbtME19" prefHeight="28.0" prefWidth="31.0" visible="false" />
+                <Button fx:id="btME18" layoutX="169.0" layoutY="172.0" mnemonicParsing="false" onAction="#clickbtME18" prefHeight="31.0" prefWidth="35.0" visible="false" />
+                <Button fx:id="btME32" layoutX="45.0" layoutY="268.0" mnemonicParsing="false"  onAction="#clickbtME32" prefHeight="31.0" prefWidth="30.0" visible="false" />
+                <Button fx:id="btME33" layoutX="101.0" layoutY="277.0" mnemonicParsing="false" onAction="#clickbtME33" prefHeight="30.0" prefWidth="32.0" visible="false" />
+                <Button fx:id="btME25" layoutX="95.0" layoutY="229.0" mnemonicParsing="false" onAction="#clickbtME25" prefHeight="30.0" prefWidth="37.0" visible="false" />
+                <Button fx:id="btME26" layoutX="140.0" layoutY="214.0" mnemonicParsing="false" onAction="#clickbtME26" prefHeight="32.0" prefWidth="38.0" visible="false" />
+                <Button fx:id="btME27" layoutX="188.0" layoutY="217.0" mnemonicParsing="false" onAction="#clickbtME27" prefHeight="29.0" prefWidth="29.0" visible="false" />
+                <Button fx:id="btME34" layoutX="151.0" layoutY="261.0" mnemonicParsing="false" onAction="#clickbtME34" prefHeight="31.0" prefWidth="38.0" visible="false" />
+                <Button fx:id="btME28" layoutX="223.0" layoutY="230.0" mnemonicParsing="false" onAction="#clickbtME28" prefHeight="24.0" prefWidth="41.0" visible="false" />
+                <Button fx:id="btME29" layoutX="270.0" layoutY="232.0" mnemonicParsing="false" onAction="#clickbtME29" prefHeight="32.0" prefWidth="32.0" visible="false" />
+                <Button fx:id="btME35" layoutX="277.0" layoutY="272.0" mnemonicParsing="false" onAction="#clickbtME35" prefHeight="31.0" prefWidth="42.0" visible="false" />
             </children>
         </Pane>
     </center>

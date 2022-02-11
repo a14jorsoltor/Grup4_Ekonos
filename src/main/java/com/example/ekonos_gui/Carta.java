@@ -197,29 +197,29 @@ public class Carta {
         switch (opcio) {
 //---------------------------------------------------------------------\\
             case 1:
-                funcioMesID("red", "dBlue", "yellow", 0);
+                funcioMesID("red", "blue", "yellow", 0);
                 break;
             case 2:
-                funcioMesID("red", "dBlue", "lBlue", 1);
+                funcioMesID("red", "blue", "cyan", 1);
                 break;
             case 3:
-                funcioMesID("red", "dBlue", "green", 2);
+                funcioMesID("red", "blue", "green", 2);
                 break;
             case 4:
                 funcioMesID("red", "green", "Yellow", 3);
                 break;
             case 5:
-                funcioMesID("red", "lBlue", "Yellow", 4);
+                funcioMesID("red", "cyan", "Yellow", 4);
                 break;
             case 6:
-                funcioMesID("red", "green", "lBlue", 5);
+                funcioMesID("red", "green", "cyan", 5);
                 break;
 //---------------------------------------------------------------------\\
             case 7:
-                funcioMesID("green", "lBlue", "pink", 6);
+                funcioMesID("green", "cyan", "pink", 6);
                 break;
             case 8:
-                funcioMesID("green", "lBlue", "red", 7);
+                funcioMesID("green", "cyan", "red", 7);
                 break;
             case 9:
                 funcioMesID("green", "yellow", "pink", 8);
@@ -231,49 +231,49 @@ public class Carta {
                 funcioMesID("green", "yellow", "red", 10);
                 break;
             case 12:
-                funcioMesID("green", "yellow", "lBlue", 11);
+                funcioMesID("green", "yellow", "cyan", 11);
                 break;
 //---------------------------------------------------------------------\\
             case 13:
-                funcioMesID("dBlue", "yellow", "pink", 12);
+                funcioMesID("blue", "yellow", "pink", 12);
                 break;
             case 14:
-                funcioMesID("dBlue", "green", "lBlue", 13);
+                funcioMesID("blue", "green", "cyan", 13);
                 break;
             case 15:
-                funcioMesID("dBlue", "yellow", "lBlue", 14);
+                funcioMesID("blue", "yellow", "cyan", 14);
                 break;
             case 16:
-                funcioMesID("dBlue", "lBlue", "pink", 15);
+                funcioMesID("blue", "cyan", "pink", 15);
                 break;
             case 17:
-                funcioMesID("dBlue", "green", "pink", 16);
+                funcioMesID("blue", "green", "pink", 16);
                 break;
             case 18:
-                funcioMesID("dBlue", "green", "Yellow", 17);
+                funcioMesID("blue", "green", "Yellow", 17);
                 break;
 //---------------------------------------------------------------------\\
             case 19:
-                funcioMesID("lBlue", "dBlue", "green", 18);
+                funcioMesID("cyan", "blue", "green", 18);
                 break;
             case 20:
-                funcioMesID("lBlue", "pink", "green", 19);
+                funcioMesID("cyan", "pink", "green", 19);
                 break;
             case 21:
-                funcioMesID("lBlue", "red", "dBlue", 20);
+                funcioMesID("cyan", "red", "blue", 20);
                 break;
             case 22:
-                funcioMesID("lBlue", "pink", "red", 21);
+                funcioMesID("cyan", "pink", "red", 21);
                 break;
             case 23:
-                funcioMesID("lBlue", "red", "green", 22);
+                funcioMesID("cyan", "red", "green", 22);
                 break;
             case 24:
-                funcioMesID("lBlue", "dBlue", "pink", 23);
+                funcioMesID("cyan", "blue", "pink", 23);
                 break;
 //---------------------------------------------------------------------\\
             case 25:
-                funcioMesID("pink", "dBlue", "green", 24);
+                funcioMesID("pink", "blue", "green", 24);
                 break;
             case 26:
                 funcioMesID("pink", "green", "yellow", 25);
@@ -285,29 +285,29 @@ public class Carta {
                 funcioMesID("pink", "red", "yellow", 27);
                 break;
             case 29:
-                funcioMesID("pink", "red", "dBlue", 28);
+                funcioMesID("pink", "red", "blue", 28);
                 break;
             case 30:
-                funcioMesID("pink", "dBlue", "yellow", 29);
+                funcioMesID("pink", "blue", "yellow", 29);
                 break;
 //---------------------------------------------------------------------\\
             case 31:
-                funcioMesID("yellow", "lBlue", "pink", 30);
+                funcioMesID("yellow", "cyan", "pink", 30);
                 break;
             case 32:
-                funcioMesID("yellow", "lBlue", "red", 31);
+                funcioMesID("yellow", "cyan", "red", 31);
                 break;
             case 33:
                 funcioMesID("yellow", "pink", "red", 32);
                 break;
             case 34:
-                funcioMesID("yellow", "pink", "dBlue", 33);
+                funcioMesID("yellow", "pink", "blue", 33);
                 break;
             case 35:
-                funcioMesID("yellow", "red", "dBlue", 34);
+                funcioMesID("yellow", "red", "blue", 34);
                 break;
             case 36:
-                funcioMesID("yellow", "lBlue", "dBlue", 35);
+                funcioMesID("yellow", "cyan", "blue", 35);
                 break;
             default:
                 com.example.ekonos_logica.Missatges.Errors.errorAcrearCarta();
