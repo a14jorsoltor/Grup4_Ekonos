@@ -218,7 +218,7 @@
                     </rowConstraints>
                     <children>
                         <Button fx:id="btCarta00" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo00" />
-                        <Button fx:id="btCarta01" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta01" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo01" GridPane.rowIndex="1" />
                         <Button fx:id="btCarta02" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="2" />
 
                         <Button fx:id="btCarta10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo10" GridPane.columnIndex="1" />
