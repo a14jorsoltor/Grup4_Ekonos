@@ -171,6 +171,7 @@ public class JugadorController {
 
             Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit);
 
+            tauler.afegirTokenIniciRonda();
             baralla.repartirMa(jugadors, 6);
 
             Node node = (Node) event.getSource();

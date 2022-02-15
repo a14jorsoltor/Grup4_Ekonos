@@ -10,6 +10,37 @@ import java.util.Optional;
 
 
 public class JocController {
+
+    ///////////////////////////////////////
+    //////////////VARIABLES////////////////
+    ///////////////////////////////////////
+    public Label lblTokens;
+    public Button EpsilonP;
+    public Button EpsilonM;
+    public Button OmicronM;
+    public Button OmicronP;
+    public Button GamaP;
+    public Button GamaM;
+    public Button BetaM;
+    public Button DeltaP;
+    public Button DeltaM;
+    public Button AlphaP;
+    public Button AlphaM;
+    public Button BetaP;
+    public Label totalAlpha;
+    public Label propiesAlpha;
+    public Label totalDelta;
+    public Label propiesDelta;
+    public Label totalBeta;
+    public Label propiesBeta;
+    public Label totalGama;
+    public Label propiesGama;
+    public Label totalOmicron;
+    public Label totalEpsilon;
+    public Label propiesEpsilon;
+    public Label propiesOmicron;
+
+    int contTurn = 0;
     public Button btcomenccarParitda;
     public Label lblTurnActual;
     public Button btPassarTorn;
@@ -131,6 +162,21 @@ public class JocController {
     public Button btCarta51;
     public Button btCarta52;
 
+    Alert alertConfirmacio = new Alert(Alert.AlertType.CONFIRMATION);
+    Alert alertError = new Alert(Alert.AlertType.ERROR);
+
+    int contAvanAlpha = 1;
+    int contAvanDelta = 1;
+    int contAvanBeta = 1;
+    int contAvanGamma = 1;
+    int contAvanPink = 1;
+    int contAvanYellow = 1;
+
+
+    ///////////////////////////////////////
+    //////////////VARIABLES////////////////
+    ///////////////////////////////////////
+
 
     ////OMPLIR LA MA///////
     public void omplirMa() {
@@ -155,9 +201,16 @@ public class JocController {
         btCarta41.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(4).getF2());
         btCarta42.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(4).getF3());
         //CARTA6
-        btCarta50.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(5).getF1());
-        btCarta51.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(5).getF2());
-        btCarta52.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(5).getF3());
+        if (tauler.jugadors.size() != 5) {
+            btCarta50.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(5).getF1());
+            btCarta51.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(5).getF2());
+            btCarta52.setStyle("-fx-background-color: " + tauler.jugadors.get(contTurn).ma.get(5).getF3());
+        } else if (tauler.jugadors.size() == 5) {
+            btCarta50.setVisible(false);
+            btCarta51.setVisible(false);
+            btCarta52.setVisible(false);
+        }
+        lblTokens.setText("Tokens: " + tauler.jugadors.get(contTurn).getTokens());
     }
 
     ///////////////////////////////
@@ -173,6 +226,11 @@ public class JocController {
     }
 
 
+    ///////////////////////////////////////
+    ////////////CLICK CARTA F1/////////////
+    ///////////////////////////////////////
+
+
     ////////////////////////////////
     ////////////////////////////////
     public void clickButo00(ActionEvent event) {
@@ -185,187 +243,309 @@ public class JocController {
         avancar(colorActual);
     }
 
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    public void clickButo02(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(0).getF3();
+        avancar(colorActual);
+    }
 
-    int contAvanAlpha = 1;
-    int contAvanDelta=1;
-    int contAvanBeta = 1;
-    int contAvanGamma = 1;
-    int contAvanPink = 1;
-    int contAvanYellow = 1;
+    ////////////////////////////////
+    ////////////////////////////////
+    public void clickButo10(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(1).getF1();
+        ensenyarTotsBotons();
+    }
 
+    public void clickButo11(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(1).getF2();
+        avancar(colorActual);
+    }
+
+    public void clickButo12(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(1).getF3();
+        avancar(colorActual);
+    }
+
+    ////////////////////////////////
+    ////////////////////////////////
+    public void clickButo20(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(2).getF1();
+        ensenyarTotsBotons();
+    }
+
+    public void clickButo21(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(2).getF2();
+        avancar(colorActual);
+    }
+
+    public void clickButo22(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(2).getF3();
+        avancar(colorActual);
+    }
+
+    ////////////////////////////////
+    ////////////////////////////////
+    public void clickButo30(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(3).getF1();
+        ensenyarTotsBotons();
+    }
+
+    public void clickButo31(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(3).getF2();
+        avancar(colorActual);
+    }
+
+    public void clickButo32(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(3).getF3();
+        avancar(colorActual);
+    }
+    ////////////////////////////////
+    ////////////////////////////////
+
+    public void clickButo40(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(4).getF1();
+        ensenyarTotsBotons();
+    }
+
+    public void clickButo41(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(4).getF2();
+        avancar(colorActual);
+    }
+
+    public void clickButo42(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(4).getF3();
+        avancar(colorActual);
+    }
+
+    ////////////////////////////////
+    ////////////////////////////////
+    public void clickButo50(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(5).getF1();
+        ensenyarTotsBotons();
+    }
+
+    public void clickButo51(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(5).getF2();
+        avancar(colorActual);
+    }
+
+    public void clickButo52(ActionEvent event) {
+        colorActual = tauler.jugadors.get(contTurn).ma.get(5).getF3();
+        avancar(colorActual);
+    }
+    ////////////////////////////////
+    ////////////////////////////////
+
+    ///////////////////////////////////////
+    ////////////CLICK CARTA F1/////////////
+    ///////////////////////////////////////
+
+    ///////////////////////////////////////
+    ////////////CLICK CARTA F2/////////////
+    ///////////////////////////////////////
     private void avancar(String colorActual) {
         switch (colorActual) {
             case "red": //CASO ALPHA
-                if (contAvanAlpha == 1) {
-                    lblAlpha01.setStyle("-fx-background-color: " + colorActual);
-                    contAvanAlpha++;
-                } else if (contAvanAlpha == 2) {
-                    lblAlpha02.setStyle("-fx-background-color: " + colorActual);
-                    contAvanAlpha++;
-                } else if (contAvanAlpha == 3) {
-                    lblAlpha03.setStyle("-fx-background-color: " + colorActual);
-                    contAvanAlpha++;
-                } else if (contAvanAlpha == 4) {
-                    lblAlpha04.setStyle("-fx-background-color: " + colorActual);
-                    contAvanAlpha++;
-                } else if (contAvanAlpha == 5) {
-                    lblAlpha05.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(0).setPotAvancar(crearAlert("Alpha"));
-                    contAvanAlpha++;
-                } else if (contAvanAlpha == 6) {
-                    lblAlpha06.setStyle("-fx-background-color: " + colorActual);
-                    contAvanAlpha++;
-                }else if (contAvanAlpha == 7) {
-                    System.out.println(contAvanAlpha);
-                    lblAlpha07.setStyle("-fx-background-color: " + colorActual);
-                    System.out.println("EMPRESA ALPHA JA ESTA EN EL MAX");
-
-
+                if (tauler.empresas.get(0).isPotAvancar()) {
+                    if (contAvanAlpha == 1) {
+                        lblAlpha01.setStyle("-fx-background-color: " + colorActual);
+                        contAvanAlpha++;
+                    } else if (contAvanAlpha == 2) {
+                        lblAlpha02.setStyle("-fx-background-color: " + colorActual);
+                        contAvanAlpha++;
+                    } else if (contAvanAlpha == 3) {
+                        lblAlpha03.setStyle("-fx-background-color: " + colorActual);
+                        contAvanAlpha++;
+                    } else if (contAvanAlpha == 4) {
+                        lblAlpha04.setStyle("-fx-background-color: " + colorActual);
+                        contAvanAlpha++;
+                    } else if (contAvanAlpha == 5) {
+                        lblAlpha05.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(0).setPotAvancar(crearAlert("Alpha"));
+                        contAvanAlpha++;
+                    } else if (contAvanAlpha == 6) {
+                        lblAlpha06.setStyle("-fx-background-color: " + colorActual);
+                        contAvanAlpha++;
+                    } else if (contAvanAlpha == 7) {
+                        System.out.println(contAvanAlpha);
+                        lblAlpha07.setStyle("-fx-background-color: " + colorActual);
+                        System.out.println("EMPRESA ALPHA JA ESTA EN EL MAX");
+                    }
+                } else {
+                    alertError.setTitle("ALPHA: ERROR !!!");
+                    alertError.setHeaderText("Aquesta empresa no pot avançar mes");
+                    alertError.show();
                 }
-
-
                 break;
             case "green": //CASO DELTA
-                if (contAvanDelta == 1) {
-                    lblDelta01.setStyle("-fx-background-color: " + colorActual);
-                    contAvanDelta++;
-                } else if (contAvanDelta == 2) {
-                    lblDelta02.setStyle("-fx-background-color: " + colorActual);
-                    contAvanDelta++;
-                } else if (contAvanDelta == 3) {
-                    lblDelta03.setStyle("-fx-background-color: " + colorActual);
-                    contAvanDelta++;
-                } else if (contAvanDelta == 4) {
-                    lblDelta04.setStyle("-fx-background-color: " + colorActual);
-                    contAvanDelta++;
-                } else if (contAvanDelta == 5) {
-                    lblDelta05.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(1).setPotAvancar(crearAlert("Delta"));
-                    contAvanDelta++;
-                } else if (contAvanDelta == 6) {
-                    lblDelta06.setStyle("-fx-background-color: " + colorActual);
-                    contAvanDelta++;
-                }else if (contAvanDelta == 7) {
-                    System.out.println();
-                    lblDelta07.setStyle("-fx-background-color: " + colorActual);
-                    System.out.println("EMPRESA DELTA JA ESTA EN EL MAX");
+
+                if (tauler.empresas.get(1).isPotAvancar()) {
+                    if (contAvanDelta == 1) {
+                        lblDelta01.setStyle("-fx-background-color: " + colorActual);
+                        contAvanDelta++;
+                    } else if (contAvanDelta == 2) {
+                        lblDelta02.setStyle("-fx-background-color: " + colorActual);
+                        contAvanDelta++;
+                    } else if (contAvanDelta == 3) {
+                        lblDelta03.setStyle("-fx-background-color: " + colorActual);
+                        contAvanDelta++;
+                    } else if (contAvanDelta == 4) {
+                        lblDelta04.setStyle("-fx-background-color: " + colorActual);
+                        contAvanDelta++;
+                    } else if (contAvanDelta == 5) {
+                        lblDelta05.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(1).setPotAvancar(crearAlert("Delta"));
+                        contAvanDelta++;
+                    } else if (contAvanDelta == 6) {
+                        lblDelta06.setStyle("-fx-background-color: " + colorActual);
+                        contAvanDelta++;
+                    } else if (contAvanDelta == 7) {
+                        lblDelta07.setStyle("-fx-background-color: " + colorActual);
+                    }
+                } else {
+                    alertError.setTitle("DELTA: ERROR !!!");
+                    alertError.setHeaderText("Aquesta empresa no pot avançar mes");
+                    alertError.show();
                 }
                 break;
             case "blue":// CASO BETA
-                if (contAvanBeta == 1) {
-                    lblBetaA01.setStyle("-fx-background-color: " + colorActual);
-                    contAvanBeta++;
-                } else if (contAvanBeta == 2) {
-                    lblBetaA02.setStyle("-fx-background-color: " + colorActual);
-                    contAvanBeta++;
-                } else if (contAvanBeta == 3) {
-                    lblBetaA03.setStyle("-fx-background-color: " + colorActual);
-                    contAvanBeta++;
-                } else if (contAvanBeta == 4) {
-                    lblBetaA04.setStyle("-fx-background-color: " + colorActual);
-                    contAvanBeta++;
-                } else if (contAvanBeta == 5) {
-                    lblBetaA05.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(2).setPotAvancar(crearAlert("Beta"));
-                    contAvanBeta++;
-                } else if (contAvanBeta == 6) {
-                    lblBetaA06.setStyle("-fx-background-color: " + colorActual);
-                    contAvanBeta++;
-                }
-                else if (contAvanBeta == 7) {
-                    lblBetaA07.setStyle("-fx-background-color: " + colorActual);
-                    System.out.println("EMPRESA BETA JA ESTA EN EL MAX");
+                if (tauler.empresas.get(2).isPotAvancar()) {
+                    if (contAvanBeta == 1) {
+                        lblBetaA01.setStyle("-fx-background-color: " + colorActual);
+                        contAvanBeta++;
+                    } else if (contAvanBeta == 2) {
+                        lblBetaA02.setStyle("-fx-background-color: " + colorActual);
+                        contAvanBeta++;
+                    } else if (contAvanBeta == 3) {
+                        lblBetaA03.setStyle("-fx-background-color: " + colorActual);
+                        contAvanBeta++;
+                    } else if (contAvanBeta == 4) {
+                        lblBetaA04.setStyle("-fx-background-color: " + colorActual);
+                        contAvanBeta++;
+                    } else if (contAvanBeta == 5) {
+                        lblBetaA05.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(2).setPotAvancar(crearAlert("Beta"));
+                        contAvanBeta++;
+                    } else if (contAvanBeta == 6) {
+                        lblBetaA06.setStyle("-fx-background-color: " + colorActual);
+                        contAvanBeta++;
+                    } else if (contAvanBeta == 7) {
+                        lblBetaA07.setStyle("-fx-background-color: " + colorActual);
+                    }
+                } else {
+                    alertError.setTitle("BETA: ERROR !!!");
+                    alertError.setHeaderText("Aquesta empresa no pot avançar mes");
+                    alertError.show();
                 }
                 break;
             case "cyan": //CASO GAMMA
-                if (contAvanGamma == 1) {
-                    lblAlpha01.setStyle("-fx-background-color: " + colorActual);
-                    contAvanGamma++;
-                } else if (contAvanGamma == 2) {
-                    lblAlpha02.setStyle("-fx-background-color: " + colorActual);
-                    contAvanGamma++;
-                } else if (contAvanGamma == 3) {
-                    lblAlpha03.setStyle("-fx-background-color: " + colorActual);
-                    contAvanGamma++;
-                } else if (contAvanGamma == 4) {
-                    lblAlpha04.setStyle("-fx-background-color: " + colorActual);
-                    contAvanGamma++;
-                } else if (contAvanGamma == 5) {
-                    lblAlpha05.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(3).setPotAvancar(crearAlert("Gamma"));
-                    contAvanGamma++;
-                } else if (contAvanGamma == 6) {
-                    lblAlpha06.setStyle("-fx-background-color: " + colorActual);
-                    contAvanGamma++;
-                } else if (contAvanGamma == 7) {
-                    lblAlpha07.setStyle("-fx-background-color: " + colorActual);
-                    System.out.println("EMPRESA GAMMA JA ESTA EN EL MAX");
+                if (tauler.empresas.get(3).isPotAvancar()) {
+                    if (contAvanGamma == 1) {
+                        lblGama01.setStyle("-fx-background-color: " + colorActual);
+                        contAvanGamma++;
+                    } else if (contAvanGamma == 2) {
+                        lblGama02.setStyle("-fx-background-color: " + colorActual);
+                        contAvanGamma++;
+                    } else if (contAvanGamma == 3) {
+                        lblGama03.setStyle("-fx-background-color: " + colorActual);
+                        contAvanGamma++;
+                    } else if (contAvanGamma == 4) {
+                        lblGama04.setStyle("-fx-background-color: " + colorActual);
+                        contAvanGamma++;
+                    } else if (contAvanGamma == 5) {
+                        lblGama05.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(3).setPotAvancar(crearAlert("Gamma"));
+                        contAvanGamma++;
+                    } else if (contAvanGamma == 6) {
+                        lblGama06.setStyle("-fx-background-color: " + colorActual);
+                        contAvanGamma++;
+                    } else if (contAvanGamma == 7) {
+                        lblGama07.setStyle("-fx-background-color: " + colorActual);
+                    }
+                } else {
+                    alertError.setTitle("GAMMA: ERROR !!!");
+                    alertError.setHeaderText("Aquesta empresa no pot avançar mes");
+                    alertError.show();
                 }
                 break;
             case "pink": //CASO OMICRON
-                if (contAvanPink == 1) {
-                    lblOmicron01.setStyle("-fx-background-color: " + colorActual);
-                    contAvanPink++;
-                } else if (contAvanPink == 2) {
-                    lblOmicron02.setStyle("-fx-background-color: " + colorActual);
-                    contAvanPink++;
-                } else if (contAvanPink == 3) {
-                    lblOmicron03.setStyle("-fx-background-color: " + colorActual);
-                    contAvanPink++;
-                } else if (contAvanPink == 4) {
-                    lblOmicron04.setStyle("-fx-background-color: " + colorActual);
-                    contAvanPink++;
-                } else if (contAvanPink == 5) {
-                    lblOmicron05.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(4).setPotAvancar(crearAlert("Omicron"));
-                    contAvanPink++;
-                } else if (contAvanPink == 6) {
-                    lblOmicron06.setStyle("-fx-background-color: " + colorActual);
-                    contAvanPink++;
-                }else if (contAvanPink == 7) {
-                    lblOmicron07.setStyle("-fx-background-color: " + colorActual);
-                    System.out.println("EMPRESA OMICRON JA ESTA EN EL MAX");
+                if (tauler.empresas.get(4).isPotAvancar()) {
+                    if (contAvanPink == 1) {
+                        lblOmicron01.setStyle("-fx-background-color: " + colorActual);
+                        contAvanPink++;
+                    } else if (contAvanPink == 2) {
+                        lblOmicron02.setStyle("-fx-background-color: " + colorActual);
+                        contAvanPink++;
+                    } else if (contAvanPink == 3) {
+                        lblOmicron03.setStyle("-fx-background-color: " + colorActual);
+                        contAvanPink++;
+                    } else if (contAvanPink == 4) {
+                        lblOmicron04.setStyle("-fx-background-color: " + colorActual);
+                        contAvanPink++;
+                    } else if (contAvanPink == 5) {
+                        lblOmicron05.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(4).setPotAvancar(crearAlert("Omicron"));
+                        contAvanPink++;
+                    } else if (contAvanPink == 6) {
+                        lblOmicron06.setStyle("-fx-background-color: " + colorActual);
+                        contAvanPink++;
+                    } else if (contAvanPink == 7) {
+                        lblOmicron07.setStyle("-fx-background-color: " + colorActual);
+                    }
+                } else {
+                    alertError.setTitle("OMICRON: ERROR !!!");
+                    alertError.setHeaderText("Aquesta empresa no pot avançar mes");
+                    alertError.show();
+
+
                 }
                 break;
             case "yellow": //CASO EPSILON
-                if (contAvanYellow == 1) {
-                    lblEpsilon01.setStyle("-fx-background-color: " + colorActual);
-                    contAvanYellow++;
-                } else if (contAvanYellow == 2) {
-                    lblEpsilon02.setStyle("-fx-background-color: " + colorActual);
-                    contAvanYellow++;
-                } else if (contAvanYellow == 3) {
-                    lblEpsilon03.setStyle("-fx-background-color: " + colorActual);
-                    contAvanYellow++;
-                } else if (contAvanYellow == 4) {
-                    lblEpsilon04.setStyle("-fx-background-color: " + colorActual);
-                    contAvanYellow++;
-                } else if (contAvanYellow == 5) {
-                    lblEpsilon05.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(5).setPotAvancar(crearAlert("Epsilon"));
-                    contAvanYellow++;
-                } else if (contAvanYellow == 6) {
-                    lblEpsilon06.setStyle("-fx-background-color: " + colorActual);
-                    contAvanYellow++;
-                }
-                else if (contAvanYellow == 7) {
-                    lblEpsilon07.setStyle("-fx-background-color: " + colorActual);
-                    tauler.empresas.get(5).setPotAvancar(crearAlert("Epsilon"));
-                    System.out.println("EMPRESA EPSILON JA ESTA EN EL MAX");
+                if (tauler.empresas.get(5).isPotAvancar()) {
+                    if (contAvanYellow == 1) {
+                        lblEpsilon01.setStyle("-fx-background-color: " + colorActual);
+                        contAvanYellow++;
+                    } else if (contAvanYellow == 2) {
+                        lblEpsilon02.setStyle("-fx-background-color: " + colorActual);
+                        contAvanYellow++;
+                    } else if (contAvanYellow == 3) {
+                        lblEpsilon03.setStyle("-fx-background-color: " + colorActual);
+                        contAvanYellow++;
+                    } else if (contAvanYellow == 4) {
+                        lblEpsilon04.setStyle("-fx-background-color: " + colorActual);
+                        contAvanYellow++;
+                    } else if (contAvanYellow == 5) {
+                        lblEpsilon05.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(5).setPotAvancar(crearAlert("Epsilon"));
+                        contAvanYellow++;
+                    } else if (contAvanYellow == 6) {
+                        lblEpsilon06.setStyle("-fx-background-color: " + colorActual);
+                        contAvanYellow++;
+                    } else if (contAvanYellow == 7) {
+                        lblEpsilon07.setStyle("-fx-background-color: " + colorActual);
+                        tauler.empresas.get(5).setPotAvancar(crearAlert("Epsilon"));
+                    }
+                } else {
+                    alertError.setTitle("EPSILON: ERROR !!!");
+                    alertError.setHeaderText("Aquesta empresa no pot avançar mes");
+                    alertError.show();
                 }
                 break;
         }
     }
+
+    ///////////////////////////////////////
+    ////////////CLICK CARTA F1/////////////
+    ///////////////////////////////////////
+
     //CREAR UNA ALERT PER QUAN ARRIBI A LA CASELLA 4
     private boolean crearAlert(String nomEmpresa) {
-        alert.setTitle(nomEmpresa);
-        alert.setHeaderText("Quina opcio vols?");
-        alert.setContentText("1)Continuar avançant\n2)Fer accio especial");
+        alertConfirmacio.setTitle(nomEmpresa);
+        alertConfirmacio.setHeaderText("Quina opcio vols?");
+        alertConfirmacio.setContentText("1)Continuar avançant\n2)Fer accio especial");
         ButtonType buttonType1 = new ButtonType("1");
         ButtonType buttonType2 = new ButtonType("2");
-        alert.getButtonTypes().setAll(buttonType1, buttonType2);
-        Optional<ButtonType> result = alert.showAndWait();
+        alertConfirmacio.getButtonTypes().setAll(buttonType1, buttonType2);
+        Optional<ButtonType> result = alertConfirmacio.showAndWait();
         if (result.get() == buttonType1) {
             System.out.println("Continuar avancant");
             return true;
@@ -376,33 +556,7 @@ public class JocController {
     }
 
     ////////////////////////////////////////////////////////////////
-    public void clickButo10(ActionEvent event) {
-        colorActual = tauler.jugadors.get(contTurn).ma.get(1).getF1();
-        ensenyarTotsBotons();
-    }
-
-    public void clickButo20(ActionEvent event) {
-        colorActual = tauler.jugadors.get(contTurn).ma.get(2).getF1();
-        ensenyarTotsBotons();
-    }
-
-    public void clickButo30(ActionEvent event) {
-        colorActual = tauler.jugadors.get(contTurn).ma.get(3).getF1();
-        ensenyarTotsBotons();
-    }
-
-    public void clickButo40(ActionEvent event) {
-        colorActual = tauler.jugadors.get(contTurn).ma.get(4).getF1();
-        ensenyarTotsBotons();
-    }
-
-    public void clickButo50(ActionEvent event) {
-        colorActual = tauler.jugadors.get(contTurn).ma.get(5).getF1();
-        ensenyarTotsBotons();
-    }
-////////////////////////////////
-
-    ////////////////////////////////////////////////////////////////
+    //////////////CLICK DE BOTONS DE MAPA D'EUROPA//////////////////
     ////////////////////////////////////////////////////////////////
     public void clickbtME1(ActionEvent actionEvent) {
         clickbt(btME1);
@@ -584,9 +738,46 @@ public class JocController {
         amagarTotsBotons();
     }
     ////////////////////////////////////////////////////////////////
+    //////////////CLICK DE BOTONS DE MAPA D'EUROPA//////////////////
     ////////////////////////////////////////////////////////////////
 
 
+    //////////////////////////////////
+    ////////////ACCIONS///////////////
+    //////////////////////////////////
+
+    public void affAlpha(ActionEvent event) {
+      int cont = 0;
+        tauler.empresas.get(0).accions.add(tauler.jugadors.get(contTurn));
+        totalAlpha.setText(Integer.toString(tauler.empresas.get(0).accions.size()));
+
+        for (int i = 0; i < tauler.empresas.get(0).accions.size(); i++) {
+            if (tauler.empresas.get(0).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesAlpha.setText(Integer.toString(cont));
+
+    }
+
+    public void affDelta(ActionEvent event) {
+    }
+
+    public void affBeta(ActionEvent event) {
+    }
+
+    public void affGama(ActionEvent event) {
+    }
+
+    public void affOmicron(ActionEvent event) {
+    }
+
+    public void affEpsilon(ActionEvent event) {
+    }
+
+    //////////////////////////////////
+    ////////////ACCIONS///////////////
+    //////////////////////////////////
     private void clickbt(Button buto) {
         buto.setStyle("-fx-background-color: " + colorActual);
         amagarTotsBotons();
@@ -606,12 +797,18 @@ public class JocController {
     }
 
 
-    int contTurn = 0;
-
     public void passarTorn(ActionEvent actionEvent) {
+         int cont=0;
         contTurn = ++contTurn % tauler.jugadors.size();
         omplirMa();
         lblTurnActual.setText("Torn de: " + this.tauler.jugadors.get(contTurn).getNom());
+
+        for (int i = 0; i < tauler.empresas.get(0).accions.size(); i++) {
+            if (tauler.empresas.get(0).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesAlpha.setText(Integer.toString(cont));
     }
 
 
