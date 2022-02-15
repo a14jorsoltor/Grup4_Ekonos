@@ -110,11 +110,12 @@
     <right>
         <Pane prefHeight="476.0" prefWidth="211.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
             <children>
-                <GridPane layoutX="9.0" layoutY="43.0" prefHeight="279.0" prefWidth="197.0" style="-fx-border-color: black;">
+                <GridPane layoutX="-36.0" layoutY="43.0" prefHeight="282.0" prefWidth="242.0" style="-fx-border-color: black;">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="76.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="85.0" minWidth="10.0" prefWidth="85.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="96.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="70.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.0" minWidth="10.0" prefWidth="53.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="59.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="59.0" />
                     </columnConstraints>
                     <rowConstraints>
                         <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -128,71 +129,85 @@
 
                     </rowConstraints>
                     <children>
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="91.0" style="-fx-border-color: black; -fx-background-color: white;" text="TOTALS" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="63.0" style="-fx-border-color: black; -fx-background-color: white;" text="PROPIES" GridPane.columnIndex="1" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="+ /  -" GridPane.columnIndex="2" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="34.0" prefWidth="91.0" style="-fx-border-color: black; -fx-background-color: white;" text="TOTALS" GridPane.columnIndex="1" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="63.0" style="-fx-border-color: black; -fx-background-color: white;" text="PROPIES" GridPane.columnIndex="2" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="+ /  -" GridPane.columnIndex="3" />
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: red;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                             <children>
-                                <Button layoutX="9.0" layoutY="2.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="29.0" text="+" />
-                                <Button layoutX="51.0" layoutY="2.0" mnemonicParsing="false" text="-" />
+                                <Button fx:id="AlphaP" layoutY="2.0" mnemonicParsing="false" prefHeight="24.0" onAction="#affAlpha" prefWidth="29.0" text="+" />
+                                <Button fx:id="AlphaM" layoutX="33.0" layoutY="2.0" mnemonicParsing="false" text="-" />
                             </children>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: green;" GridPane.columnIndex="3" GridPane.rowIndex="2">
                             <children>
-                                <Button layoutX="9.0" layoutY="8.0" mnemonicParsing="false" text="+" />
-                                <Button layoutX="51.0" layoutY="8.0" mnemonicParsing="false" text="-" />
+                                <Button fx:id="DeltaP" layoutY="8.0" mnemonicParsing="false" onAction="#affDelta" text="+" />
+                                <Button fx:id="DeltaM" layoutX="34.0" layoutY="8.0" mnemonicParsing="false" text="-" />
                             </children>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: blue;" GridPane.columnIndex="3" GridPane.rowIndex="3">
                             <children>
-                                <Button layoutX="9.0" layoutY="8.0" mnemonicParsing="false" text="+" />
-                                <Button layoutX="51.0" layoutY="8.0" mnemonicParsing="false" text="-" />
+                                <Button fx:id="BetaP" layoutY="8.0" mnemonicParsing="false" onAction="#affBeta" text="+" />
+                                <Button fx:id="BetaM" layoutX="34.0" layoutY="8.0" mnemonicParsing="false" text="-" />
                             </children>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: cyan;" GridPane.columnIndex="3" GridPane.rowIndex="4">
                             <children>
-                                <Button layoutX="9.0" layoutY="9.0" mnemonicParsing="false" prefWidth="21.0" text="+" />
-                                <Button layoutX="51.0" layoutY="9.0" mnemonicParsing="false" text="-" />
+                                <Button fx:id="GamaP" layoutY="9.0" mnemonicParsing="false" prefWidth="21.0" onAction="#affGama" text="+" />
+                                <Button fx:id="GamaM" layoutX="34.0" layoutY="8.0" mnemonicParsing="false" text="-" />
                             </children>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: pink;" GridPane.columnIndex="3" GridPane.rowIndex="5">
                             <children>
-                                <Button layoutX="9.0" layoutY="9.0" mnemonicParsing="false" text="+" />
-                                <Button layoutX="51.0" layoutY="9.0" mnemonicParsing="false" text="-" />
+                                <Button fx:id="OmicronP" layoutY="9.0" mnemonicParsing="false" onAction="#affOmicron" text="+" />
+                                <Button fx:id="OmicronM" layoutX="34.0" layoutY="8.0" mnemonicParsing="false" text="-" />
                             </children>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black; -fx-background-color: yellow;" GridPane.columnIndex="3" GridPane.rowIndex="6">
                             <children>
-                                <Button layoutX="9.0" layoutY="8.0" mnemonicParsing="false" text="+" />
-                                <Button layoutX="51.0" layoutY="8.0" mnemonicParsing="false" text="-" />
+                                <Button fx:id="EpsilonP" layoutY="8.0" mnemonicParsing="false" onAction="#affEpsilon" text="+" />
+                                <Button fx:id="EpsilonM" layoutX="34.0" layoutY="8.0" mnemonicParsing="false" text="-" />
                             </children>
                         </Pane>
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.rowIndex="1" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.rowIndex="2" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.rowIndex="5" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.rowIndex="6" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="totalAlpha" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: red;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="propiesAlpha" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: red;" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label fx:id="totalDelta" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: green;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="propiesDelta" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: green;" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label fx:id="totalBeta" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: blue;" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="propiesBeta" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: blue;" text="0" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Label fx:id="totalGama" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: cyan;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="propiesGama" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: cyan;" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label fx:id="totalOmicron" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: pink;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label fx:id="propiesOmicron" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: pink;" text="0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <Label fx:id="totalEpsilon" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: yellow;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="propiesEpsilon" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: yellow;" text="0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+
+
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: white;" text="Empresa" GridPane.rowIndex="0" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: red;" text="Alpha" GridPane.rowIndex="1" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: green;" text="Delta" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: Blue;" text="Beta" textFill="WHITE" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: cyan;" text="Gama" GridPane.rowIndex="4" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: pink;" text="Omicron" GridPane.rowIndex="5" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: black; -fx-background-color: yellow;" text="Epsilon" GridPane.rowIndex="6" />
                     </children>
                 </GridPane>
-                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="211.0" text="ACCIONS" textFill="WHITE">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Label>
                 <Button fx:id="btcomenccarParitda" layoutY="445.0" mnemonicParsing="false" onAction="#recivirData" prefHeight="29.0" prefWidth="210.0" text="Començar partida" />
-                <Label fx:id="lblTurnActual" layoutX="9.0" layoutY="368.0" prefHeight="17.0" prefWidth="195.0" text="Torn de: ">
+                <Label fx:id="lblTurnActual" layoutX="9.0" layoutY="368.0" prefHeight="17.0" prefWidth="195.0" text="Torn de: " textFill="WHITE">
                     <font>
                         <Font size="23.0" />
                     </font>
                 </Label>
                 <Button fx:id="btPassarTorn" layoutY="447.0" mnemonicParsing="false" onAction="#passarTorn" prefHeight="25.0" prefWidth="208.0" text="PASSAR TORN" visible="false" />
+                <Label alignment="CENTER" layoutX="-36.0" layoutY="14.0" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="111.0" text="ACCIONS" textFill="WHITE">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            <Label fx:id="lblTokens" layoutX="86.0" layoutY="17.0" prefHeight="20.0" prefWidth="116.0" text="Tokens: 0" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
     </right>
@@ -218,28 +233,28 @@
                     </rowConstraints>
                     <children>
                         <Button fx:id="btCarta00" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo00" />
-                        <Button fx:id="btCarta01" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta02" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta01" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo01" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta02" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo02" GridPane.rowIndex="2" />
 
                         <Button fx:id="btCarta10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo10" GridPane.columnIndex="1" />
-                        <Button fx:id="btCarta11" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta12" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta11" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo11" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta12" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo12" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                         <Button fx:id="btCarta20" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo20" GridPane.columnIndex="2" />
-                        <Button fx:id="btCarta21" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta22" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta21" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo21" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta22" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo22" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
                         <Button fx:id="btCarta30" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo30" GridPane.columnIndex="3" />
-                        <Button fx:id="btCarta31" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta32" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta31" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo31" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta32" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo32" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
                         <Button fx:id="btCarta40" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo40" GridPane.columnIndex="4" />
-                        <Button fx:id="btCarta41" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta42" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta41" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo41" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta42" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo42" GridPane.columnIndex="4" GridPane.rowIndex="2" />
 
                         <Button fx:id="btCarta50" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo50" GridPane.columnIndex="5" />
-                        <Button fx:id="btCarta51" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-                        <Button fx:id="btCarta52" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                        <Button fx:id="btCarta51" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo51" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                        <Button fx:id="btCarta52" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clickButo52" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                     </children>
                 </GridPane>
                 <Button fx:id="btME1" layoutX="108.0" layoutY="89.0" mnemonicParsing="false" onAction="#clickbtME1" prefHeight="27.0" prefWidth="37.0" visible="false" />
@@ -250,7 +265,7 @@
                 <Button fx:id="btME6" layoutX="393.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickbtME6" prefHeight="33.0" prefWidth="37.0" visible="false" />
                 <Button fx:id="btME7" layoutX="452.0" layoutY="49.0" mnemonicParsing="false" onAction="#clickbtME7" prefHeight="30.0" prefWidth="32.0" visible="false" />
                 <Button fx:id="btME8" layoutX="152.0" layoutY="91.0" mnemonicParsing="false" onAction="#clickbtME8" prefHeight="33.0" prefWidth="32.0" visible="false" />
-                <Button fx:id="btME9" layoutX="206.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickbtME9"  prefHeight="30.0" prefWidth="29.0" visible="false" />
+                <Button fx:id="btME9" layoutX="206.0" layoutY="116.0" mnemonicParsing="false" onAction="#clickbtME9" prefHeight="30.0" prefWidth="29.0" visible="false" />
                 <Button fx:id="btME10" layoutX="256.0" layoutY="79.0" mnemonicParsing="false" onAction="#clickbtME10" prefHeight="31.0" prefWidth="33.0" visible="false" />
                 <Button fx:id="btME11" layoutX="359.0" layoutY="70.0" mnemonicParsing="false" onAction="#clickbtME11" prefHeight="31.0" prefWidth="32.0" visible="false" />
                 <Button fx:id="btME12" layoutX="159.0" layoutY="128.0" mnemonicParsing="false" onAction="#clickbtME12" prefHeight="36.0" prefWidth="33.0" visible="false" />
@@ -269,7 +284,7 @@
                 <Button fx:id="btME20" layoutX="258.0" layoutY="171.0" mnemonicParsing="false" onAction="#clickbtME20" prefHeight="27.0" prefWidth="31.0" visible="false" />
                 <Button fx:id="btME19" layoutX="223.0" layoutY="189.0" mnemonicParsing="false" onAction="#clickbtME19" prefHeight="28.0" prefWidth="31.0" visible="false" />
                 <Button fx:id="btME18" layoutX="169.0" layoutY="172.0" mnemonicParsing="false" onAction="#clickbtME18" prefHeight="31.0" prefWidth="35.0" visible="false" />
-                <Button fx:id="btME32" layoutX="45.0" layoutY="268.0" mnemonicParsing="false"  onAction="#clickbtME32" prefHeight="31.0" prefWidth="30.0" visible="false" />
+                <Button fx:id="btME32" layoutX="45.0" layoutY="268.0" mnemonicParsing="false" onAction="#clickbtME32" prefHeight="31.0" prefWidth="30.0" visible="false" />
                 <Button fx:id="btME33" layoutX="101.0" layoutY="277.0" mnemonicParsing="false" onAction="#clickbtME33" prefHeight="30.0" prefWidth="32.0" visible="false" />
                 <Button fx:id="btME25" layoutX="95.0" layoutY="229.0" mnemonicParsing="false" onAction="#clickbtME25" prefHeight="30.0" prefWidth="37.0" visible="false" />
                 <Button fx:id="btME26" layoutX="140.0" layoutY="214.0" mnemonicParsing="false" onAction="#clickbtME26" prefHeight="32.0" prefWidth="38.0" visible="false" />

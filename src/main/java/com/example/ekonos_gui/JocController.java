@@ -761,18 +761,69 @@ public class JocController {
     }
 
     public void affDelta(ActionEvent event) {
+        int cont = 0;
+        tauler.empresas.get(1).accions.add(tauler.jugadors.get(contTurn));
+        totalDelta.setText(Integer.toString(tauler.empresas.get(1).accions.size()));
+
+        for (int i = 0; i < tauler.empresas.get(1).accions.size(); i++) {
+            if (tauler.empresas.get(1).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesDelta.setText(Integer.toString(cont));
     }
 
     public void affBeta(ActionEvent event) {
+        int cont = 0;
+        tauler.empresas.get(2).accions.add(tauler.jugadors.get(contTurn));
+        totalBeta.setText(Integer.toString(tauler.empresas.get(2).accions.size()));
+
+        for (int i = 0; i < tauler.empresas.get(2).accions.size(); i++) {
+            if (tauler.empresas.get(2).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesBeta.setText(Integer.toString(cont));
     }
 
     public void affGama(ActionEvent event) {
+        int cont = 0;
+        tauler.empresas.get(3).accions.add(tauler.jugadors.get(contTurn));
+        totalGama.setText(Integer.toString(tauler.empresas.get(3).accions.size()));
+
+        for (int i = 0; i < tauler.empresas.get(3).accions.size(); i++) {
+            if (tauler.empresas.get(3).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesGama.setText(Integer.toString(cont));
     }
 
     public void affOmicron(ActionEvent event) {
+        int cont = 0;
+        tauler.empresas.get(4).accions.add(tauler.jugadors.get(contTurn));
+        totalOmicron.setText(Integer.toString(tauler.empresas.get(4).accions.size()));
+
+        for (int i = 0; i < tauler.empresas.get(4).accions.size(); i++) {
+            if (tauler.empresas.get(4).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesOmicron.setText(Integer.toString(cont));
+
     }
 
     public void affEpsilon(ActionEvent event) {
+        int cont = 0;
+        tauler.empresas.get(5).accions.add(tauler.jugadors.get(contTurn));
+        totalEpsilon.setText(Integer.toString(tauler.empresas.get(5).accions.size()));
+
+        for (int i = 0; i < tauler.empresas.get(5).accions.size(); i++) {
+            if (tauler.empresas.get(5).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+
+        propiesEpsilon.setText(Integer.toString(cont));
     }
 
     //////////////////////////////////
@@ -802,13 +853,48 @@ public class JocController {
         contTurn = ++contTurn % tauler.jugadors.size();
         omplirMa();
         lblTurnActual.setText("Torn de: " + this.tauler.jugadors.get(contTurn).getNom());
+        actualitzarAccions();
 
-        for (int i = 0; i < tauler.empresas.get(0).accions.size(); i++) {
-            if (tauler.empresas.get(0).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+    }
+
+    private void actualitzarAccions() {
+        int cont = 0;
+        for (int i = 0; i < tauler.empresas.get(contTurn).accions.size(); i++) {
+            if (tauler.empresas.get(contTurn).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
                 cont++;
         }
-
         propiesAlpha.setText(Integer.toString(cont));
+        cont = 0;
+        for (int i = 0; i < tauler.empresas.get(contTurn).accions.size(); i++) {
+            if (tauler.empresas.get(contTurn).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+        propiesBeta.setText(Integer.toString(cont));
+        cont = 0;
+        for (int i = 0; i < tauler.empresas.get(contTurn).accions.size(); i++) {
+            if (tauler.empresas.get(contTurn).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+        propiesDelta.setText(Integer.toString(cont));
+        cont = 0;
+        for (int i = 0; i < tauler.empresas.get(contTurn).accions.size(); i++) {
+            if (tauler.empresas.get(contTurn).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+        propiesGama.setText(Integer.toString(cont));
+        cont = 0;
+        for (int i = 0; i < tauler.empresas.get(contTurn).accions.size(); i++) {
+            if (tauler.empresas.get(contTurn).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+        propiesEpsilon.setText(Integer.toString(cont));
+        cont = 0;
+        for (int i = 0; i < tauler.empresas.get(contTurn).accions.size(); i++) {
+            if (tauler.empresas.get(contTurn).accions.get(i).getNom().equals(tauler.jugadors.get(contTurn).getNom()))
+                cont++;
+        }
+        propiesOmicron.setText(Integer.toString(cont));
+
     }
 
 
