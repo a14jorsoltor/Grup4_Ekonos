@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Persistencia {
     static final String ip = "labs.inspedralbes.cat";
-    static final String NOMBD = "a20adrlopcar_Coffie";
+    static final String NOMBD = "a20adrlopcar_Ekonos";
     static final String url = "jdbc:mysql://" + ip + ":3306/" + NOMBD;
     static final String Usuari = "a20adrlopcar_us";
     static final String password = "Pedralbes*2020";
@@ -19,9 +19,11 @@ public class Persistencia {
 
     public static void main(String[] args) throws SQLException {
         conexioBase();
-        obtenirNomJugadors(connexio);
         insereixJugadors(connexio);
-
+        obtenirNomJugadors(connexio);
+            for (Jugadors JUG :Jugador){
+                System.out.println(JUG.toString());
+            }
         cerrarbase();
     }
 
@@ -47,7 +49,7 @@ public class Persistencia {
 
     public static void obtenirNomJugadors(Connection con) throws SQLException {
 
-        String query = "select COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES";
+        String query = "select Id, Nom from Jugadors";
         try (Statement stmt = con.createStatement()) {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
@@ -63,7 +65,7 @@ public class Persistencia {
     }
     public static void insereixJugadors(Connection con) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " +Taula_Jugadors + " VALUES(1,'Adri'"+"); ";
+        String sentenciaSql = "INSERT INTO " +Taula_Jugadors+ " VALUES(1, 'ejemplo'"+ "); ";
         Statement sta = null;
         try {
             sta = con.createStatement();
