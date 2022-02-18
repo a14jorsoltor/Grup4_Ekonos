@@ -8,6 +8,10 @@ public class Empresa {
 
     /**
      * @param casellesEspecial Indiquem quines caselles son les especials.
+     * @param numMarcador es el numero maxim de caselles que ho haura en la taula d'avançament.
+     * @param accion Son les accions que te la empresa. Guardem el jugador que te la accio.
+     * @param taulerEmpresa Es la taula d'avnçament de la empresa
+     *
      */
     final int[] casellesEspecial = new int[]{3, 5};
     final int numMarcador = 6;
@@ -97,6 +101,12 @@ public class Empresa {
 
     //
     public int posarAccio(Jugador jugador, ArrayList<Jugador> jugadors) {
+        /**
+         * Aquesta funcio es per posar una acico a la taula d'accions
+         * @param jugador pasem el jugador el qual ficarem la accio
+         * @param jugadors pasem tots el jugador per la funcio de cambiPresi
+         * @return retornem el numero d'accios que te despres de posar la accio.
+         */
         accions.add(jugador);
         jugador.setNumAccions(jugador.getNumAccions() + 1);
         cambiPresi(jugadors);
@@ -104,6 +114,12 @@ public class Empresa {
     }
 
     public void treureAccio(Jugador jugador, ArrayList<Jugador> jugadors) {
+        /**
+         * Aquesta funcio es per treure una de les teves accion de la empresa
+         * @param jugador pasem el jugador el qual ficarem la accio
+         * @param jugadors pasem tots el jugador per la funcio de cambiPresi
+         *
+         */
         int numAccio = 0;
         for (int i = 0; i < accions.size(); i++) {
             if (jugador.getId() == accions.get(i).getId()) {
@@ -117,6 +133,10 @@ public class Empresa {
 
     //CAMBIAR DE PRESIDENT
     public void cambiPresi(ArrayList<Jugador> jugadors) {
+        /**
+         * Funcio que es fara despres de treuer o posar una accio per cambiar de president
+         * @param jugadors per comparar totes les accions que tenen.
+         */
         int contador = 0;
         Jugador nouPresi = null;//PRESIDENT AUXILIAR
         for (int i = 0; i < jugadors.size(); i++){

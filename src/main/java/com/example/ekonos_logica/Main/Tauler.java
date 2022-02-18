@@ -207,15 +207,20 @@ public class Tauler {
 
     //COMPRA VENTA DE ACCIONS MITJANCANT TOKENS
     public void compraVenta(Jugador jugador) {
+        /**
+         * compraVenta es la funcio el qual fa la compra o la venta d'accions
+         * @param jugador pasem el jugador el qual comprara o vendra una accio+
+         * @param opcio Serveix per dir si vols comprar o vendre
+         *              
+         */
+
         int opcio;
 
-        int tokensQueCostat;
-        boolean semaforCompra = false;
-        String colorCarta;//COLOR QUE FICARA L'USUARI
+        //COLOR QUE FICARA L'USUARI
         Empresa empresaAfectada = empresaAux;//EMPRESA A QUI ES COMPRARA O VENDRA UNA ACCIO
 
 
-        boolean semaforCompraVenta = false, semaforPotVenta = false;
+        boolean semaforPotVenta = false;
         do {
             com.example.ekonos_logica.Missatges.Preguntas.quinaOpcioVols();
             opcio = input.nextInt();
@@ -256,11 +261,9 @@ public class Tauler {
 
                 empresaAfectada = comprar(jugador, empresaAfectada);
                 if (ContinuarCOmprant == 1) {
-                    semaforCompra = false;
                     empresaAfectada = comprar(jugador, empresaAfectada);
 
                 } else {
-                    semaforCompra = true;
                     compraVenta(jugador);
                 }
 
@@ -275,7 +278,15 @@ public class Tauler {
     }
 
     public Empresa comprar(Jugador jugador, Empresa empresaAfectada) {
-        String colorCarta;
+        /**
+         * Funcio per compra accions.
+         * @param jugador Pasem el jugador que vol comprar.
+         * @param empresaAfectada Pasem la empresa del qual comprarem una accio.
+         * @param color Es el color de la empresa amb la qual interactuarem.
+         * @return Retornem la empresa el qual comprarem la accio
+         * */
+
+        String color;
         if (jugador.getTokens() == 0) {
             com.example.ekonos_logica.Missatges.Errors.noTensTokens();
 
@@ -289,10 +300,10 @@ public class Tauler {
             //com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
             com.example.ekonos_logica.Missatges.Preguntas.empresaAcomprarAccions();
 
-            colorCarta = input.nextLine();
+            color = input.nextLine();
             input.nextLine();
             for (int i = 0; i < empresas.size(); i++) {
-                if (colorCarta.equals(empresas.get(i).getColor())) {
+                if (color.equals(empresas.get(i).getColor())) {
                     empresaAfectada = empresas.get(i);
                 }
             }
@@ -306,8 +317,10 @@ public class Tauler {
         return empresaAfectada;
     }
 
-    //AL PRINCIPI DEL TORN ES FARA AQUESTA FUNCIO PER DONAR EL TOKENS ALS JUGADORS
     public void afegirTokenIniciRonda() {
+        /**
+         * Aquesta funcio es per dir afegir el tokens necesaris al principi de cada ronda.
+         */
         int numJugadors = jugadors.size();
         if (numJugadors == 5) {
             for (int i = 0; i < numJugadors; i++) {
@@ -321,6 +334,10 @@ public class Tauler {
     }
 
     public Empresa vendre() {
+        /**
+         * Funcio per vendre accions.
+         * @return Retornem la empresa el qual sera afectada.
+         * */
         boolean semaforColorCorrecte = false;
         do {
             com.example.ekonos_logica.Missatges.Preguntas.empresaVendre();
@@ -337,6 +354,9 @@ public class Tauler {
 
 
     private void omplirVeins() {
+        /**
+         * Funcio per omplir les caselels veines de cada casella es fa quan es crea el objecte tauler.
+         */
         this.caselles.get(0).afegirVeines(this, 2, 8);
         this.caselles.get(1).afegirVeines(this, 1, 3, 8);
         this.caselles.get(2).afegirVeines(this, 2, 4, 10);
