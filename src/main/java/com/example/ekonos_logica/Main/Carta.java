@@ -1,4 +1,7 @@
 package com.example.ekonos_logica.Main;
+/**
+ * @author Jordi Solé i Adria Lopez
+ *  */
 
 
 import java.util.ArrayList;
@@ -6,6 +9,13 @@ import java.util.Scanner;
 
 
 public class Carta {
+
+    /**
+     * @param f1 Funcio 1 de la carta.
+     * @param f2 Funcio 2 de la carta.
+     * @param f3 Funcio 3 de la carta.
+     * @param id La id de la carta per diferenciarles de les altres.
+     * */
     static Scanner input = new Scanner(System.in);
     private String f1, f2, f3;
     private int id;
@@ -25,8 +35,6 @@ public class Carta {
     public String getF3() {
         return f3;
     }
-    /*cositas*/
-
     private void funcioMesID(String f1, String f2, String f3, int id) {
         this.f1 = f1;
         this.f2 = f2;
@@ -42,6 +50,13 @@ public class Carta {
 
 
     public boolean accioEspecial1(int num, Empresa empresa, ArrayList<Casella> casellesPropietariEmpresa, ArrayList<Casella> casellesVeinesVuides, ArrayList<Casella> caselles) {
+        /**
+         * Aquesta funcio la fara el president de la empresa quan alguna empresa cau a la casella 4.
+         * @param numCasella diem quina casella del mapa europa voldra interactuar.
+         * @param semaforAgafarCasella amb aquest semafor diem si pot continuar despres d'agafar la casella
+         * @return retornem un boolean: True si s'ha pogut ha arribat al final. False si no ha pogut fer tota la funcio.
+         */
+
         int numCasella;
         boolean semaforAgafarCasella = false;
         /////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -81,6 +96,12 @@ public class Carta {
 
 
     private boolean accioEspecial2(int num, Empresa empresa, ArrayList<Casella> casellesPropietariEmpresa, ArrayList<Casella> casellesVeinesVuides, ArrayList<Casella> caselles) {
+        /**
+         * Aquesta funcio la fara el president de la empresa quan alguna empresa cau a la casella 6.
+         * @param numCasella diem quina casella del mapa europa voldra interactuar.
+         * @param semaforAgafarCasella amb aquest semafor diem si pot continuar despres d'agafar la casella.
+         * @return retornem un boolean: True si s'ha pogut ha arribat al final. False si no ha pogut fer tota la funcio.
+         */
         int numCasella;
         boolean semaforAgafarCasella = false;
         do {
@@ -107,8 +128,23 @@ public class Carta {
 
 
     public void accioCarta(Empresa empresa, int funcio, Casella casellaAfectada, ArrayList<Casella> caselles) {
-
-        boolean segir = false, semaforAgafarCasella1 = false, semaforAgafarCasella2 = false, semaforAgafarCaselles = false, semaforAgafarCasella3 = false;
+/**
+ * @param empresa diem la empresa a qui es fara la accio.
+ * @param funcio quina funcio de la carta fara.
+ * @param casellaAfectada es la casella en la qual interactuarem.
+ * @param casellas pasem totes les caselles.
+ *
+ *
+ * @param semaforAgafarCasella1 Aquesta variable serveix per si la primera casella que posa l'usuari es pot utilitzar.
+ * @param casellesPropietariEmpresa Aquesta ArrayList es per agafar quines caselles pertanyen a la empresa afectada.
+ * @param casellesVeinesVuides Aquesta ArrayList es per distingir quines caselles veines amb les quals pots interactuar esta vuides, es a dir pot agafar.
+ * @param opcioC4 Dir quina opcio vols agafar Si continuar avançant o o fer la accio especial de la casella 4.
+ * @param opcioC6 El mateix pero per a la opcio especial de la casella 6.
+ * @param opcio Dir quina opcio vol, o agafar la casella rival o una casella vuida.
+ *
+ *
+ */
+        boolean semaforAgafarCasella1 = false, semaforAgafarCaselles = false;
         ArrayList<Casella> casellesPropietariEmpresa = new ArrayList<>();//ARRAYLIST PER SABER QUINES CASELLES CONTROLA LA EMPRESA
         ArrayList<Casella> casellesVeinesVuides = new ArrayList<>();
         int opcioC4, opcio, opcioC6;
@@ -194,6 +230,8 @@ public class Carta {
 
 
     public void crearCarta(int opcio) {
+        /**
+         * Aquesta funcio crea les cartes, TOTES les cartes estan predefinides */
         switch (opcio) {
 //---------------------------------------------------------------------\\
             case 1:

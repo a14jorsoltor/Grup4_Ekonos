@@ -4,6 +4,22 @@ import java.util.ArrayList;
 
 public class Jugador {
 
+    /**
+     * @param nom Dir el nom del jugador.
+     * @param id Identifica el jugador.
+     * @param numAccions Diu el numero d'accions te el jugador.
+     * @param tokens El numero de diners / monedes que te el jugador actualment
+     * @param ma Son les cartes que te el jugador a la ma.
+     *
+     */
+
+    private String nom;
+    private int id;
+    private int numAccions = 0;
+    private int tokens;
+    public ArrayList<Carta> ma = new ArrayList<>();
+
+
     public Jugador(String nom, int id) {
         super();
         this.nom = nom;
@@ -11,8 +27,6 @@ public class Jugador {
         this.tokens = 0;
     }
 
-    private String nom, fitxa;
-    private int id;
 
     public int getNumAccions() {
         return numAccions;
@@ -21,11 +35,6 @@ public class Jugador {
     public void setNumAccions(int numAccions) {
         this.numAccions = numAccions;
     }
-
-    private int numAccions = 0;
-    private int tokens;
-    public ArrayList<Carta> ma = new ArrayList<>();
-
 
     public int getTokens() {
         return tokens;
@@ -36,18 +45,6 @@ public class Jugador {
 
     public String getNom() {
         return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getFitxa() {
-        return fitxa;
-    }
-
-    public void setFitxa(String fitxa) {
-        this.fitxa = fitxa;
     }
 
     public int getId() {

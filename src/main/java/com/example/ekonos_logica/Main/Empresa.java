@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 
 public class Empresa {
+
+
+    /**
+     * @param casellesEspecial Indiquem quines caselles son les especials.
+     */
     final int[] casellesEspecial = new int[]{3, 5};
     final int numMarcador = 6;
     public ArrayList<Jugador> accions = new ArrayList<>();
