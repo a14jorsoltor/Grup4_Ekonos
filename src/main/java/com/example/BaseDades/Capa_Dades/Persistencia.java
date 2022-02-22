@@ -2,6 +2,7 @@ package com.example.BaseDades.Capa_Dades;
 
 import com.example.BaseDades.Capa_Domini.Jugadors;
 import com.example.BaseDades.Capa_Domini.Partida;
+import com.example.BaseDades.Capa_Domini.Tiene;
 //
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,9 +15,11 @@ public class Persistencia {
     static final String password = "Pedralbes*2020";
     static final String Taula_Jugadors= "Jugadors";
     static final String Taula_Partida= "Partida";
+    static final String Taula_Tiene= "Tiene";
         public static boolean semaforo;
         static ArrayList<Jugadors> Jugador= new ArrayList<Jugadors>();
          static ArrayList<Partida> partida= new ArrayList<Partida>();
+        static ArrayList<Tiene> tener= new ArrayList<Tiene>();
 
         static Connection connexio = null;
 
@@ -32,6 +35,11 @@ public class Persistencia {
             for(Partida partidass:partida){
                 System.out.println(partidass.toString());
             }
+             insereixTiene(connexio);
+              obtenirTiene(connexio);
+        for(Tiene partidas:tener){
+            System.out.println(partidas.toString());
+        }
         cerrarbase();
     }
 
@@ -118,12 +126,51 @@ public class Persistencia {
                 int NumFilialOmicron = rs.getInt(5);
                 int NumFilialBeta = rs.getInt(6);
                 int NumFilialGama = rs.getInt(7);
-
                 Partida part = new Partida( Id_partida ,NumFilialAlpha, NumFilialOmega,NumFilialDelta,NumFilialOmicron,NumFilialBeta,NumFilialGama);
                 partida.add(part);
+            }
+        } catch (SQLException e) {
+        }
+    }
+    public static void insereixTiene(Connection con) throws SQLException {
+
+        String sentenciaSql = "INSERT INTO " +Taula_Tiene+ " VALUES(1,1,2,1,3,4,2,8,9"+ "); ";
+        Statement sta = null;
+        try {
+            sta = con.createStatement();
+            sta.executeUpdate(sentenciaSql);
+            semaforo=true;
+        } catch (SQLException e) {
+            System.out.println("Error");
+            semaforo=false;
+        } finally {
+            sta.close();
+        }
+    }
+    public static void obtenirTiene(Connection con) throws SQLException {
+
+        String query = "select * from Tiene";
+        try (Statement stmt = con.createStatement()) {
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int Id= rs.getInt(1);
+                int Id_partida= rs.getInt(2);
+                int NumeroAssocioAlpha = rs.getInt(3);
+                int NumeroAssocioOmega= rs.getInt(4);
+                int NumeroAssocioDelta = rs.getInt(5);
+                int NumeroAssocioOmicron = rs.getInt(6);
+                int NumeroAssocioBeta = rs.getInt(7);
+                int NumeroAssocioGama = rs.getInt(8);
+                int monedas = rs.getInt(9);
+                Tiene tiene = new Tiene( Id,Id_partida,NumeroAssocioAlpha, NumeroAssocioOmega,NumeroAssocioDelta,NumeroAssocioOmicron,NumeroAssocioBeta,NumeroAssocioGama,monedas);
+                tener.add(tiene);
+
             }
         } catch (SQLException e) {
 
         }
     }
+
+
 }
