@@ -81,7 +81,7 @@ public class Persistencia {
     }
     public static void insereixJugadors(Connection con) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " +Taula_Jugadors+ " VALUES(3, 'Eric'"+ "); ";
+        String sentenciaSql = "INSERT INTO " +Taula_Jugadors+ " VALUES(4, 'Albondiga'"+ "); ";
         Statement sta = null;
         try {
             sta = con.createStatement();
@@ -99,7 +99,7 @@ public class Persistencia {
 
     public static void insereixPartida(Connection con) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " +Taula_Partida+ " VALUES(2,1,1,1,1,1,1"+ "); ";
+        String sentenciaSql = "INSERT INTO " +Taula_Partida+ " VALUES(3,1,1,1,1,1,1"+ "); ";
         Statement sta = null;
         try {
             sta = con.createStatement();
@@ -132,9 +132,10 @@ public class Persistencia {
         } catch (SQLException e) {
         }
     }
+
     public static void insereixTiene(Connection con) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " +Taula_Tiene+ " VALUES(1,1,2,1,3,4,2,8,9"+ "); ";
+        String sentenciaSql = "INSERT INTO " +Taula_Tiene+ " VALUES(id,id_partida,accions_a,4,2,8,9"+ "); ";
         Statement sta = null;
         try {
             sta = con.createStatement();
