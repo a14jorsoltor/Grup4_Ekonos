@@ -41,6 +41,10 @@ public class Tauler {
 
     //METODE PER COMENÇAR LES RONDES
     public void ronda(int numsRonda) throws Exception {
+        /**
+         * Funcio per fer les rondes.
+         * @param numRonda pasem el numero de rondes que fara la partida.
+         */
         remenarBaralla(baralla);
 
 
@@ -59,6 +63,10 @@ public class Tauler {
     //////////////////////////////////////////////////////////////////////////////////
     ////////////////////////// METODE PER FER ELS TORNS//////////////////////////////
     private void torn(Jugador jugador) throws Exception {
+        /**
+         * Funci per fer el torn
+         * @param jugador Pasem el jugador el qual esta jugant el torn.
+         */
         tirarCarta(jugador);
         compraVenta(jugador);
         taulerEmpresasAvançament();
@@ -67,6 +75,19 @@ public class Tauler {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////// AQUEST METODE ES EL QUE FARA QUE EL JUGADOR TIRI LA CARTA//////////////////////////////////////////////////
     private void tirarCarta(Jugador jugador) {
+        /**
+         * Aquesta funcio es la que fara al tirar una carta, es a dir, quina funcio fa, quin color es... .
+         * @param semaforIdExists Semafor per veure si la id existeix.
+         * @param semaforFuncioExsists Semafor per veure si la funcio existeix.
+         * @param semaforCasellaExists Semafor per verue si la casella exiteix.
+         * @param cartaATirar Guardem la carta a tirar.
+         * @param casellaAInteractuar Guardem la casella amb la qual interactuarem.
+         * @param funcio Guardem la funcio que tirara el jugador.
+         * @param numFuncio La guardem per a saber quin numero de funcio es. Ja que si la funcio es 1 ha de fer coses diferents a 2 i 3.
+         * @param numeroCasella Aquesta variable es per guardar el numero de la casella.
+         * @param empresaAfectada Aquesta variable es per guardar la empres amb la qual interactuarem.
+         */
+
         boolean semaforIdExists = false, semaforFuncioExsists = false, semaforCasellaExists = false; // SEMAFORS PER CONTROLAR SI HA TRIAT BE LES OPCIONS
         Carta cartaATirar = null; //CARTA PER SABER QUINA CARTA TIARA EL JUGADOR
         Casella casellaAInteractuar = null; // PER SABER AMB QUINA CASELLA HEM D'INTERACTUAR
@@ -75,8 +96,8 @@ public class Tauler {
         Empresa empresaAfectada = null; // PER GUARDAR A QUINA EMPRESA ANIRA LA FUNCIO
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////// IMPRIMIR LA MA///////////////////////////////////////////////////////////////////////////////
-        //for (int i = 0; i < jugador.ma.size(); i++)
-          //  com.example.ekonos_logica.Missatges.Normals.EnenyarMa(jugador, i);
+//        for (int i = 0; i < jugador.ma.size(); i++)
+//          com.example.ekonos_logica.Missatges.Normals.EnenyarMa(jugador, i);
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -148,6 +169,10 @@ public class Tauler {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////// GENERAR TOTES LES CASELLES///////////////////////////////////////////////////////////////////////////
     private void omplirCaselles(int numCaselles) {
+        /**
+         * Aquesta funcio el que fa es que les caselles no siguin null. Ho fem mitjançant creant una empresa "Fantasma"
+         * @param numCaselles Pasem el numero de caselles que te el tauler d'europa
+         */
         for (int i = 0; i < numCaselles; i++) {
             Casella novaCasella = new Casella(i, empresaVuit);
             caselles.add(novaCasella);
@@ -158,6 +183,11 @@ public class Tauler {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////AQUI DIEM QUINA MIDA TE LA MA EL JUAGDOR I REPARTIM LA MA///////////////////////////////////////////////////
     private static void repartirCartes(Baralla baralla, ArrayList<Jugador> jugador) {
+        /**
+         * Aquesta funcio el que fa es repartir les cartes al jugadors.
+         * @param baralla Passem la barlla a la funcio.
+         * @param jugador ArrayList de jugador.
+         */
         int midaMa = 0;
         if (jugador.size() == 3 || jugador.size() == 4 || jugador.size() == 6)
             midaMa = 6;
@@ -173,6 +203,9 @@ public class Tauler {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////FUNCIO PER REMENAR LA MA/////////////////////////////////////////////////////////////////////////////////////
     private static void remenarBaralla(Baralla baralla) throws Exception {
+        /**
+         * Aquesta funcio fa que les cartes es remenin.
+         */
         // REMENA LA BARALLA AMB LA FUNCIO SHUFFLE
         Collections.shuffle(baralla.baralla);
 
@@ -181,6 +214,9 @@ public class Tauler {
     ///////////////////////////////////////////////////////////////////////////////////
     ////////////////METODE PER PRINTAR LES TAULES D'AVNÇAMENT D'EMPRESES//////////////
     public void taulerEmpresasAvançament() {
+        /**
+         * Treure per pantañña el tauler d'avançament de les empreses.
+         */
         for (int i = 0; i < empresas.size(); i++) {
             empresas.get(i).taulerMarcador();
         }
@@ -189,6 +225,9 @@ public class Tauler {
     ////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////METODE PER VERUE TOT EL MAPA EUROPEU////////////////////////
     public void taulerEuropeu() {
+        /**
+         * Treuer per pantalla el tauler eurpoa.
+         */
         for (int i = 0; i < caselles.size(); i++) {
         //    com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
         }
@@ -197,6 +236,9 @@ public class Tauler {
     ////////////////////////////////////////////////////////////////////////////////////
     ////////////////METODE PER VERUE QUINES CASELLES NO ESTA AGAFADES//////////////////
     public void taulerEuropeuDisponibles() {
+        /**
+         * Metod per veure quines caselles estan disponibles
+         */
         for (int i = 0; i < caselles.size(); i++) {
             if (caselles.get(i).propietari.equals("vuit")) {
              //   com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
@@ -208,9 +250,9 @@ public class Tauler {
     //COMPRA VENTA DE ACCIONS MITJANCANT TOKENS
     public void compraVenta(Jugador jugador) {
         /**
-         * compraVenta es la funcio el qual fa la compra o la venta d'accions
-         * @param jugador pasem el jugador el qual comprara o vendra una accio+
-         * @param opcio Serveix per dir si vols comprar o vendre
+         * compraVenta es la funcio el qual fa la compra o la venta d'accions.
+         * @param jugador pasem el jugador el qual comprara o vendra una accio.
+         * @param opcio Serveix per dir si vols comprar o vendre.
          *              
          */
 
