@@ -1,21 +1,14 @@
 package com.example.BaseDades.Capa_Domini;
 
 public class Jugadors {
-int id;
+
 String nom;
 
-    public Jugadors(int id, String nom) {
-        this.id = id;
+    public Jugadors( String nom) {
+
         this.nom = nom;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
 
 
@@ -30,7 +23,6 @@ String nom;
     @Override
     public String toString() {
         return "Jugadors{" +
-                "id=" + id +
                 ", nom='" + nom + '\'' +
                 '}';
     }
