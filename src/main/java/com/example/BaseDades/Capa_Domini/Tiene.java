@@ -1,7 +1,7 @@
 package com.example.BaseDades.Capa_Domini;
 
 public class Tiene {
-    int Id;
+    String  nom;
     int Id_Partida ;
     int NumeroAssocioAlpha ;
     int NumeroAssocioOmega ;
@@ -11,8 +11,8 @@ public class Tiene {
     int NumeroAssocioGama ;
     int NumMonedas ;
 
-    public Tiene(int id, int id_Partida, int numeroAssocioAlpha, int numeroAssocioOmega, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numMonedas) {
-        Id = id;
+    public Tiene(String Nom, int id_Partida, int numeroAssocioAlpha, int numeroAssocioOmega, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numMonedas) {
+        nom = Nom;
         Id_Partida = id_Partida;
         NumeroAssocioAlpha = numeroAssocioAlpha;
         NumeroAssocioOmega = numeroAssocioOmega;
@@ -23,13 +23,7 @@ public class Tiene {
         NumMonedas = numMonedas;
     }
 
-    public int getId() {
-        return Id;
-    }
 
-    public void setId(int id) {
-        Id = id;
-    }
 
     public int getId_Partida() {
         return Id_Partida;
@@ -98,7 +92,7 @@ public class Tiene {
     @Override
     public String toString() {
         return "Tiene{" +
-                "Id=" + Id +
+                "Nom=" + nom +
                 ", Id_Partida=" + Id_Partida +
                 ", NumeroAssocioAlpha=" + NumeroAssocioAlpha +
                 ", NumeroAssocioOmega=" + NumeroAssocioOmega +
@@ -109,4 +103,5 @@ public class Tiene {
                 ", NumMonedas=" + NumMonedas +
                 '}';
     }
+
 }
