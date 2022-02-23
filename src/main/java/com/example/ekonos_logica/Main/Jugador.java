@@ -16,6 +16,62 @@ public class Jugador {
     private String nom;
     private int id;
     private int numAccions = 0;
+
+    private int numAccionsAlpha = 0;
+    private int numAccionsDelta = 0;
+    private int numAccionsBeta = 0;
+    private int numAccionsGamma = 0;
+    private int numAccionsOmicron = 0;
+    private int numAccionsEpsilon = 0;
+
+    public int getNumAccionsAlpha() {
+        return numAccionsAlpha;
+    }
+
+    public void setNumAccionsAlpha(int numAccionsAlpha) {
+        this.numAccionsAlpha = numAccionsAlpha;
+    }
+
+    public int getNumAccionsDelta() {
+        return numAccionsDelta;
+    }
+
+    public void setNumAccionsDelta(int numAccionsDelta) {
+        this.numAccionsDelta = numAccionsDelta;
+    }
+
+    public int getNumAccionsBeta() {
+        return numAccionsBeta;
+    }
+
+    public void setNumAccionsBeta(int numAccionsBeta) {
+        this.numAccionsBeta = numAccionsBeta;
+    }
+
+    public int getNumAccionsGamma() {
+        return numAccionsGamma;
+    }
+
+    public void setNumAccionsGamma(int numAccionsGamma) {
+        this.numAccionsGamma = numAccionsGamma;
+    }
+
+    public int getNumAccionsOmicron() {
+        return numAccionsOmicron;
+    }
+
+    public void setNumAccionsOmicron(int numAccionsOmicron) {
+        this.numAccionsOmicron = numAccionsOmicron;
+    }
+
+    public int getNumAccionsEpsilon() {
+        return numAccionsEpsilon;
+    }
+
+    public void setNumAccionsEpsilon(int numAccionsEpsilon) {
+        this.numAccionsEpsilon = numAccionsEpsilon;
+    }
+
     private int tokens;
     public ArrayList<Carta> ma = new ArrayList<>();
 

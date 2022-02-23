@@ -244,10 +244,10 @@ public class Carta {
                 funcioMesID("red", "dBlue", "green", 2);
                 break;
             case 4:
-                funcioMesID("red", "green", "Yellow", 3);
+                funcioMesID("red", "green", "yellow", 3);
                 break;
             case 5:
-                funcioMesID("red", "lBlue", "Yellow", 4);
+                funcioMesID("red", "lBlue", "yellow", 4);
                 break;
             case 6:
                 funcioMesID("red", "green", "lBlue", 5);
@@ -288,7 +288,7 @@ public class Carta {
                 funcioMesID("dBlue", "green", "pink", 16);
                 break;
             case 18:
-                funcioMesID("dBlue", "green", "Yellow", 17);
+                funcioMesID("dBlue", "green", "yellow", 17);
                 break;
 //---------------------------------------------------------------------\\
             case 19:

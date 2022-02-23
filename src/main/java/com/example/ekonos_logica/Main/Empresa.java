@@ -11,7 +11,6 @@ public class Empresa {
      * @param numMarcador es el numero maxim de caselles que ho haura en la taula d'avançament.
      * @param accion Son les accions que te la empresa. Guardem el jugador que te la accio.
      * @param taulerEmpresa Es la taula d'avnçament de la empresa
-     *
      */
     final int[] casellesEspecial = new int[]{3, 5};
     final int numMarcador = 6;
@@ -100,7 +99,7 @@ public class Empresa {
     }
 
     //
-    public int posarAccio(Jugador jugador, ArrayList<Jugador> jugadors) {
+    public int posarAccio(Jugador jugador, ArrayList<Jugador> jugadors, String color) {
         /**
          * Aquesta funcio es per posar una acico a la taula d'accions
          * @param jugador pasem el jugador el qual ficarem la accio
@@ -108,7 +107,31 @@ public class Empresa {
          * @return retornem el numero d'accios que te despres de posar la accio.
          */
         accions.add(jugador);
+        switch (color) {
+            case "red":
+                jugador.setNumAccionsAlpha(jugador.getNumAccionsAlpha() + 1);
+                break;
+            case "green":
+                jugador.setNumAccionsDelta(jugador.getNumAccionsDelta() + 1);
+                break;
+            case "dBlue":
+                jugador.setNumAccionsBeta(jugador.getNumAccionsBeta() + 1);
+                break;
+            case "lBlue":
+                jugador.setNumAccionsGamma(jugador.getNumAccionsGamma() + 1);
+                break;
+            case "pink":
+                jugador.setNumAccionsOmicron(jugador.getNumAccionsOmicron() + 1);
+                break;
+            case"yellow":
+                jugador.setNumAccionsEpsilon(jugador.getNumAccionsEpsilon() + 1);
+                break;
+            default:
+                com.example.ekonos_logica.Missatges.Errors.colorIncorrecte();
+                break;
+        }
         jugador.setNumAccions(jugador.getNumAccions() + 1);
+
         cambiPresi(jugadors);
         return accions.size();
     }
@@ -139,19 +162,19 @@ public class Empresa {
          */
         int contador = 0;
         Jugador nouPresi = null;//PRESIDENT AUXILIAR
-        for (int i = 0; i < jugadors.size(); i++){
-            if(contador < jugadors.get(i).getNumAccions()){
-              nouPresi = jugadors.get(i);
+        for (int i = 0; i < jugadors.size(); i++) {
+            if (contador < jugadors.get(i).getNumAccions()) {
+                nouPresi = jugadors.get(i);
             }
         }
         president = nouPresi;
 
-}
+    }
 
 
     //TREURE TAULER DE ACCIONS
     public void taulerAccions() {
-    com.example.ekonos_logica.Missatges.Taulers.TaulerAvancamentEmpresa(this);
+        com.example.ekonos_logica.Missatges.Taulers.TaulerAvancamentEmpresa(this);
 
     }
     //////////////////////////////////////////////////////////////////////////

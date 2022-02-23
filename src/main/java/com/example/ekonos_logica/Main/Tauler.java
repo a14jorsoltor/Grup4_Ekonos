@@ -349,7 +349,7 @@ public class Tauler {
                     empresaAfectada = empresas.get(i);
                 }
             }
-            int tokensQueCostat = empresaAfectada.posarAccio(jugador, jugadors);
+            int tokensQueCostat = empresaAfectada.posarAccio(jugador, jugadors, color);
             jugador.setTokens(jugador.getTokens() - tokensQueCostat);
         }
 
