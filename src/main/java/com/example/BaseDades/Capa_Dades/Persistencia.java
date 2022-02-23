@@ -41,7 +41,7 @@ public class Persistencia {
         }
         cerrarbase();
     }
-
+//
 
     public static void conexioBase() {
 
