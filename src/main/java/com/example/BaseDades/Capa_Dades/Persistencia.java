@@ -24,17 +24,17 @@ public class Persistencia {
 
     public static void main(String[] args) throws SQLException, IOException {
         conexioBase();
-        insereixJugadors(connexio);
+        //insereixJugadors(connexio);
         obtenirNomJugadors(connexio);
         for (Jugadors JUG : Jugador) {
             System.out.println(JUG.toString());
         }
-        insereixPartida(connexio);
+       // insereixPartida(connexio);
         obtenirPartida(connexio);
         for (Partida partidass : partida) {
             System.out.println(partidass.toString());
         }
-        insereixTiene(connexio);
+       // insereixTiene(connexio);
         obtenirTiene(connexio);
         for (Tiene partidas : tener) {
             System.out.println(partidas.toString());
@@ -78,9 +78,10 @@ public class Persistencia {
         }
     }
 
-    public static void insereixJugadors(Connection con) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES('Manolo'" + "); ";
+    public static void insereixJugadors(Connection con,String nom) throws SQLException {
+
+        String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES("+nom + "); ";
         Statement sta = null;
         try {
             sta = con.createStatement();
@@ -95,9 +96,9 @@ public class Persistencia {
     }
 
 
-    public static void insereixPartida(Connection con) throws SQLException {
+    public static void insereixPartida(Connection con,int id_Partda,int NumFilialAlpha,int NumFilialOmega,int NumFilialDelta,int NumFilialOmicron,int NumFilialBeta,int NumFilialGama) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(1,1,1,1,1,1,1" + "); ";
+        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES("+id_Partda+","+NumFilialAlpha+","+NumFilialOmega+","+NumFilialDelta+","+NumFilialOmicron+","+NumFilialBeta+","+NumFilialGama+  ") ";
         Statement sta = null;
         try {
             sta = con.createStatement();
@@ -110,6 +111,7 @@ public class Persistencia {
             sta.close();
         }
     }
+
 
     public static void obtenirPartida(Connection con) throws SQLException {
 
@@ -131,9 +133,9 @@ public class Persistencia {
         }
     }
 
-    public static void insereixTiene(Connection con) throws SQLException {
+    public static void insereixTiene(Connection con,String nom,int id,int NumeroAssociacioAlpha,int NumeroAssociacioOmega,int NumeroAssociacioDelta,int NumeroAssociacioOmicron,int NumeroAssociacioBeta, int NumeroAssociacioGama ,int monedas) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES('Manolo',1,4,2,8,9,7,8,9" + "); ";
+        String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES("+nom+","+id+","+NumeroAssociacioAlpha+","+NumeroAssociacioOmega+","+NumeroAssociacioDelta+","+NumeroAssociacioOmicron+","+NumeroAssociacioBeta+","+NumeroAssociacioGama+","+monedas+ "); ";
         Statement sta = null;
         try {
             sta = con.createStatement();
