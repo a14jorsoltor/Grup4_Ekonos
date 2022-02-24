@@ -1,14 +1,25 @@
 package com.example.ekonos_logica.Main;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.example.BaseDades.Inserts.Inserts;
+
 public class Main {
-
+    static Inserts inserts = new Inserts();
     Scanner input = new Scanner(System.in);
+    static Connection connexio = null;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
+        com.example.BaseDades.Capa_Dades.Persistencia.conexioBase(connexio);
+        finalPartida();
+        com.example.BaseDades.Capa_Dades.Persistencia.cerrarbase(connexio);
+
+
+        /*
 
         Baralla baralla = new Baralla();
         ArrayList<Jugador> jugadors = new ArrayList<>();
@@ -54,8 +65,14 @@ public class Main {
             e.printStackTrace();
         }
 
-
+*/
     }
 
+    public static void finalPartida() throws SQLException {
 
+        inserts.insertJugador(connexio, "Helikopter");
+        System.out.println("S'ha afegit un jugador a la bd");
+
+
+    }
 }

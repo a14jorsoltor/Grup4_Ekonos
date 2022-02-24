@@ -20,33 +20,18 @@ public class Persistencia {
     static ArrayList<Partida> partida = new ArrayList<Partida>();
     static ArrayList<Tiene> tener = new ArrayList<Tiene>();
 
-    static Connection connexio = null;
 
-    public static void main(String[] args) throws SQLException, IOException {
-        conexioBase();
-        //insereixJugadors(connexio);
-        obtenirNomJugadors(connexio);
-        for (Jugadors JUG : Jugador) {
-            System.out.println(JUG.toString());
-        }
-       // insereixPartida(connexio);
-        obtenirPartida(connexio);
-        for (Partida partidass : partida) {
-            System.out.println(partidass.toString());
-        }
-       // insereixTiene(connexio);
-        obtenirTiene(connexio);
-        for (Tiene partidas : tener) {
-            System.out.println(partidas.toString());
-        }
-        cerrarbase();
-    }
-//
 
-    public static void conexioBase() {
+
+
+
+
+
+
+    public static void conexioBase(Connection connection) {
 
         try {
-            connexio = DriverManager.getConnection(fitxerUrl(), fitxerUsuari(),fitxerPass());
+            connection = DriverManager.getConnection(fitxerUrl(), fitxerUsuari(),fitxerPass());
             System.out.println("Connecio realitzada usant" + "DriverManager");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,9 +40,9 @@ public class Persistencia {
         }
     }
 
-    public static void cerrarbase() {
+    public static void cerrarbase(Connection con) {
         try {
-            connexio.close();
+            con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
