@@ -5,20 +5,20 @@ import java.sql.SQLException;
 
 public class Inserts {
 
-    public void insertPartida(Connection con, int id_Partda, int NumFilialAlpha, int NumFilialOmega, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama) throws SQLException, SQLException {
+    public void insertPartida(int id_Partda, int NumFilialAlpha, int NumFilialOmega, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama) throws SQLException, SQLException {
         System.out.println();
-        com.example.BaseDades.Capa_Dades.Persistencia.insereixPartida(con, id_Partda, NumFilialAlpha, NumFilialOmega, NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama);
+        com.example.BaseDades.Capa_Dades.Persistencia.insereixPartida( id_Partda, NumFilialAlpha, NumFilialOmega, NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama);
 
     }
 
-    public void insertTiene(Connection con, String nom, int id, int NumeroAssociacioAlpha, int NumeroAssociacioOmega, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int monedas) throws SQLException {
-        com.example.BaseDades.Capa_Dades.Persistencia.insereixTiene(con, nom, id, NumeroAssociacioAlpha, NumeroAssociacioOmega, NumeroAssociacioDelta, NumeroAssociacioOmicron, NumeroAssociacioBeta, NumeroAssociacioGama, monedas);
+    public void insertTiene( String nom, int id, int NumeroAssociacioAlpha, int NumeroAssociacioOmega, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int monedas) throws SQLException {
+        com.example.BaseDades.Capa_Dades.Persistencia.insereixTiene(nom, id, NumeroAssociacioAlpha, NumeroAssociacioOmega, NumeroAssociacioDelta, NumeroAssociacioOmicron, NumeroAssociacioBeta, NumeroAssociacioGama, monedas);
     }
 
 
-    public void insertJugador(Connection con, String nom) throws SQLException {
+    public void insertJugador( String nom) throws SQLException {
 
-        com.example.BaseDades.Capa_Dades.Persistencia.insereixJugadors(con, nom);
+        com.example.BaseDades.Capa_Dades.Persistencia.insereixJugadors( nom);
 
     }
 

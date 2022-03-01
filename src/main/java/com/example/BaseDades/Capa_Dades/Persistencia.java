@@ -19,6 +19,7 @@ public class Persistencia {
     static ArrayList<Jugadors> Jugador = new ArrayList<Jugadors>();
     static ArrayList<Partida> partida = new ArrayList<Partida>();
     static ArrayList<Tiene> tener = new ArrayList<Tiene>();
+    static Connection connection;
 
 
 
@@ -27,8 +28,7 @@ public class Persistencia {
 
 
 
-
-    public static void conexioBase(Connection connection) {
+    public static void conexioBase() {
 
         try {
             connection = DriverManager.getConnection(fitxerUrl(), fitxerUsuari(),fitxerPass());
@@ -40,9 +40,9 @@ public class Persistencia {
         }
     }
 
-    public static void cerrarbase(Connection con) {
+    public static void cerrarbase() {
         try {
-            con.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,12 +64,13 @@ public class Persistencia {
     }
 
 
-    public static void insereixJugadors(Connection con,String nom) throws SQLException {
+    public static void insereixJugadors(String nom) throws SQLException {
+        conexioBase();
 
         String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES("+nom + "); ";
         Statement sta = null;
         try {
-            sta = con.createStatement();
+            sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
             semaforo = true;
         } catch (SQLException e) {
@@ -81,12 +82,12 @@ public class Persistencia {
     }
 
 
-    public static void insereixPartida(Connection con,int id_Partda,int NumFilialAlpha,int NumFilialOmega,int NumFilialDelta,int NumFilialOmicron,int NumFilialBeta,int NumFilialGama) throws SQLException {
-
+    public static void insereixPartida(int id_Partda,int NumFilialAlpha,int NumFilialOmega,int NumFilialDelta,int NumFilialOmicron,int NumFilialBeta,int NumFilialGama) throws SQLException {
+    conexioBase();
         String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES("+id_Partda+","+NumFilialAlpha+","+NumFilialOmega+","+NumFilialDelta+","+NumFilialOmicron+","+NumFilialBeta+","+NumFilialGama+  ") ";
         Statement sta = null;
         try {
-            sta = con.createStatement();
+            sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
             semaforo = true;
         } catch (SQLException e) {
@@ -94,6 +95,7 @@ public class Persistencia {
             semaforo = false;
         } finally {
             sta.close();
+            cerrarbase();
         }
     }
 
@@ -118,12 +120,12 @@ public class Persistencia {
         }
     }
 
-    public static void insereixTiene(Connection con,String nom,int id,int NumeroAssociacioAlpha,int NumeroAssociacioOmega,int NumeroAssociacioDelta,int NumeroAssociacioOmicron,int NumeroAssociacioBeta, int NumeroAssociacioGama ,int monedas) throws SQLException {
-
+    public static void insereixTiene(String nom,int id,int NumeroAssociacioAlpha,int NumeroAssociacioOmega,int NumeroAssociacioDelta,int NumeroAssociacioOmicron,int NumeroAssociacioBeta, int NumeroAssociacioGama ,int monedas) throws SQLException {
+        conexioBase();
         String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES("+nom+","+id+","+NumeroAssociacioAlpha+","+NumeroAssociacioOmega+","+NumeroAssociacioDelta+","+NumeroAssociacioOmicron+","+NumeroAssociacioBeta+","+NumeroAssociacioGama+","+monedas+ "); ";
         Statement sta = null;
         try {
-            sta = con.createStatement();
+            sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
             semaforo = true;
         } catch (SQLException e) {
@@ -131,6 +133,7 @@ public class Persistencia {
             semaforo = false;
         } finally {
             sta.close();
+            cerrarbase();
         }
     }
 

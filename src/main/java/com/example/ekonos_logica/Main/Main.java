@@ -11,12 +11,17 @@ public class Main {
     static Inserts inserts = new Inserts();
     Scanner input = new Scanner(System.in);
     static Connection connexio = null;
+    static int numFilialsAlpha = 0;
+    static int numFilialsDelta = 0;
+    static int numFilialBeta = 0;
+    static int numFilialsGama = 0;
+    static int numFilialsOmicron = 0;
+    static int numFilialsEpsilon = 0;
+static int numFilialsnull = 0;
 
     public static void main(String[] args) throws SQLException {
 
-        com.example.BaseDades.Capa_Dades.Persistencia.conexioBase(connexio);
-        finalPartida();
-        com.example.BaseDades.Capa_Dades.Persistencia.cerrarbase(connexio);
+
 
 
         /*
@@ -64,15 +69,54 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        finalPartida(jugadors, tauler);
 */
     }
 
-    public static void finalPartida() throws SQLException {
+    public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
+        for (int i = 0; i < jugadors.size(); i ++) {
+            inserts.insertJugador( jugadors.get(i).getNom());
+        }
 
-        inserts.insertJugador(connexio, "Helikopter");
+        identificarSeus(tauler);
+        inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta,numFilialBeta,numFilialsGama,numFilialsOmicron,numFilialsEpsilon);
+
         System.out.println("S'ha afegit un jugador a la bd");
 
 
+    }
+
+    private static void identificarSeus(Tauler tauler) {
+        String color;
+        for(int i = 0; i<tauler.caselles.size(); i++){
+            color = tauler.caselles.get(i).propietari.getColor();
+            switch (color){
+                case "red":
+                    numFilialsAlpha++;
+                    break;
+                case "green":
+                    numFilialsDelta++;
+                    break;
+                case "dBlue":
+                    numFilialBeta++;
+                    break;
+                case "lBlue":
+                    numFilialsGama++;
+                    break;
+                case "pink":
+                    numFilialsOmicron++;
+                    break;
+                case "yellow":
+                    numFilialsEpsilon++;
+                    break;
+                default:
+                    numFilialsnull++;
+                    break;
+            }
+
+
+
+
+        }
     }
 }
