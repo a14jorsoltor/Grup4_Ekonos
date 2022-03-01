@@ -4,26 +4,32 @@ public class Tiene {
     String  nom;
     int Id_Partida ;
     int NumeroAssocioAlpha ;
-    int NumeroAssocioOmega ;
     int NumeroAssocioDelta;
     int NumeroAssocioOmicron ;
     int NumeroAssocioBeta;
     int NumeroAssocioGama ;
+    int NumerasoccioEpsilon;
     int NumMonedas ;
 
-    public Tiene(String Nom, int id_Partida, int numeroAssocioAlpha, int numeroAssocioOmega, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numMonedas) {
-        nom = Nom;
+    public Tiene(String nom, int id_Partida, int numeroAssocioAlpha, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numerasoccioEpsilon, int numMonedas) {
+        this.nom = nom;
         Id_Partida = id_Partida;
         NumeroAssocioAlpha = numeroAssocioAlpha;
-        NumeroAssocioOmega = numeroAssocioOmega;
         NumeroAssocioDelta = numeroAssocioDelta;
         NumeroAssocioOmicron = numeroAssocioOmicron;
         NumeroAssocioBeta = numeroAssocioBeta;
         NumeroAssocioGama = numeroAssocioGama;
+        NumerasoccioEpsilon = numerasoccioEpsilon;
         NumMonedas = numMonedas;
     }
 
+    public String getNom() {
+        return nom;
+    }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
     public int getId_Partida() {
         return Id_Partida;
@@ -39,14 +45,6 @@ public class Tiene {
 
     public void setNumeroAssocioAlpha(int numeroAssocioAlpha) {
         NumeroAssocioAlpha = numeroAssocioAlpha;
-    }
-
-    public int getNumeroAssocioOmega() {
-        return NumeroAssocioOmega;
-    }
-
-    public void setNumeroAssocioOmega(int numeroAssocioOmega) {
-        NumeroAssocioOmega = numeroAssocioOmega;
     }
 
     public int getNumeroAssocioDelta() {
@@ -81,6 +79,14 @@ public class Tiene {
         NumeroAssocioGama = numeroAssocioGama;
     }
 
+    public int getNumerasoccioEpsilon() {
+        return NumerasoccioEpsilon;
+    }
+
+    public void setNumerasoccioEpsilon(int numerasoccioEpsilon) {
+        NumerasoccioEpsilon = numerasoccioEpsilon;
+    }
+
     public int getNumMonedas() {
         return NumMonedas;
     }
@@ -92,16 +98,15 @@ public class Tiene {
     @Override
     public String toString() {
         return "Tiene{" +
-                "Nom=" + nom +
+                "nom='" + nom + '\'' +
                 ", Id_Partida=" + Id_Partida +
                 ", NumeroAssocioAlpha=" + NumeroAssocioAlpha +
-                ", NumeroAssocioOmega=" + NumeroAssocioOmega +
                 ", NumeroAssocioDelta=" + NumeroAssocioDelta +
                 ", NumeroAssocioOmicron=" + NumeroAssocioOmicron +
                 ", NumeroAssocioBeta=" + NumeroAssocioBeta +
                 ", NumeroAssocioGama=" + NumeroAssocioGama +
+                ", NumerasoccioEpsilon=" + NumerasoccioEpsilon +
                 ", NumMonedas=" + NumMonedas +
                 '}';
     }
-
 }
