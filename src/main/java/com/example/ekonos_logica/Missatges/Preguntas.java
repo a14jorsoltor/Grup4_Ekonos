@@ -38,4 +38,12 @@ public class Preguntas {
     public static  void empresaAcomprarAccions(){System.out.println("Digam quina empressa vols comprar les accions(colors)");
 
     }
+
+    public static void preguntarJugadors() {
+        System.out.println("Quants jugadors vols?");
+    }
+
+    public static void preguntarNomJugadors(int i) {
+        System.out.println("Nom del jugador " + (i+1));
+    }
 }

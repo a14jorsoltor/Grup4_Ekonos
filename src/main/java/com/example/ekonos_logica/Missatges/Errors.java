@@ -67,4 +67,12 @@ public class Errors {
     public static void errorNoPotsAvancar(Empresa empresa) {
         System.out.println("Empresa " + empresa.getNom() + " no pot avancar");
     }
+
+    public static void moltsJugadors() {
+        System.out.println("Hi ha massas jugadors, maxim 6 jugadors");
+    }
+
+    public static void pocsJugadors() {
+        System.out.println("Hi ha pocs jugadors, minim 3 jugadors");
+    }
 }

@@ -9,7 +9,7 @@ import com.example.BaseDades.Inserts.Inserts;
 
 public class Main {
     static Inserts inserts = new Inserts();
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     static Connection connexio = null;
     static int numFilialsAlpha = 0;
     static int numFilialsDelta = 0;
@@ -18,6 +18,7 @@ public class Main {
     static int numFilialsOmicron = 0;
     static int numFilialsEpsilon = 0;
 static int numFilialsnull = 0;
+   static ArrayList<Jugador> jugadors = new ArrayList<>();
 
     public static void main(String[] args) throws SQLException {
 
@@ -27,17 +28,17 @@ static int numFilialsnull = 0;
 
 
         Baralla baralla = new Baralla();
-        ArrayList<Jugador> jugadors = new ArrayList<>();
         //CREAR JUGADORS
         //SOUT PER SAVER QUANTS JUGADORS HI HAURAN EN AQUEST CAS HI HAN 4
-        Jugador nouJugador1 = new Jugador("Jordi", 0);
+        crearJugadors();
+        /*Jugador nouJugador1 = new Jugador("Jordi", 0);
         jugadors.add(nouJugador1);
         Jugador nouJugador2 = new Jugador("Adria", 1);
         jugadors.add(nouJugador2);
         Jugador nouJugador3 = new Jugador("Pau", 2);
         jugadors.add(nouJugador3);
         Jugador nouJugador4 = new Jugador("Abel", 3);
-        jugadors.add(nouJugador4);
+        jugadors.add(nouJugador4);*/
         Jugador jugadorVuit = new Jugador("Ningu", 4);
 
 
@@ -71,6 +72,29 @@ static int numFilialsnull = 0;
         }
         finalPartida(jugadors, tauler);
 
+    }
+
+    private static void crearJugadors() {
+        int numJug;
+        do{
+            com.example.ekonos_logica.Missatges.Preguntas.preguntarJugadors();
+            numJug = input.nextInt();
+
+            if(numJug > 6) {
+                com.example.ekonos_logica.Missatges.Errors.moltsJugadors();
+            }else if(numJug < 3){
+                com.example.ekonos_logica.Missatges.Errors.pocsJugadors();
+            }
+
+        }while(numJug < 3 || numJug > 6);
+            input.nextLine();
+            for (int i = 0; i < numJug; i++){
+            com.example.ekonos_logica.Missatges.Preguntas.preguntarNomJugadors(i);
+            String nom = input.nextLine();
+            Jugador nouJug = new Jugador(nom, i);
+            jugadors.add(nouJug);
+
+        }
     }
 
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
