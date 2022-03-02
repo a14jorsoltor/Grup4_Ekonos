@@ -102,7 +102,7 @@ public class Tauler {
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         do {
-          //  com.example.ekonos_logica.Missatges.Preguntas.PreguntarCartaTirar(jugador);
+          com.example.ekonos_logica.Missatges.Preguntas.PreguntarCartaTirar(jugador);
             int idCarta = input.nextInt();
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////COMPROBEM SI LA CARTA EXISTEIX////////////////////////////////////////////////////////////////
@@ -158,7 +158,7 @@ public class Tauler {
                     semaforCasellaExists = true;
                     casellaAInteractuar = caselles.get(numeroCasella);
                 }// else
-           //         com.example.ekonos_logica.Missatges.Errors.casellaAgafada(caselles,numeroCasella);
+                    com.example.ekonos_logica.Missatges.Errors.casellaAgafada(caselles,numeroCasella);
             } while (!semaforCasellaExists);
         }
 
@@ -229,7 +229,7 @@ public class Tauler {
          * Treuer per pantalla el tauler eurpoa.
          */
         for (int i = 0; i < caselles.size(); i++) {
-        //    com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
+           com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
         }
     }
 
@@ -241,7 +241,7 @@ public class Tauler {
          */
         for (int i = 0; i < caselles.size(); i++) {
             if (caselles.get(i).propietari.equals("vuit")) {
-             //   com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
+              com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
             }
         }
     }
@@ -280,7 +280,7 @@ public class Tauler {
                     }
                     if (semaforPotVenta) {
                         do {
-                          //  com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
+                            com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
                             com.example.ekonos_logica.Missatges.Normals.accionsDeToteslesEmpreses();
                             for (int i = 0; i < empresas.size(); i++) {
                                 empresas.get(i).taulerAccions();
@@ -335,11 +335,11 @@ public class Tauler {
         } else {
             for (int i = 0; i < empresas.size(); i++) {
                 if (empresas.get(i).isExisteix()) {
-                    //com.example.ekonos_logica.Missatges.Normals.preuEmpresa(empresas,i);
+                    com.example.ekonos_logica.Missatges.Normals.preuEmpresa(empresas,i);
 
                 }
             }
-            //com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
+            com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
             com.example.ekonos_logica.Missatges.Preguntas.empresaAcomprarAccions();
 
             color = input.nextLine();

@@ -24,7 +24,7 @@ static int numFilialsnull = 0;
 
 
 
-        /*
+
 
         Baralla baralla = new Baralla();
         ArrayList<Jugador> jugadors = new ArrayList<>();
@@ -70,7 +70,7 @@ static int numFilialsnull = 0;
             e.printStackTrace();
         }
         finalPartida(jugadors, tauler);
-*/
+
     }
 
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {

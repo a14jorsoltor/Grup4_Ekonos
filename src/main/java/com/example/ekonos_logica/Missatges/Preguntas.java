@@ -1,11 +1,12 @@
 package com.example.ekonos_logica.Missatges;
 
-import com.example.ekonos_gui.CartaGUI;
-import com.example.ekonos_gui.JugadorGUI;
+
+import com.example.ekonos_logica.Main.Carta;
+import com.example.ekonos_logica.Main.Jugador;
 
 public class Preguntas {
 
-    public static void preguntaCarta(CartaGUI cartaATirar){
+    public static void preguntaCarta(Carta cartaATirar){
         System.out.println("Quina funcio vols fer: \nFuncio 1: " + cartaATirar.getF1() + "\nFuncio 2: " + cartaATirar.getF2() + "\nFuncio 3: " + cartaATirar.getF3());
     }
 
@@ -19,7 +20,7 @@ public class Preguntas {
         System.out.println("1) Seguir\n2)Activar Casella 4");
     }
 
-    public static void PreguntarCartaTirar(JugadorGUI jugador) {
+    public static void PreguntarCartaTirar(Jugador jugador) {
         System.out.println("Quina carta vols tirar " + jugador.getNom() + " (ID)");
     }
     public static void casellaAposar(){   System.out.println("Quina casella vols posar la filial  (0 - 35)"); }

@@ -1,14 +1,14 @@
 package com.example.ekonos_logica.Missatges;
 
 
-import com.example.ekonos_gui.CasellaGUI;
-import com.example.ekonos_gui.EmpresaGUI;
 
+import com.example.ekonos_logica.Main.Casella;
+import com.example.ekonos_logica.Main.Empresa;
 
 import java.util.ArrayList;
 
 public class Taulers {
-    public static void taulerMarcador(EmpresaGUI empresa) {
+    public static void taulerMarcador(Empresa empresa) {
 
         System.out.println("Empresa: " + empresa.getNom() + "(" + empresa.getColor() + ")");
         for (int i = 0; i < empresa.taulerEmpresa.length; i++) {
@@ -19,7 +19,7 @@ public class Taulers {
 
     }
 
-    public static void TaulerAvancamentEmpresa(EmpresaGUI empresa) {
+    public static void TaulerAvancamentEmpresa(Empresa empresa) {
 
         System.out.println("Empresa: " + empresa.getNom() + " (" + empresa.getColor() + ") " + " PRESIDENT: " + empresa.president.getNom());
         System.out.println("============");
@@ -31,14 +31,10 @@ public class Taulers {
         System.out.println("\n============");
     }
 
-    public static void ensenyarCaselles(int i, ArrayList<CasellaGUI> caselles) {
+    public static void ensenyarCaselles(int i, ArrayList<Casella> caselles) {
         System.out.println("Empresa " + caselles.get(i).getID() + ":");
         System.out.println("Propietari: " + caselles.get(i).propietari.getNom());
     }
 
-    public static void taulerMarcador(com.example.ekonos_logica.Main.Empresa empresa) {
-    }
 
-    public static void TaulerAvancamentEmpresa(com.example.ekonos_logica.Main.Empresa empresa) {
-    }
 }

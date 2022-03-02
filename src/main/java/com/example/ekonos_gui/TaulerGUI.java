@@ -48,7 +48,6 @@ public class TaulerGUI {
             afegirTokenIniciRonda();
             repartirCartes(baralla, jugadors);
             for (int j = 0; j < jugadors.size(); j++) {
-                taulerEuropeu();
                 torn(jugadors.get(j));
             }
         }

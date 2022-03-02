@@ -95,7 +95,7 @@ public class Empresa {
             else
                 taulerEmpresa[getMarcador() - 1] = ' ';
         } else
-            com.example.ekonos_logica.Missatges.Errors.errorNoPotsAvancar(this);
+            com.example.ekonos_logica.Missatges.Errors.errorNoPotsAvancar(this.getNom());
     }
 
     //

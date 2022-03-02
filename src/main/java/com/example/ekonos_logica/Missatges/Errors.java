@@ -27,7 +27,7 @@ public class Errors {
 
     }
     public static void casellaAgafada(ArrayList<Casella>caselles, int numeroCasella){
-        System.out.println("Casella " + caselles.get(numeroCasella).get() + " esta agafada");
+        System.out.println("Casella " + caselles.get(numeroCasella) + " esta agafada");
     }
 
     public static void noPotAvançar(Empresa empresa) {
@@ -38,8 +38,8 @@ public class Errors {
     public static void finalApartatAccio(){System.out.println("FINAL D'APARTAT ACCIO");}
     public static void noTensTokens(){  System.out.println("No tens token");}
 
-    public static void errorNoPotsAvancar(com.example.ekonos_logica.Main.Empresa empresa) {
-        System.out.println("Empresa " + empresa.getNom() + " no pot avancar");
+    public static void errorNoPotsAvancar(String nom) {
+        System.out.println("Empresa " + nom + " no pot avancar");
     }
     public static void errorAcrearCarta(){System.out.println("Error al crear carta");};
 
@@ -64,7 +64,7 @@ public class Errors {
     }
 
 
-    public static void errorNoPotsAvancar(EmpresaGUI empresa) {
+    public static void errorNoPotsAvancar(Empresa empresa) {
         System.out.println("Empresa " + empresa.getNom() + " no pot avancar");
     }
 }
