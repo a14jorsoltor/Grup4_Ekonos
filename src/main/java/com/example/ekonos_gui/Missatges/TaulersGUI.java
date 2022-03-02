@@ -1,13 +1,12 @@
-package com.example.ekonos_logica.Missatges;
+package com.example.ekonos_gui.Missatges;
 
 
 import com.example.ekonos_gui.CasellaGUI;
 import com.example.ekonos_gui.EmpresaGUI;
 
-
 import java.util.ArrayList;
 
-public class Taulers {
+public class TaulersGUI {
     public static void taulerMarcador(EmpresaGUI empresa) {
 
         System.out.println("Empresa: " + empresa.getNom() + "(" + empresa.getColor() + ")");

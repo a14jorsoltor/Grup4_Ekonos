@@ -2,9 +2,9 @@ package com.example.ekonos_gui;
 
 import java.util.ArrayList;
 
-public class Jugador {
+public class JugadorGUI {
 
-    public Jugador(String nom, int id) {
+    public JugadorGUI(String nom, int id) {
         super();
         this.nom = nom;
         this.id = id;
@@ -24,7 +24,7 @@ public class Jugador {
 
     private int numAccions = 0;
     private int tokens;
-    public ArrayList<Carta> ma = new ArrayList<>();
+    public ArrayList<CartaGUI> ma = new ArrayList<>();
 
 
     public int getTokens() {

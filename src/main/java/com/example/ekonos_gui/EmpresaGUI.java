@@ -3,14 +3,14 @@ package com.example.ekonos_gui;
 import java.util.ArrayList;
 
 
-public class Empresa {
+public class EmpresaGUI {
     final int[] casellesEspecial = new int[]{3, 5};
     final int numMarcador = 6;
-    public ArrayList<Jugador> accions = new ArrayList<>();
+    public ArrayList<JugadorGUI> accions = new ArrayList<>();
     public char[] taulerEmpresa = new char[numMarcador];
 
 
-    public Empresa(String nom, String color) {
+    public EmpresaGUI(String nom, String color) {
         super();
         this.nom = nom;
         this.color = color;
@@ -51,7 +51,7 @@ public class Empresa {
         this.existeix = existeix;
     }
 
-    public Jugador president;
+    public JugadorGUI president;
     int marcador = 0; //AQUESTA VARIABLE ES PER VEUERE LO AVANÇADA QUE ESTA LA EMPRESA
 
     public String getNom() {
@@ -86,19 +86,18 @@ public class Empresa {
                 taulerEmpresa[getMarcador() - 1] = '/';
             else
                 taulerEmpresa[getMarcador() - 1] = ' ';
-        } else
-            com.example.ekonos_logica.Missatges.Errors.errorNoPotsAvancar(this);
+        }
     }
 
     //
-    public int posarAccio(Jugador jugador, ArrayList<Jugador> jugadors) {
+    public int posarAccio(JugadorGUI jugador, ArrayList<JugadorGUI> jugadors) {
         accions.add(jugador);
         jugador.setNumAccions(jugador.getNumAccions() + 1);
         cambiPresi(jugadors);
         return accions.size();
     }
 
-    public void treureAccio(Jugador jugador, ArrayList<Jugador> jugadors) {
+    public void treureAccio(JugadorGUI jugador, ArrayList<JugadorGUI> jugadors) {
         int numAccio = 0;
         for (int i = 0; i < accions.size(); i++) {
             if (jugador.getId() == accions.get(i).getId()) {
@@ -111,9 +110,9 @@ public class Empresa {
     }
 
     //CAMBIAR DE PRESIDENT
-    public void cambiPresi(ArrayList<Jugador> jugadors) {
+    public void cambiPresi(ArrayList<JugadorGUI> jugadors) {
         int contador = 0;
-        Jugador  nouPresi = null;//PRESIDENT AUXILIAR
+        JugadorGUI nouPresi = null;//PRESIDENT AUXILIAR
         for (int i = 0; i < jugadors.size(); i++){
             if(contador < jugadors.get(i).getNumAccions()){
               nouPresi = jugadors.get(i);
@@ -123,19 +122,6 @@ public class Empresa {
 
 }
 
-
-    //TREURE TAULER DE ACCIONS
-    public void taulerAccions() {
-    com.example.ekonos_logica.Missatges.Taulers.TaulerAvancamentEmpresa(this);
-
-    }
-    //////////////////////////////////////////////////////////////////////////
-
-    public void taulerMarcador() { // FUNCIO PER IMPRIMIR EL TAULER
-        com.example.ekonos_logica.Missatges.Taulers.taulerMarcador(this);
-
-    }
-//////////////////////////////////////////////////////////////////////////
 }
 
 

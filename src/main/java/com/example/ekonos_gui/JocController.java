@@ -95,7 +95,7 @@ public class JocController {
     public Label lblEpsilon07;
 
 
-    Tauler tauler;
+    TaulerGUI tauler;
     String colorActual;
 
     ////BOTONES MAPA////
@@ -217,7 +217,7 @@ public class JocController {
     public void recivirData(ActionEvent event) throws Exception {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Tauler tauler = (Tauler) stage.getUserData();
+        TaulerGUI tauler = (TaulerGUI) stage.getUserData();
         this.tauler = tauler;
         btcomenccarParitda.setVisible(false);
         btPassarTorn.setVisible(true);

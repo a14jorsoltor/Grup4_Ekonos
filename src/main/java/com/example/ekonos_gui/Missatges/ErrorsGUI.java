@@ -1,11 +1,11 @@
-package com.example.ekonos_logica.Missatges;
+package com.example.ekonos_gui.Missatges;
 
-import com.example.ekonos_logica.Main.Casella;
-import com.example.ekonos_logica.Main.Empresa;
+import com.example.ekonos_gui.CasellaGUI;
+import com.example.ekonos_gui.EmpresaGUI;
 
 import java.util.ArrayList;
 
-public class Errors {
+public class ErrorsGUI {
     public static void casellaIncorreecta() {
         System.out.println("Casella incorrecta");
     }
@@ -26,11 +26,11 @@ public class Errors {
         System.out.println("ERROR EN LA CREACIO DE LA MA");
 
     }
-    public static void casellaAgafada(ArrayList<Casella>caselles, int numeroCasella){
-        System.out.println("Casella " + caselles.get(numeroCasella).get() + " esta agafada");
+    public static void casellaAgafada(ArrayList<CasellaGUI>caselles, int numeroCasella){
+        System.out.println("Casella " + caselles.get(numeroCasella).getID() + " esta agafada");
     }
 
-    public static void noPotAvançar(Empresa empresa) {
+    public static void noPotAvançar(EmpresaGUI empresa) {
         System.out.println("Empresa " + empresa.getNom() + " no pot avancar");
 
     }

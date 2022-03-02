@@ -1,13 +1,13 @@
-package com.example.ekonos_logica.Missatges;
+package com.example.ekonos_gui.Missatges;
 
 
-import com.example.ekonos_gui.JugadorGUI;
-import com.example.ekonos_gui.EmpresaGUI;
 import com.example.ekonos_gui.CasellaGUI;
+import com.example.ekonos_gui.EmpresaGUI;
+import com.example.ekonos_gui.JugadorGUI;
 
 import java.util.ArrayList;
 
-public class Normals {
+public class NormalsGUI {
     public static void numeroCasella(int num) {
         System.out.println("Casella " + num);//DESPRES PREGUNTEM 2 CASELLES
     }

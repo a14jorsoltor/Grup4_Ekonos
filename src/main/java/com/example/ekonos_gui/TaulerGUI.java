@@ -6,14 +6,14 @@ import java.util.Collections;
 import java.util.Scanner;
 
 //TAULER PER REPRESENTAR EL MAPA D'EUROPA
-public class Tauler {
+public class TaulerGUI {
     static Scanner input = new Scanner(System.in);
-    ArrayList<Casella> caselles = new ArrayList<>();
-    ArrayList<Empresa> empresas;
-    ArrayList<Jugador> jugadors;
-    Empresa empresaVuit;
-    Baralla baralla;
-    Empresa empresaAux;
+    ArrayList<CasellaGUI> caselles = new ArrayList<>();
+    ArrayList<EmpresaGUI> empresas;
+    ArrayList<JugadorGUI> jugadors;
+    EmpresaGUI empresaVuit;
+    BarallaGUI baralla;
+    EmpresaGUI empresaAux;
     int ContinuarCOmprant;
 
 
@@ -27,7 +27,7 @@ public class Tauler {
         this.numCaselles = numCaselles;
     }
 
-    public Tauler(Baralla baralla, ArrayList<Jugador> jugador, ArrayList<Empresa> empresas, Empresa empresaVuit) {
+    public TaulerGUI(BarallaGUI baralla, ArrayList<JugadorGUI> jugador, ArrayList<EmpresaGUI> empresas, EmpresaGUI empresaVuit) {
         super();
         this.baralla = baralla;
         this.jugadors = jugador;
@@ -58,30 +58,27 @@ public class Tauler {
 
     //////////////////////////////////////////////////////////////////////////////////
     ////////////////////////// METODE PER FER ELS TORNS//////////////////////////////
-    private void torn(Jugador jugador) throws Exception {
+    private void torn(JugadorGUI jugador) throws Exception {
         tirarCarta(jugador);
         compraVenta(jugador);
-        taulerEmpresasAvançament();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////// AQUEST METODE ES EL QUE FARA QUE EL JUGADOR TIRI LA CARTA//////////////////////////////////////////////////
-    private void tirarCarta(Jugador jugador) {
+    private void tirarCarta(JugadorGUI jugador) {
         boolean semaforIdExists = false, semaforFuncioExsists = false, semaforCasellaExists = false; // SEMAFORS PER CONTROLAR SI HA TRIAT BE LES OPCIONS
-        Carta cartaATirar = null; //CARTA PER SABER QUINA CARTA TIARA EL JUGADOR
-        Casella casellaAInteractuar = null; // PER SABER AMB QUINA CASELLA HEM D'INTERACTUAR
+        CartaGUI cartaATirar = null; //CARTA PER SABER QUINA CARTA TIARA EL JUGADOR
+        CasellaGUI casellaAInteractuar = null; // PER SABER AMB QUINA CASELLA HEM D'INTERACTUAR
         String funcio = null; // VARIABLE PER GUARDAR QUINA FUNCIO TRIA EL USUARI
         int numFuncio = 0, numeroCasella = 0;// SABER QUIN NUMERO DE FUNCIO ES I QUIN NUMERO DE CASELLA ES
-        Empresa empresaAfectada = null; // PER GUARDAR A QUINA EMPRESA ANIRA LA FUNCIO
+        EmpresaGUI empresaAfectada = null; // PER GUARDAR A QUINA EMPRESA ANIRA LA FUNCIO
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////// IMPRIMIR LA MA///////////////////////////////////////////////////////////////////////////////
-        for (int i = 0; i < jugador.ma.size(); i++)
-            com.example.ekonos_logica.Missatges.Normals.EnenyarMa(jugador, i);
+
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         do {
-            com.example.ekonos_logica.Missatges.Preguntas.PreguntarCartaTirar(jugador);
             int idCarta = input.nextInt();
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////COMPROBEM SI LA CARTA EXISTEIX////////////////////////////////////////////////////////////////
@@ -95,7 +92,6 @@ public class Tauler {
             }
             if (!semaforIdExists) {
                 //luego try catch
-                com.example.ekonos_logica.Missatges.Errors.cartaErronea();
             }
         } while (!semaforIdExists);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +99,6 @@ public class Tauler {
         do {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////MOSTREM LES FUINCIONS QUE TINDRA LA CARTA A TIRAR I DEMANEM A L'USARI QUINA FUNCIO TRIA//////////////////////////////////////////////////////////////////////////
-            com.example.ekonos_logica.Missatges.Preguntas.preguntaCarta(cartaATirar);
             funcio = input.nextLine();
             if (cartaATirar.getF1().equals(funcio)) {
                 semaforFuncioExsists = true;
@@ -114,9 +109,8 @@ public class Tauler {
             } else if (cartaATirar.getF3().equals(funcio)) {
                 semaforFuncioExsists = true;
                 numFuncio = 2;
-            } else
+            }
                 //luego try Catch
-                com.example.ekonos_logica.Missatges.Errors.colorIncorrecte();
         } while (!semaforFuncioExsists);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for (int i = 0; i < empresas.size(); i++) {
@@ -128,16 +122,13 @@ public class Tauler {
         ////////////////////////////////////SI LA FUNCIO ES LA 1 ES A DIR PER POSAR UNA FILIAL AL MAPA EUROPEU ANIREM AQUI////////////////////////////////////////////////////////
         if (numFuncio == 0) {
             do {
-                taulerEuropeuDisponibles();
-                com.example.ekonos_logica.Missatges.Preguntas.casellaAposar();
                 //PREGUNTEM QUINA CASELLA VOL FICARLA
                 numeroCasella = input.nextInt();//GUARDEM EL NUMERO DE CASELLA
 
                 if (caselles.get(numeroCasella).propietari.getNom().equals("Vuit")) { //COMPROVEM SI LA CASELLA NO ESTA AGAFADA
                     semaforCasellaExists = true;
                     casellaAInteractuar = caselles.get(numeroCasella);
-                } else
-                    com.example.ekonos_logica.Missatges.Errors.casellaAgafada(caselles,numeroCasella);
+                }
             } while (!semaforCasellaExists);
         }
 
@@ -149,7 +140,7 @@ public class Tauler {
     ////////////////////////////////////////////////////////////////////// GENERAR TOTES LES CASELLES///////////////////////////////////////////////////////////////////////////
     private void omplirCaselles(int numCaselles) {
         for (int i = 0; i < numCaselles; i++) {
-            Casella novaCasella = new Casella(i, empresaVuit);
+            CasellaGUI novaCasella = new CasellaGUI(i, empresaVuit);
             caselles.add(novaCasella);
         }
 
@@ -157,7 +148,7 @@ public class Tauler {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////AQUI DIEM QUINA MIDA TE LA MA EL JUAGDOR I REPARTIM LA MA///////////////////////////////////////////////////
-    private static void repartirCartes(Baralla baralla, ArrayList<Jugador> jugador) {
+    private static void repartirCartes(BarallaGUI baralla, ArrayList<JugadorGUI> jugador) {
         int midaMa = 0;
         if (jugador.size() == 3 || jugador.size() == 4 || jugador.size() == 6)
             midaMa = 6;
@@ -172,47 +163,21 @@ public class Tauler {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////FUNCIO PER REMENAR LA MA/////////////////////////////////////////////////////////////////////////////////////
-    public static void remenarBaralla(Baralla baralla) throws Exception {
+    public static void remenarBaralla(BarallaGUI baralla) throws Exception {
         // REMENA LA BARALLA AMB LA FUNCIO SHUFFLE
         Collections.shuffle(baralla.baralla);
 
     }
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    ////////////////METODE PER PRINTAR LES TAULES D'AVNÇAMENT D'EMPRESES//////////////
-    public void taulerEmpresasAvançament() {
-        for (int i = 0; i < empresas.size(); i++) {
-            empresas.get(i).taulerMarcador();
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////METODE PER VERUE TOT EL MAPA EUROPEU////////////////////////
-    public void taulerEuropeu() {
-        for (int i = 0; i < caselles.size(); i++) {
-            com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////////
-    ////////////////METODE PER VERUE QUINES CASELLES NO ESTA AGAFADES//////////////////
-    public void taulerEuropeuDisponibles() {
-        for (int i = 0; i < caselles.size(); i++) {
-            if (caselles.get(i).propietari.equals("vuit")) {
-                com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
-            }
-        }
-    }
-
 
     //COMPRA VENTA DE ACCIONS MITJANCANT TOKENS
-    public void compraVenta(Jugador jugador) {
+    public void compraVenta(JugadorGUI jugador) {
         int opcio;
 
         int tokensQueCostat;
         boolean semaforCompra = false;
         String colorCarta;//COLOR QUE FICARA L'USUARI
-        Empresa empresaAfectada = empresaAux;//EMPRESA A QUI ES COMPRARA O VENDRA UNA ACCIO
+        EmpresaGUI empresaAfectada = empresaAux;//EMPRESA A QUI ES COMPRARA O VENDRA UNA ACCIO
 
 
         boolean semaforCompraVenta = false, semaforPotVenta = false;
@@ -233,17 +198,12 @@ public class Tauler {
                     }
                     if (semaforPotVenta) {
                         do {
-                            com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
-                            com.example.ekonos_logica.Missatges.Normals.accionsDeToteslesEmpreses();
-                            for (int i = 0; i < empresas.size(); i++) {
-                                empresas.get(i).taulerAccions();
-                            }
-                            empresaAfectada = vendre();
+                           empresaAfectada = vendre();
                             empresaAfectada.treureAccio(jugador, jugadors);
 
                         } while (!semaforPotVenta);
                     } else {
-                        com.example.ekonos_logica.Missatges.Errors.noTensAccions();
+
 
 
                     }
@@ -266,7 +226,6 @@ public class Tauler {
 
                 //////SORTIR////
             } else {
-                com.example.ekonos_logica.Missatges.Errors.finalApartatAccio();
 
             }
 
@@ -274,20 +233,19 @@ public class Tauler {
 
     }
 
-    public Empresa comprar(Jugador jugador, Empresa empresaAfectada) {
+    public EmpresaGUI comprar(JugadorGUI jugador, EmpresaGUI empresaAfectada) {
         String colorCarta;
         if (jugador.getTokens() == 0) {
-            com.example.ekonos_logica.Missatges.Errors.noTensTokens();
+
 
         } else {
             for (int i = 0; i < empresas.size(); i++) {
                 if (empresas.get(i).isExisteix()) {
-                    com.example.ekonos_logica.Missatges.Normals.preuEmpresa(empresas,i);
+
 
                 }
             }
-            com.example.ekonos_logica.Missatges.Normals.tensTantsTokens(jugador);
-            com.example.ekonos_logica.Missatges.Preguntas.empresaAcomprarAccions();
+
 
             colorCarta = input.nextLine();
             input.nextLine();
@@ -300,7 +258,7 @@ public class Tauler {
             jugador.setTokens(jugador.getTokens() - tokensQueCostat);
         }
 
-        com.example.ekonos_logica.Missatges.Preguntas.comprarAcions();
+
         ContinuarCOmprant = input.nextInt();
 
         return empresaAfectada;
@@ -320,10 +278,10 @@ public class Tauler {
         }
     }
 
-    public Empresa vendre() {
+    public EmpresaGUI vendre() {
         boolean semaforColorCorrecte = false;
         do {
-            com.example.ekonos_logica.Missatges.Preguntas.empresaVendre();
+
             String color = input.nextLine();
             //COMPROVEM SI HI HA LA EMPRESA
             for (int i = 0; i < empresas.size(); i++) {

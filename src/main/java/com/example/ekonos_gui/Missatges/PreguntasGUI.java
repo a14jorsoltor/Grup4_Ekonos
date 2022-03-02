@@ -1,9 +1,9 @@
-package com.example.ekonos_logica.Missatges;
+package com.example.ekonos_gui.Missatges;
 
 import com.example.ekonos_gui.CartaGUI;
 import com.example.ekonos_gui.JugadorGUI;
 
-public class Preguntas {
+public class PreguntasGUI {
 
     public static void preguntaCarta(CartaGUI cartaATirar){
         System.out.println("Quina funcio vols fer: \nFuncio 1: " + cartaATirar.getF1() + "\nFuncio 2: " + cartaATirar.getF2() + "\nFuncio 3: " + cartaATirar.getF3());

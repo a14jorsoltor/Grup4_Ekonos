@@ -57,8 +57,8 @@ public class JugadorController {
         }
     }
 
-    private Jugador crearJug(TextField nomJug, Label numJug) {
-        Jugador nouJugador = new Jugador(nomJug.getText(), Integer.parseInt(numJug.getText()));
+    private JugadorGUI crearJug(TextField nomJug, Label numJug) {
+        JugadorGUI nouJugador = new JugadorGUI(nomJug.getText(), Integer.parseInt(numJug.getText()));
         return nouJugador;
 
     }
@@ -106,7 +106,7 @@ public class JugadorController {
                 contador++;
             } else semaforsjugadors = false;
         }
-        ArrayList<Jugador> jugadors = new ArrayList<>();
+        ArrayList<JugadorGUI> jugadors = new ArrayList<>();
         if (semaforsjugadors) {
             //CREEM EL JUGAORS I ELS FIQUEM EN LA ARRAYLIST DE JUGADORS
             switch (contador) {
@@ -138,27 +138,27 @@ public class JugadorController {
                     break;
 
                 default:
-                    errorLabel.setText(com.example.ekonos_logica.Missatges.Errors.errorsCreaJugadors());
+                    errorLabel.setText(com.example.ekonos_gui.Missatges.ErrorsGUI.errorsCreaJugadors());
                     break;
             }
-            Jugador jugadorVuit = new Jugador("Ningu", 4);
+            JugadorGUI jugadorVuit = new JugadorGUI("Ningu", 4);
             //CRREM TOTES LES EMPRESES I LES FIQUEM A LA ARRAY DE EMPRESES
-            ArrayList<Empresa> empresas = new ArrayList();
-            Empresa novaEmpresa1 = new Empresa("Alpha", "red");
+            ArrayList<EmpresaGUI> empresas = new ArrayList();
+            EmpresaGUI novaEmpresa1 = new EmpresaGUI("Alpha", "red");
             empresas.add(novaEmpresa1);
-            Empresa novaEmpresa2 = new Empresa("Delta", "green");
+            EmpresaGUI novaEmpresa2 = new EmpresaGUI("Delta", "green");
             empresas.add(novaEmpresa2);
-            Empresa novaEmpresa3 = new Empresa("Beta", "dBlue");
+            EmpresaGUI novaEmpresa3 = new EmpresaGUI("Beta", "dBlue");
             empresas.add(novaEmpresa3);
-            Empresa novaEmpresa4 = new Empresa("Gamma", "lBlue");
+            EmpresaGUI novaEmpresa4 = new EmpresaGUI("Gamma", "lBlue");
             empresas.add(novaEmpresa4);
-            Empresa novaEmpresa5 = new Empresa("Omicron", "pink");
+            EmpresaGUI novaEmpresa5 = new EmpresaGUI("Omicron", "pink");
             empresas.add(novaEmpresa5);
-            Empresa novaEmpresa6 = new Empresa("Epsilon", "yellow");
+            EmpresaGUI novaEmpresa6 = new EmpresaGUI("Epsilon", "yellow");
             empresas.add(novaEmpresa6);
-            Empresa empresaVuit = new Empresa("Vuit", "black"); //AQUEST EMPRESA ES PER DIR SI LA CASELLA ESTA DISPONIBLE O NO
+            EmpresaGUI empresaVuit = new EmpresaGUI("Vuit", "black"); //AQUEST EMPRESA ES PER DIR SI LA CASELLA ESTA DISPONIBLE O NO
             //OMPLIM LA BARALLA
-            Baralla baralla = new Baralla();
+            BarallaGUI baralla = new BarallaGUI();
             baralla.omplirBaralla();
             //POSEM QUE EL PRESIDENT DE LES EMPRESES SIGUI EL JUADOR FANTASMA PER NO TINDRE QUE COMPARA AMB NULLS
             for (int i = 0; i < empresas.size(); i++) {
@@ -169,7 +169,7 @@ public class JugadorController {
             //CREEM LA TAULA I LI PASEM TOTS EL PARAMETRES QUE FAGI FALTA
 
 
-            Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit);
+            TaulerGUI tauler = new TaulerGUI(baralla, jugadors, empresas, empresaVuit);
 
             tauler.afegirTokenIniciRonda();
             baralla.repartirMa(jugadors, 6);
@@ -182,7 +182,7 @@ public class JugadorController {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-        } else errorLabel.setText(com.example.ekonos_logica.Missatges.Errors.errorsCreaJugadors());
+        } else errorLabel.setText(com.example.ekonos_gui.Missatges.ErrorsGUI.errorsCreaJugadors());
     }
 
     @FXML
@@ -213,7 +213,7 @@ public class JugadorController {
                 nomJug5.setVisible(true);
                 break;
             default:
-                com.example.ekonos_logica.Missatges.Errors.errorCrearJugadors6();
+                com.example.ekonos_gui.Missatges.ErrorsGUI.errorCrearJugadors6();
                 break;
         }
         if (numJugadorActuals < 6) {
@@ -244,7 +244,7 @@ public class JugadorController {
                 nomJug5.setText("");
                 break;
             default:
-                com.example.ekonos_logica.Missatges.Errors.errorCrearJugadors3();
+                com.example.ekonos_gui.Missatges.ErrorsGUI.errorCrearJugadors3();
                 break;
         }
         if (numJugadorActuals > 2) {
