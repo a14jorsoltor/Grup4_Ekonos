@@ -41,9 +41,11 @@ public class Tauler {
 
     //METODE PER COMENÇAR LES RONDES
     public void ronda(int numsRonda) throws Exception {
+
         /**
          * Funcio per fer les rondes.
          * @param numRonda pasem el numero de rondes que fara la partida.
+         * @param semafor amb aquest semafor el que veiem es si els jugadors tenen cartes.
          */
         remenarBaralla(baralla);
 
@@ -51,10 +53,12 @@ public class Tauler {
         for (int i = 0; i < numsRonda; i++) {
             afegirTokenIniciRonda();
             repartirCartes(baralla, jugadors);
-            for (int j = 0; j < jugadors.size(); j++) {
-                taulerEuropeu();
-                torn(jugadors.get(j));
-            }
+           do {
+               for (int j = 0; j < jugadors.size(); j++) {
+                   taulerEuropeu();
+                   torn(jugadors.get(j));
+               }
+           }while(jugadors.get(0).ma.size() != 0);
         }
 
     }
@@ -96,13 +100,13 @@ public class Tauler {
         Empresa empresaAfectada = null; // PER GUARDAR A QUINA EMPRESA ANIRA LA FUNCIO
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////// IMPRIMIR LA MA///////////////////////////////////////////////////////////////////////////////
-//        for (int i = 0; i < jugador.ma.size(); i++)
-//          com.example.ekonos_logica.Missatges.Normals.EnenyarMa(jugador, i);
+        for (int i = 0; i < jugador.ma.size(); i++)
+            com.example.ekonos_logica.Missatges.Normals.EnenyarMa(jugador, i);
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         do {
-          com.example.ekonos_logica.Missatges.Preguntas.PreguntarCartaTirar(jugador);
+            com.example.ekonos_logica.Missatges.Preguntas.PreguntarCartaTirar(jugador);
             int idCarta = input.nextInt();
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////COMPROBEM SI LA CARTA EXISTEIX////////////////////////////////////////////////////////////////
@@ -124,8 +128,8 @@ public class Tauler {
         do {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////MOSTREM LES FUINCIONS QUE TINDRA LA CARTA A TIRAR I DEMANEM A L'USARI QUINA FUNCIO TRIA//////////////////////////////////////////////////////////////////////////
-          //  com.example.ekonos_logica.Missatges.Preguntas.preguntaCarta(cartaATirar);
-           funcio = input.nextLine();
+            com.example.ekonos_logica.Missatges.Preguntas.preguntaCarta(cartaATirar);
+            funcio = input.nextLine();
             if (cartaATirar.getF1().equals(funcio)) {
                 semaforFuncioExsists = true;
                 numFuncio = 0;
@@ -157,7 +161,7 @@ public class Tauler {
                 if (caselles.get(numeroCasella).propietari.getNom().equals("Vuit")) { //COMPROVEM SI LA CASELLA NO ESTA AGAFADA
                     semaforCasellaExists = true;
                     casellaAInteractuar = caselles.get(numeroCasella);
-                }// else
+                } else
                     com.example.ekonos_logica.Missatges.Errors.casellaAgafada(caselles,numeroCasella);
             } while (!semaforCasellaExists);
         }
