@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
- * La classe tauler es on es el tauler d'europa, on es fa la ronda i el torn. 
+ * La classe tauler es on es el tauler d'europa, on es fa la ronda i el torn.
  */
 //TAULER PER REPRESENTAR EL MAPA D'EUROPA
 public class Tauler {
