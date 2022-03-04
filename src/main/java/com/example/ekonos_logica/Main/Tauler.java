@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+/**
+ * La classe tauler es on es el tauler d'europa, on es fa la ronda i el torn. 
+ */
 //TAULER PER REPRESENTAR EL MAPA D'EUROPA
 public class Tauler {
     static Scanner input = new Scanner(System.in);
@@ -27,6 +30,12 @@ public class Tauler {
         this.numCaselles = numCaselles;
     }
 
+    /**
+     * @param baralla Per poder comneçar necesitem una baralla amb la qual poguem treballar.
+     * @param jugador Necesitem el jugador per saber amb qui juguem.
+     * @param empresas Pasem les empreses creades en el main.
+     * @param empresaVuit I com a ultim hem de pasar una empresa fantasma perque aixi mai compararem amb null.
+     */
     public Tauler(Baralla baralla, ArrayList<Jugador> jugador, ArrayList<Empresa> empresas, Empresa empresaVuit) {
         super();
         this.baralla = baralla;
@@ -39,14 +48,13 @@ public class Tauler {
 
     }
 
+    /**
+     * Funcio per una ronda.
+     * @param numsRonda  Pasem el numero de rondes que fara la partida.
+     */
     //METODE PER COMENÇAR LES RONDES
     public void ronda(int numsRonda) throws Exception {
 
-        /**
-         * Funcio per fer les rondes.
-         * @param numRonda pasem el numero de rondes que fara la partida.
-         * @param semafor amb aquest semafor el que veiem es si els jugadors tenen cartes.
-         */
         remenarBaralla(baralla);
 
 
@@ -66,31 +74,25 @@ public class Tauler {
 
     //////////////////////////////////////////////////////////////////////////////////
     ////////////////////////// METODE PER FER ELS TORNS//////////////////////////////
+    /**
+     * Funcio per fer el torn
+     * @param jugador Pasem el jugador el qual esta jugant el torn.
+     */
     private void torn(Jugador jugador) throws Exception {
-        /**
-         * Funci per fer el torn
-         * @param jugador Pasem el jugador el qual esta jugant el torn.
-         */
+
         tirarCarta(jugador);
         compraVenta(jugador);
         taulerEmpresasAvançament();
     }
 
+    /**
+     * Aquesta funcio serveix per tirar una carta.
+     * @param jugador Pasem el jugador que esta jugant al torn actual.
+     */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////// AQUEST METODE ES EL QUE FARA QUE EL JUGADOR TIRI LA CARTA//////////////////////////////////////////////////
     private void tirarCarta(Jugador jugador) {
-        /**
-         * Aquesta funcio es la que fara al tirar una carta, es a dir, quina funcio fa, quin color es... .
-         * @param semaforIdExists Semafor per veure si la id existeix.
-         * @param semaforFuncioExsists Semafor per veure si la funcio existeix.
-         * @param semaforCasellaExists Semafor per verue si la casella exiteix.
-         * @param cartaATirar Guardem la carta a tirar.
-         * @param casellaAInteractuar Guardem la casella amb la qual interactuarem.
-         * @param funcio Guardem la funcio que tirara el jugador.
-         * @param numFuncio La guardem per a saber quin numero de funcio es. Ja que si la funcio es 1 ha de fer coses diferents a 2 i 3.
-         * @param numeroCasella Aquesta variable es per guardar el numero de la casella.
-         * @param empresaAfectada Aquesta variable es per guardar la empres amb la qual interactuarem.
-         */
+
 
         boolean semaforIdExists = false, semaforFuncioExsists = false, semaforCasellaExists = false; // SEMAFORS PER CONTROLAR SI HA TRIAT BE LES OPCIONS
         Carta cartaATirar = null; //CARTA PER SABER QUINA CARTA TIARA EL JUGADOR
@@ -169,12 +171,15 @@ public class Tauler {
         cartaATirar.accioCarta(empresaAfectada, numFuncio, casellaAInteractuar, caselles);
     }
 
+    /**
+     * Aquesta funcio el que fa es que les caselles no siguin null. Ho fem mitjançant creant una empresa "Fantasma"
+     * @param numCaselles Pasem el numeors d caselles qu hi ha al tauler.
+     */
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////// GENERAR TOTES LES CASELLES///////////////////////////////////////////////////////////////////////////
     private void omplirCaselles(int numCaselles) {
         /**
-         * Aquesta funcio el que fa es que les caselles no siguin null. Ho fem mitjançant creant una empresa "Fantasma"
          * @param numCaselles Pasem el numero de caselles que te el tauler d'europa
          */
         for (int i = 0; i < numCaselles; i++) {
@@ -184,14 +189,15 @@ public class Tauler {
 
     }
 
+    /**
+     * Aquesta funcio el que fa es repartir les cartes al jugadors.
+     * @param baralla Pasem la baralla que volguem repartir.
+     * @param jugador Pasem els jugador a qui volem repartir les cartes.
+     */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////AQUI DIEM QUINA MIDA TE LA MA EL JUAGDOR I REPARTIM LA MA///////////////////////////////////////////////////
     private static void repartirCartes(Baralla baralla, ArrayList<Jugador> jugador) {
-        /**
-         * Aquesta funcio el que fa es repartir les cartes al jugadors.
-         * @param baralla Passem la barlla a la funcio.
-         * @param jugador ArrayList de jugador.
-         */
+
         int midaMa = 0;
         if (jugador.size() == 3 || jugador.size() == 4 || jugador.size() == 6)
             midaMa = 6;
@@ -204,12 +210,14 @@ public class Tauler {
         baralla.repartirMa(jugador, midaMa);
     }
 
+    /**
+     * Aquesta funcio fa que les cartes es remenin.
+     * @param baralla Passem la baralla que volem rementar.
+     */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////FUNCIO PER REMENAR LA MA/////////////////////////////////////////////////////////////////////////////////////
     private static void remenarBaralla(Baralla baralla) throws Exception {
-        /**
-         * Aquesta funcio fa que les cartes es remenin.
-         */
+
         // REMENA LA BARALLA AMB LA FUNCIO SHUFFLE
         Collections.shuffle(baralla.baralla);
 
@@ -251,14 +259,11 @@ public class Tauler {
     }
 
 
+    /**
+     * @param jugador  Jugador el qual voldra comprar o vencre
+     */
     //COMPRA VENTA DE ACCIONS MITJANCANT TOKENS
     public void compraVenta(Jugador jugador) {
-        /**
-         * compraVenta es la funcio el qual fa la compra o la venta d'accions.
-         * @param jugador pasem el jugador el qual comprara o vendra una accio.
-         * @param opcio Serveix per dir si vols comprar o vendre.
-         *              
-         */
 
         int opcio;
 
@@ -323,14 +328,12 @@ public class Tauler {
 
     }
 
+    /**
+     * @param jugador Pasem el jugador que vol comprar
+     * @param empresaAfectada Pasem la empres alqual comprara.
+     * @return
+     */
     public Empresa comprar(Jugador jugador, Empresa empresaAfectada) {
-        /**
-         * Funcio per compra accions.
-         * @param jugador Pasem el jugador que vol comprar.
-         * @param empresaAfectada Pasem la empresa del qual comprarem una accio.
-         * @param color Es el color de la empresa amb la qual interactuarem.
-         * @return Retornem la empresa el qual comprarem la accio
-         * */
 
         String color;
         if (jugador.getTokens() == 0) {
@@ -362,11 +365,11 @@ public class Tauler {
 
         return empresaAfectada;
     }
-
+    /**
+     * Aquesta funcio es per dir afegir el tokens necesaris al principi de cada ronda.
+     */
     public void afegirTokenIniciRonda() {
-        /**
-         * Aquesta funcio es per dir afegir el tokens necesaris al principi de cada ronda.
-         */
+
         int numJugadors = jugadors.size();
         if (numJugadors == 5) {
             for (int i = 0; i < numJugadors; i++) {
@@ -378,12 +381,12 @@ public class Tauler {
             }
         }
     }
-
+    /**
+     * Funcio per vendre accions.
+     * @return Retornem la empresa el qual sera afectada.
+     * */
     public Empresa vendre() {
-        /**
-         * Funcio per vendre accions.
-         * @return Retornem la empresa el qual sera afectada.
-         * */
+
         boolean semaforColorCorrecte = false;
         do {
             com.example.ekonos_logica.Missatges.Preguntas.empresaVendre();
@@ -398,11 +401,11 @@ public class Tauler {
         return null;
     }
 
-
+    /**
+     * Funcio per omplir les caselels veines de cada casella es fa quan es crea el objecte tauler.
+     */
     private void omplirVeins() {
-        /**
-         * Funcio per omplir les caselels veines de cada casella es fa quan es crea el objecte tauler.
-         */
+
         this.caselles.get(0).afegirVeines(this, 2, 8);
         this.caselles.get(1).afegirVeines(this, 1, 3, 8);
         this.caselles.get(2).afegirVeines(this, 2, 4, 10);

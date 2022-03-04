@@ -17,29 +17,17 @@ public class Main {
     static int numFilialsGama = 0;
     static int numFilialsOmicron = 0;
     static int numFilialsEpsilon = 0;
-static int numFilialsnull = 0;
-   static ArrayList<Jugador> jugadors = new ArrayList<>();
+    static int numFilialsnull = 0;
+    static ArrayList<Jugador> jugadors = new ArrayList<>();
 
     public static void main(String[] args) throws SQLException {
-
-
-
-
 
 
         Baralla baralla = new Baralla();
         //CREAR JUGADORS
         //SOUT PER SAVER QUANTS JUGADORS HI HAURAN EN AQUEST CAS HI HAN 4
         crearJugadors();
-        /*Jugador nouJugador1 = new Jugador("Jordi", 0);
-        jugadors.add(nouJugador1);
-        Jugador nouJugador2 = new Jugador("Adria", 1);
-        jugadors.add(nouJugador2);
-        Jugador nouJugador3 = new Jugador("Pau", 2);
-        jugadors.add(nouJugador3);
-        Jugador nouJugador4 = new Jugador("Abel", 3);
-        jugadors.add(nouJugador4);*/
-        Jugador jugadorVuit = new Jugador("Ningu", 4);
+        Jugador jugadorVuit = new Jugador("Ningu", 7);
 
 
         //CREAR EMPRESAS
@@ -60,7 +48,7 @@ static int numFilialsnull = 0;
 
         //OMPLIR BARALLA (VA BE)
         baralla.omplirBaralla();
-        for(int i = 0; i < empresas.size(); i++) {
+        for (int i = 0; i < empresas.size(); i++) {
             empresas.get(i).president = jugadorVuit;
         }
         //CREAR TAULER
@@ -75,20 +63,23 @@ static int numFilialsnull = 0;
     }
 
     private static void crearJugadors() {
+        /**
+         * @param numJug nom dels jugador que ficara l'usuari
+         */
         int numJug;
-        do{
+        do {
             com.example.ekonos_logica.Missatges.Preguntas.preguntarJugadors();
             numJug = input.nextInt();
 
-            if(numJug > 6) {
+            if (numJug > 6) {
                 com.example.ekonos_logica.Missatges.Errors.moltsJugadors();
-            }else if(numJug < 3){
+            } else if (numJug < 3) {
                 com.example.ekonos_logica.Missatges.Errors.pocsJugadors();
             }
 
-        }while(numJug < 3 || numJug > 6);
-            input.nextLine();
-            for (int i = 0; i < numJug; i++){
+        } while (numJug < 3 || numJug > 6);
+        input.nextLine();
+        for (int i = 0; i < numJug; i++) {
             com.example.ekonos_logica.Missatges.Preguntas.preguntarNomJugadors(i);
             String nom = input.nextLine();
             Jugador nouJug = new Jugador(nom, i);
@@ -97,24 +88,34 @@ static int numFilialsnull = 0;
         }
     }
 
+    /**
+     * @param jugadors Pasem la arrayList de jugadors.
+     * @param tauler pasem el tauler sencer.
+     */
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
-        for (int i = 0; i < jugadors.size(); i ++) {
-            inserts.insertJugador( jugadors.get(i).getNom());
+        for (int i = 0; i < jugadors.size(); i++) {
+            inserts.insertJugador(jugadors.get(i).getNom());
+            System.out.println("S'ha afegit un jugador"  + jugadors.get(i).getNom() + "a la bd");
         }
 
         identificarSeus(tauler);
-        inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta,numFilialBeta,numFilialsGama,numFilialsOmicron,numFilialsEpsilon);
-
-        System.out.println("S'ha afegit un jugador a la bd");
+        inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
 
 
+        for (int i = 0; i < jugadors.size(); i++) {
+
+            inserts.insertTiene(jugadors.get(i).getNom(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(),jugadors.get(i).getNumAccionsDelta(),jugadors.get(i).getNumAccionsOmicron(),jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(),jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
+        }
     }
 
+    /**
+     * @param tauler Pasem el tauler per veura la taula d'europa
+     */
     private static void identificarSeus(Tauler tauler) {
         String color;
-        for(int i = 0; i<tauler.caselles.size(); i++){
+        for (int i = 0; i < tauler.caselles.size(); i++) {
             color = tauler.caselles.get(i).propietari.getColor();
-            switch (color){
+            switch (color) {
                 case "red":
                     numFilialsAlpha++;
                     break;
@@ -137,8 +138,6 @@ static int numFilialsnull = 0;
                     numFilialsnull++;
                     break;
             }
-
-
 
 
         }

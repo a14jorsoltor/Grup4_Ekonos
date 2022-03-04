@@ -47,15 +47,16 @@ public class Carta {
     }
 
 
-
-
+    /**
+     * @param num Numero de la casella.
+     * @param empresa Empresa la qual ficarem a la casella.
+     * @param casellesPropietariEmpresa ArrayList d'empreses que tenen una empresa.
+     * @param casellesVeinesVuides ArrayList d'empreses el qual poden ser agafades.
+     * @param caselles ArrayList de totes les caselles.
+     * @return Retornarem un boolean dient si s'ha pogut fer la accio.
+     */
     public boolean accioEspecial1(int num, Empresa empresa, ArrayList<Casella> casellesPropietariEmpresa, ArrayList<Casella> casellesVeinesVuides, ArrayList<Casella> caselles) {
-        /**
-         * Aquesta funcio la fara el president de la empresa quan alguna empresa cau a la casella 4.
-         * @param numCasella diem quina casella del mapa europa voldra interactuar.
-         * @param semaforAgafarCasella amb aquest semafor diem si pot continuar despres d'agafar la casella
-         * @return retornem un boolean: True si s'ha pogut ha arribat al final. False si no ha pogut fer tota la funcio.
-         */
+
 
         int numCasella;
         boolean semaforAgafarCasella = false;
@@ -94,14 +95,16 @@ public class Carta {
         return false;
     }
 
-
+    /**
+     * @param num Numero de la casella.
+     * @param empresa Empresa la qual ficarem a la casella.
+     * @param casellesPropietariEmpresa ArrayList d'empreses que tenen una empresa.
+     * @param casellesVeinesVuides ArrayList d'empreses el qual poden ser agafades.
+     * @param caselles ArrayList de totes les caselles.
+     * @return Retornarem un boolean dient si s'ha pogut fer la accio.
+     */
     private boolean accioEspecial2(int num, Empresa empresa, ArrayList<Casella> casellesPropietariEmpresa, ArrayList<Casella> casellesVeinesVuides, ArrayList<Casella> caselles) {
-        /**
-         * Aquesta funcio la fara el president de la empresa quan alguna empresa cau a la casella 6.
-         * @param numCasella diem quina casella del mapa europa voldra interactuar.
-         * @param semaforAgafarCasella amb aquest semafor diem si pot continuar despres d'agafar la casella.
-         * @return retornem un boolean: True si s'ha pogut ha arribat al final. False si no ha pogut fer tota la funcio.
-         */
+
         int numCasella;
         boolean semaforAgafarCasella = false;
         do {
@@ -127,23 +130,14 @@ public class Carta {
     }
 
 
+    /**
+     * @param empresa diem la empresa a qui es fara la accio.
+     * @param funcio quina funcio de la carta fara.
+     * @param casellaAfectada es la casella en la qual interactuarem.
+     * @param caselles pasem totes les caselles.
+     */
     public void accioCarta(Empresa empresa, int funcio, Casella casellaAfectada, ArrayList<Casella> caselles) {
-/**
- * @param empresa diem la empresa a qui es fara la accio.
- * @param funcio quina funcio de la carta fara.
- * @param casellaAfectada es la casella en la qual interactuarem.
- * @param casellas pasem totes les caselles.
- *
- *
- * @param semaforAgafarCasella1 Aquesta variable serveix per si la primera casella que posa l'usuari es pot utilitzar.
- * @param casellesPropietariEmpresa Aquesta ArrayList es per agafar quines caselles pertanyen a la empresa afectada.
- * @param casellesVeinesVuides Aquesta ArrayList es per distingir quines caselles veines amb les quals pots interactuar esta vuides, es a dir pot agafar.
- * @param opcioC4 Dir quina opcio vols agafar Si continuar avançant o o fer la accio especial de la casella 4.
- * @param opcioC6 El mateix pero per a la opcio especial de la casella 6.
- * @param opcio Dir quina opcio vol, o agafar la casella rival o una casella vuida.
- *
- *
- */
+
         boolean semaforAgafarCasella1 = false, semaforAgafarCaselles = false;
         ArrayList<Casella> casellesPropietariEmpresa = new ArrayList<>();//ARRAYLIST PER SABER QUINES CASELLES CONTROLA LA EMPRESA
         ArrayList<Casella> casellesVeinesVuides = new ArrayList<>();
@@ -228,10 +222,11 @@ public class Carta {
     }
 
 
-
+    /**
+     * @param opcio Pasem el numero de la carta que crearem
+     */
     public void crearCarta(int opcio) {
-        /**
-         * Aquesta funcio crea les cartes, TOTES les cartes estan predefinides */
+
         switch (opcio) {
 //---------------------------------------------------------------------\\
             case 1:
