@@ -66,7 +66,7 @@ public class Tauler {
                    taulerEuropeu();
                    torn(jugadors.get(j));
                }
-           }while(jugadors.get(0).ma.size() != 0);
+           }while(jugadors.get(jugadors.size()-1).ma.size() != 0);
         }
 
     }
