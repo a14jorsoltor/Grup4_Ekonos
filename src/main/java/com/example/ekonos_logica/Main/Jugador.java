@@ -17,12 +17,23 @@ public class Jugador {
     private int id;
     private int numAccions = 0;
 
+
+    private int puntsTotals = 0;
+
     private int numAccionsAlpha = 0;
     private int numAccionsDelta = 0;
     private int numAccionsBeta = 0;
     private int numAccionsGamma = 0;
     private int numAccionsOmicron = 0;
     private int numAccionsEpsilon = 0;
+
+    public int getPuntsTotals() {
+        return puntsTotals;
+    }
+
+    public void setPuntsTotals(int puntsTotals) {
+        this.puntsTotals = puntsTotals;
+    }
 
     public int getNumAccionsAlpha() {
         return numAccionsAlpha;

@@ -1,8 +1,11 @@
 package com.example.ekonos_logica.Main;
 
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 import com.example.BaseDades.Inserts.Inserts;
@@ -58,8 +61,41 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        for (int i = 0; i < jugadors.size(); i++) {
+            jugadors.get(i).setPuntsTotals(calcularGuanyador(jugadors.get(i), numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon, numFilialsnull));
+        }
+        ordenarGuanyador(jugadors);
+
         finalPartida(jugadors, tauler);
 
+    }
+
+    private static ArrayList<Jugador> ordenarGuanyador(ArrayList<Jugador> jugadors) {
+        ArrayList<Jugador> podi =new ArrayList<>();
+        podi = jugadors;
+        for (int i = 0; i < podi.size(); i++) {
+            for (int j = 0; j < podi.size(); j++){
+                if (podi.get(i).getPuntsTotals() >=  podi.get(j).getPuntsTotals() && i!=j ){
+                    Jugador jugAuxi = podi.get(i);
+                    Jugador jugAuxj = podi.get(j);
+                    podi.get(i).equals(jugAuxj);
+                    podi.get(j).equals(jugAuxi);
+                }
+            }
+        }
+        return podi;
+    }
+
+    private static int calcularGuanyador(Jugador jugador, int numFilialsAlpha, int numFilialsDelta, int numFilialBeta, int numFilialsGama, int numFilialsOmicron, int numFilialsEpsilon, int numFilialsnull) {
+        int totalPunts = 0;
+        totalPunts+= jugador.getNumAccionsAlpha() * numFilialsAlpha;
+        totalPunts+= jugador.getNumAccionsDelta() * numFilialsDelta;
+        totalPunts+= jugador.getNumAccionsBeta() * numFilialBeta;
+        totalPunts+= jugador.getNumAccionsGamma() * numFilialsGama;
+        totalPunts+= jugador.getNumAccionsOmicron() * numFilialsOmicron;
+        totalPunts+= jugador.getNumAccionsEpsilon() * numFilialsEpsilon;
+        totalPunts+= jugador.getTokens();
+        return totalPunts;
     }
 
     private static void crearJugadors() {
@@ -90,24 +126,27 @@ public class Main {
 
     /**
      * @param jugadors Pasem la arrayList de jugadors.
-     * @param tauler pasem el tauler sencer.
+     * @param tauler   pasem el tauler sencer.
      */
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
+
+
         for (int i = 0; i < jugadors.size(); i++) {
             inserts.insertJugador(jugadors.get(i).getNom());
-            System.out.println("S'ha afegit un jugador"  + jugadors.get(i).getNom() + "a la bd");
+            System.out.println("S'ha afegit un jugador" + jugadors.get(i).getNom() + "a la bd");
         }
 
-        
+
         identificarSeus(tauler);
         inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
 
 
         for (int i = 0; i < jugadors.size(); i++) {
 
-            inserts.insertTiene(jugadors.get(i).getNom(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(),jugadors.get(i).getNumAccionsDelta(),jugadors.get(i).getNumAccionsOmicron(),jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(),jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
+            inserts.insertTiene(jugadors.get(i).getNom(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
         }
     }
+
 
     /**
      * @param tauler Pasem el tauler per veura la taula d'europa
