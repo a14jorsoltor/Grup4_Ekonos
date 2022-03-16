@@ -98,6 +98,7 @@ public class Main {
             System.out.println("S'ha afegit un jugador"  + jugadors.get(i).getNom() + "a la bd");
         }
 
+        
         identificarSeus(tauler);
         inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
 

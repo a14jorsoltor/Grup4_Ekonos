@@ -154,7 +154,8 @@ public class Carta {
         /////////////////FUNCIO DE LA CARTA NUMERO 2 I 3\\\\\\\\\\\\\\\\\\\\\\\\\
         else {
             empresa.avancarMarcador();//AVANCEM EL MARCADOR DE LA EMPRESA
-            if (empresa.getMarcador() == 3) {
+        }
+           /* if (empresa.getMarcador() == 3) {
                 //ACCIO DE CASELLA 4
                 do {
                     //PREGUNTEM QUE VOL FER SI SEGUIR O QUEDAR-SE I FER L'ACCIO DE LA CASELLA 4
@@ -218,7 +219,7 @@ public class Carta {
 
                 }while (!semaforAgafarCasella1) ;
             }
-        }
+        }*/
     }
 
 

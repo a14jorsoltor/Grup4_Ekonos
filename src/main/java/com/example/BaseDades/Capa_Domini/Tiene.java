@@ -2,6 +2,8 @@ package com.example.BaseDades.Capa_Domini;
 
 public class Tiene {
     String  nom;
+    int posicion;
+    int numeroJugadors;
     int Id_Partida ;
     int NumeroAssocioAlpha ;
     int NumeroAssocioDelta;
@@ -11,8 +13,11 @@ public class Tiene {
     int NumerasoccioEpsilon;
     int NumMonedas ;
 
-    public Tiene(String nom, int id_Partida, int numeroAssocioAlpha, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numerasoccioEpsilon, int numMonedas) {
+
+    public Tiene(String nom, int posicion, int numeroJugadors, int id_Partida, int numeroAssocioAlpha, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numerasoccioEpsilon, int numMonedas) {
         this.nom = nom;
+        this.posicion = posicion;
+        this.numeroJugadors = numeroJugadors;
         Id_Partida = id_Partida;
         NumeroAssocioAlpha = numeroAssocioAlpha;
         NumeroAssocioDelta = numeroAssocioDelta;
@@ -29,6 +34,22 @@ public class Tiene {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public int getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int posicion) {
+        this.posicion = posicion;
+    }
+
+    public int getNumeroJugadors() {
+        return numeroJugadors;
+    }
+
+    public void setNumeroJugadors(int numeroJugadors) {
+        this.numeroJugadors = numeroJugadors;
     }
 
     public int getId_Partida() {
@@ -99,6 +120,8 @@ public class Tiene {
     public String toString() {
         return "Tiene{" +
                 "nom='" + nom + '\'' +
+                ", posicion=" + posicion +
+                ", numeroJugadors=" + numeroJugadors +
                 ", Id_Partida=" + Id_Partida +
                 ", NumeroAssocioAlpha=" + NumeroAssocioAlpha +
                 ", NumeroAssocioDelta=" + NumeroAssocioDelta +
