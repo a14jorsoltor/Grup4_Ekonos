@@ -95,10 +95,11 @@ public class Persistencia {
 
 
     public static void obtenirPartida(Connection con) throws SQLException {
-        int i = 1;
+
 
             String query = "select * from Partida";
             try (Statement stmt = con.createStatement()) {
+
                 ResultSet rs = stmt.executeQuery(query);
                 while (rs.next()) {
                     int Id_partida = rs.getInt(1);
@@ -111,6 +112,7 @@ public class Persistencia {
                     Partida part = new Partida(Id_partida, NumFilialAlpha, NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama,NumFilialEpsilon);
                     partida.add(part);
                 }
+
 
         } catch(SQLException e){
         }
@@ -133,29 +135,34 @@ public class Persistencia {
         }
     }
 
-    /* public static void obtenirTiene(Connection con) throws SQLException {
-
+    public static void obtenirTiene(Connection con) throws SQLException {
+        int i=1;
          String query = "select * from Tiene";
          try (Statement stmt = con.createStatement()) {
-             ResultSet rs = stmt.executeQuery(query);
+             while(i<=6) {
+                 ResultSet rs = stmt.executeQuery(query);
 
-             while (rs.next()) {
-                 String nombre = rs.getString(1);
-                 int Id_partida = rs.getInt(2);
-                 int NumeroAssocioAlpha = rs.getInt(3);
-                 int NumeroAssocioDelta = rs.getInt(4);
-                 int NumeroAssocioOmicron = rs.getInt(5);
-                 int NumeroAssocioBeta = rs.getInt(6);
-                 int NumeroAssocioGama = rs.getInt(7);
-                 int monedas = rs.getInt(8);
-                 Tiene tiene = new Tiene(nombre,Id_partida, NumeroAssocioAlpha,NumeroAssocioDelta, NumeroAssocioOmicron, NumeroAssocioBeta, NumeroAssocioGama,NumeroAssociacoEpsilon, monedas);
-                 tener.add(tiene);
+                 while (rs.next()) {
+                     String nombre = rs.getString(1);
+                     int  posicion=rs.getInt(2);
+                     int numeroJugadores=rs.getInt(3);
+                     int Id_partida = rs.getInt(4);
+                     int NumeroAssocioAlpha = rs.getInt(5);
+                     int NumeroAssocioDelta = rs.getInt(6);
+                     int NumeroAssocioOmicron = rs.getInt(7);
+                     int NumeroAssocioBeta = rs.getInt(8);
+                     int NumeroAssocioGama = rs.getInt(9);
+                     int NumeroAssociacoEpsilon= rs.getInt(10);
+                     int monedas = rs.getInt(11);
+                     Tiene tiene = new Tiene(nombre, posicion,numeroJugadores,Id_partida, NumeroAssocioAlpha, NumeroAssocioDelta, NumeroAssocioOmicron, NumeroAssocioBeta, NumeroAssocioGama, NumeroAssociacoEpsilon, monedas);
+                     tener.add(tiene);
 
+                 }
              }
          } catch (SQLException e) {
 
          }
-     }*/
+     }
     public static String fitxerUsuari() throws IOException {
         File archivo = new File("fitxUsuari");
         FileReader fr = new FileReader(archivo);

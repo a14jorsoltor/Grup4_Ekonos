@@ -70,31 +70,40 @@ public class Main {
 
     }
 
-    private static ArrayList<Jugador> ordenarGuanyador(ArrayList<Jugador> jugadors) {
-        ArrayList<Jugador> podi =new ArrayList<>();
-        podi = jugadors;
-        for (int i = 0; i < podi.size(); i++) {
-            for (int j = 0; j < podi.size(); j++){
-                if (podi.get(i).getPuntsTotals() >=  podi.get(j).getPuntsTotals() && i!=j ){
-                    Jugador jugAuxi = podi.get(i);
-                    Jugador jugAuxj = podi.get(j);
-                    podi.get(i).equals(jugAuxj);
-                    podi.get(j).equals(jugAuxi);
+    private static ArrayList<Integer> ordenarGuanyador(ArrayList<Jugador> jugadors) {
+        ArrayList<Jugador> podiJug = new ArrayList<>();
+        ArrayList<Integer> podi = new ArrayList<>();
+        podiJug = jugadors;
+        for (int i = 0; i < podiJug.size(); i++) {
+            for (int j = 0; j < podiJug.size(); j++) {
+                if (podiJug.get(i).getPuntsTotals() >= podiJug.get(j).getPuntsTotals() && i != j) {
+                    Jugador jugAuxi = podiJug.get(i);
+                    Jugador jugAuxj = podiJug.get(j);
+                    podiJug.get(i).equals(jugAuxj);
+                    podiJug.get(j).equals(jugAuxi);
                 }
             }
         }
+        for (int i = 0; i < podiJug.size(); i++) {
+            for (int j = 0; j < jugadors.size(); j++) {
+                if(podiJug.get(i).equals(jugadors.get(j))){
+                    podi.add(i);
+                }
+            }
+        }
+
         return podi;
     }
 
     private static int calcularGuanyador(Jugador jugador, int numFilialsAlpha, int numFilialsDelta, int numFilialBeta, int numFilialsGama, int numFilialsOmicron, int numFilialsEpsilon, int numFilialsnull) {
         int totalPunts = 0;
-        totalPunts+= jugador.getNumAccionsAlpha() * numFilialsAlpha;
-        totalPunts+= jugador.getNumAccionsDelta() * numFilialsDelta;
-        totalPunts+= jugador.getNumAccionsBeta() * numFilialBeta;
-        totalPunts+= jugador.getNumAccionsGamma() * numFilialsGama;
-        totalPunts+= jugador.getNumAccionsOmicron() * numFilialsOmicron;
-        totalPunts+= jugador.getNumAccionsEpsilon() * numFilialsEpsilon;
-        totalPunts+= jugador.getTokens();
+        totalPunts += jugador.getNumAccionsAlpha() * numFilialsAlpha;
+        totalPunts += jugador.getNumAccionsDelta() * numFilialsDelta;
+        totalPunts += jugador.getNumAccionsBeta() * numFilialBeta;
+        totalPunts += jugador.getNumAccionsGamma() * numFilialsGama;
+        totalPunts += jugador.getNumAccionsOmicron() * numFilialsOmicron;
+        totalPunts += jugador.getNumAccionsEpsilon() * numFilialsEpsilon;
+        totalPunts += jugador.getTokens();
         return totalPunts;
     }
 
@@ -143,7 +152,7 @@ public class Main {
 
         for (int i = 0; i < jugadors.size(); i++) {
 
-            inserts.insertTiene(jugadors.get(i).getNom(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
+            inserts.insertTiene(jugadors.get(i).getNom(), ordenarGuanyador(jugadors), jugadors.size(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
         }
     }
 
