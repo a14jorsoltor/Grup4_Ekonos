@@ -139,21 +139,12 @@ public class Main {
      */
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
 
-
+    for(int i = 0; i < jugadors.size(); i++) {
+        jugadors.get(i).intertJugador();
+    }
+    identificarSeus(tauler);
+    inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
         for (int i = 0; i < jugadors.size(); i++) {
-            inserts.insertJugador(jugadors.get(i).getNom());
-            System.out.println("S'ha afegit un jugador" + jugadors.get(i).getNom() + "a la bd");
-        }
-
-
-        identificarSeus(tauler);
-        inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
-
-
-
-
-        for (int i = 0; i < jugadors.size(); i++) {
-
             inserts.insertTiene(jugadors.get(i).getNom(), ordenarGuanyador(jugadors).get(i), jugadors.size(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
         }
     }

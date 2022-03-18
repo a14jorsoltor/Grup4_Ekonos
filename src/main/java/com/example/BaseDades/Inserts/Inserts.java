@@ -1,6 +1,8 @@
 package com.example.BaseDades.Inserts;
 
-import java.sql.Connection;
+import com.example.ekonos_logica.Main.Jugador;
+
+
 import java.sql.SQLException;
 
 public class Inserts {
@@ -16,9 +18,9 @@ public class Inserts {
     }
 
 
-    public void insertJugador( String nom) throws SQLException {
+    public static void insertJugador(Jugador jugador) throws SQLException {
 
-        com.example.BaseDades.Capa_Dades.Persistencia.insereixJugadors( nom);
+        com.example.BaseDades.Capa_Dades.Persistencia.insereixJugadors(jugador.getNom());
 
     }
 
