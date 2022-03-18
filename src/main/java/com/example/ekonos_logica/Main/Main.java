@@ -150,9 +150,11 @@ public class Main {
         inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
 
 
+
+
         for (int i = 0; i < jugadors.size(); i++) {
 
-            inserts.insertTiene(jugadors.get(i).getNom(), ordenarGuanyador(jugadors), jugadors.size(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
+            inserts.insertTiene(jugadors.get(i).getNom(), ordenarGuanyador(jugadors).get(i), jugadors.size(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
         }
     }
 
