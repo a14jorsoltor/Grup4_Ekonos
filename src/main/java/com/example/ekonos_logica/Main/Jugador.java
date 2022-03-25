@@ -131,7 +131,7 @@ public class Jugador {
 
     public void intertJugador() throws SQLException {
             com.example.BaseDades.Inserts.Inserts.insertJugador(this);
-            System.out.println("S'ha afegit un jugador" + getNom() + "a la bd");
+            //System.out.println("S'ha afegit un jugador " + getNom() + "a la bd");
     }
 
 }

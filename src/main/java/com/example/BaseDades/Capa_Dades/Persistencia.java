@@ -21,18 +21,11 @@ public class Persistencia {
     static ArrayList<Tiene> tener = new ArrayList<Tiene>();
     static Connection connection;
 
+public Persistencia(){
+    Obrir_Tancar_BD OYDB = new Obrir_Tancar_BD();
+    connection = OYDB.conexioBase(connection);
+}
 
-    public static void conexioBase() {
-
-        try {
-            connection = DriverManager.getConnection(fitxerUrl(), fitxerUsuari(), fitxerPass());
-            System.out.println("Connecio realitzada usant" + "DriverManager");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void cerrarbase() {
         try {
@@ -59,7 +52,6 @@ public class Persistencia {
 
 
     public static void insereixJugadors(String nom) throws SQLException {
-        conexioBase();
 
         String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES(" + nom + "); ";
         Statement sta = null;
@@ -77,7 +69,7 @@ public class Persistencia {
 
 
     public static void insereixPartida( int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
-        conexioBase();
+
         String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + "," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
         Statement sta = null;
         try {
@@ -119,7 +111,7 @@ public class Persistencia {
     }
 
     public static void insereixTiene(String nom, int id, int NumeroAssociacioAlpha, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int NumeroAssociacoEpsilon, int monedas, int numeroAssociacoEpsilon, int i) throws SQLException {
-        conexioBase();
+
         String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + nom + "," + id + "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
         Statement sta = null;
         try {
@@ -163,28 +155,6 @@ public class Persistencia {
 
          }
      }
-    public static String fitxerUsuari() throws IOException {
-        File archivo = new File("fitxUsuari");
-        FileReader fr = new FileReader(archivo);
-        BufferedReader br = new BufferedReader(fr);
-        String linea = br.readLine();
-        return linea;
-    }
 
-    public static String fitxerPass() throws IOException {
-        File archivo = new File("fitxPass");
-        FileReader fr = new FileReader(archivo);
-        BufferedReader br = new BufferedReader(fr);
-        String linea = br.readLine();
-        return linea;
-    }
-
-    public static String fitxerUrl() throws IOException {
-        File archivo = new File("fitxerUrl");
-        FileReader fr = new FileReader(archivo);
-        BufferedReader br = new BufferedReader(fr);
-        String linea = br.readLine();
-        return linea;
-    }
 
 }
