@@ -23,7 +23,7 @@ public class Obrir_Tancar_BD {
         return connection;
     }
 
-    public static Connection cerrarbase( Connection connection ) {
+     Connection cerrarbase( Connection connection ) {
         try {
             connection.close();
         } catch (SQLException e) {

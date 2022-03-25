@@ -15,6 +15,7 @@ public class Persistencia {
     static final String Taula_Jugadors = "Jugadors";
     static final String Taula_Partida = "Partida";
     static final String Taula_Tiene = "Tiene";
+    private static final Obrir_Tancar_BD OTDB = new Obrir_Tancar_BD();
     public static boolean semaforo;
     static ArrayList<Jugadors> Jugador = new ArrayList<Jugadors>();
     static ArrayList<Partida> partida = new ArrayList<Partida>();
@@ -22,18 +23,10 @@ public class Persistencia {
     static Connection connection;
 
 public Persistencia(){
-    Obrir_Tancar_BD OYDB = new Obrir_Tancar_BD();
-    connection = OYDB.conexioBase(connection);
+
+    connection = OTDB.conexioBase(connection);
 }
 
-
-    public static void cerrarbase() {
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void obtenirNomJugadors(Connection con) throws SQLException {
 
@@ -81,7 +74,7 @@ public Persistencia(){
             semaforo = false;
         } finally {
             sta.close();
-            cerrarbase();
+            OTDB.cerrarbase(connection);
         }
     }
 
@@ -123,7 +116,7 @@ public Persistencia(){
             semaforo = false;
         } finally {
             sta.close();
-            cerrarbase();
+            OTDB.cerrarbase(connection);
         }
     }
 
