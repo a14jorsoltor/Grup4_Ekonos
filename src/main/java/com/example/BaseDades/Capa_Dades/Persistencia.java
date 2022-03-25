@@ -21,6 +21,7 @@ public class Persistencia {
     static ArrayList<Partida> partida = new ArrayList<Partida>();
     static ArrayList<Tiene> tener = new ArrayList<Tiene>();
     static Connection connection;
+    static Statement sta = null;
 
 public Persistencia(){
 
@@ -47,7 +48,7 @@ public Persistencia(){
     public static void insereixJugadors(String nom) throws SQLException {
 
         String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES(" + nom + "); ";
-        Statement sta = null;
+
         try {
             sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
@@ -64,7 +65,7 @@ public Persistencia(){
     public static void insereixPartida( int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
 
         String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + "," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
-        Statement sta = null;
+
         try {
             sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
@@ -106,7 +107,7 @@ public Persistencia(){
     public static void insereixTiene(String nom, int id, int NumeroAssociacioAlpha, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int NumeroAssociacoEpsilon, int monedas, int numeroAssociacoEpsilon, int i) throws SQLException {
 
         String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + nom + "," + id + "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
-        Statement sta = null;
+
         try {
             sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
