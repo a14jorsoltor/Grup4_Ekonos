@@ -1,7 +1,7 @@
 package com.example.BaseDades.Capa_Domini;
 
 public class Partida {
-    int Id_partida;
+
     int NumFilialAlpha ;
 
     int NumFilialDelta ;
@@ -10,8 +10,8 @@ public class Partida {
     int NumFilialGama ;
     int NumFilialEpsilon;
 
-    public Partida(int id_partida, int numFilialAlpha, int numFilialDelta, int numFilialOmicron, int numFilialBeta, int numFilialGama, int numFilialEpsilon) {
-        Id_partida = id_partida;
+    public Partida( int numFilialAlpha, int numFilialDelta, int numFilialOmicron, int numFilialBeta, int numFilialGama, int numFilialEpsilon) {
+
         NumFilialAlpha = numFilialAlpha;
         NumFilialDelta = numFilialDelta;
         NumFilialOmicron = numFilialOmicron;
@@ -20,13 +20,7 @@ public class Partida {
         NumFilialEpsilon = numFilialEpsilon;
     }
 
-    public int getId_partida() {
-        return Id_partida;
-    }
 
-    public void setId_partida(int id_partida) {
-        Id_partida = id_partida;
-    }
 
     public int getNumFilialAlpha() {
         return NumFilialAlpha;
@@ -79,7 +73,6 @@ public class Partida {
     @Override
     public String toString() {
         return "Partida{" +
-                "Id_partida=" + Id_partida +
                 ", NumFilialAlpha=" + NumFilialAlpha +
                 ", NumFilialDelta=" + NumFilialDelta +
                 ", NumFilialOmicron=" + NumFilialOmicron +

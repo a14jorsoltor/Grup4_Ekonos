@@ -76,9 +76,9 @@ public class Persistencia {
     }
 
 
-    public static void insereixPartida(int id_Partda, int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
+    public static void insereixPartida( int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
         conexioBase();
-        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + id_Partda + "," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
+        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + "," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
         Statement sta = null;
         try {
             sta = connection.createStatement();
@@ -109,7 +109,7 @@ public class Persistencia {
                     int NumFilialBeta = rs.getInt(5);
                     int NumFilialGama = rs.getInt(6);
                     int NumFilialEpsilon= rs.getInt(7);
-                    Partida part = new Partida(Id_partida, NumFilialAlpha, NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama,NumFilialEpsilon);
+                    Partida part = new Partida( NumFilialAlpha, NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama,NumFilialEpsilon);
                     partida.add(part);
                 }
 
