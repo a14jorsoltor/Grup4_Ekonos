@@ -10,6 +10,15 @@ public class Partida {
     int NumFilialGama ;
     int NumFilialEpsilon;
 
+    /**
+     *
+     * @param numFilialAlpha Numero d'afilias que te la empresa alpha
+     * @param numFilialDelta Numero d'afilias que te la empresa delta
+     * @param numFilialOmicron Numero d'afilias que te la empresa omicron
+     * @param numFilialBeta Numero d'afilias que te la empresa beta
+     * @param numFilialGama Numero d'afilias que te la empresa gama
+     * @param numFilialEpsilon Numero d'afilias que te la empresa epsilon
+     */
     public Partida( int numFilialAlpha, int numFilialDelta, int numFilialOmicron, int numFilialBeta, int numFilialGama, int numFilialEpsilon) {
 
         NumFilialAlpha = numFilialAlpha;

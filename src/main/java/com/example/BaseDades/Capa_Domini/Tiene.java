@@ -14,6 +14,19 @@ public class Tiene {
     int NumMonedas ;
 
 
+    /**
+     * @param nom nom jugador
+     * @param posicion posicio del jugador en la partda
+     * @param numeroJugadors numero de jugadors en la partida
+     * @param id_Partida id de la partida
+     * @param numeroAssocioAlpha Numero d'asosiacion de la empres alpha
+     * @param numeroAssocioDelta Numero d'asosiacion de la empres delta
+     * @param numeroAssocioOmicron Numero d'asosiacion de la empres omicron
+     * @param numeroAssocioBeta Numero d'asosiacion de la empres beta
+     * @param numeroAssocioGama Numero d'asosiacion de la empres gama
+     * @param numerasoccioEpsilon Numero d'asosiacion de la empres epsilon
+     * @param numMonedas monedas del jugador.
+     */
     public Tiene(String nom, int posicion, int numeroJugadors, int id_Partida, int numeroAssocioAlpha, int numeroAssocioDelta, int numeroAssocioOmicron, int numeroAssocioBeta, int numeroAssocioGama, int numerasoccioEpsilon, int numMonedas) {
         this.nom = nom;
         this.posicion = posicion;

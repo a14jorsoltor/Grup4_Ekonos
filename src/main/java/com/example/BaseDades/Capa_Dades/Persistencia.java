@@ -61,7 +61,15 @@ public Persistencia(){
         }
     }
 
-
+    /**
+     *
+     * @param NumFilialAlpha  Numero d'afilias que te la empresa alpha
+     * @param NumFilialDelta Numero d'afilias que te la empresa delta
+     * @param NumFilialOmicron Numero d'afilias que te la empresa omicron
+     * @param NumFilialBeta Numero d'afilias que te la empresa beta
+     * @param NumFilialGama Numero d'afilias que te la empresa gama
+     * @param NumFilialEpsilon Numero d'afilias que te la empresa epsilon
+     */
     public static void insereixPartida( int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
 
         String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + "," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
@@ -104,6 +112,20 @@ public Persistencia(){
         }
     }
 
+    /**
+     *
+     * @param nom nom jugador
+     * @param posicion posicio del jugador en la partda
+     * @param numeroJugadors numero de jugadors en la partida
+     * @param id_Partida id de la partida
+     * @param numeroAssocioAlpha Numero d'asosiacion de la empres alpha
+     * @param numeroAssocioDelta Numero d'asosiacion de la empres delta
+     * @param numeroAssocioOmicron Numero d'asosiacion de la empres omicron
+     * @param numeroAssocioBeta Numero d'asosiacion de la empres beta
+     * @param numeroAssocioGama Numero d'asosiacion de la empres gama
+     * @param numerasoccioEpsilon Numero d'asosiacion de la empres epsilon
+     * @param numMonedas monedas del jugador.
+     */
     public static void insereixTiene(String nom, int id, int NumeroAssociacioAlpha, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int NumeroAssociacoEpsilon, int monedas, int numeroAssociacoEpsilon, int i) throws SQLException {
 
         String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + nom + "," + id + "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
