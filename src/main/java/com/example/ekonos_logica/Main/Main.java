@@ -57,7 +57,7 @@ public class Main {
         //CREAR TAULER
         Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit); //CREEM EL TAULER AQUI PASSANT-LI LA BARALLA CREADA ELS JUGADORS CREATS LAS EMPRESAS CREADES I LA EMPRESA "FANTASMA"
         try {
-            tauler.ronda(2); //METODE PER FER LES RONDES
+         //   tauler.ronda(2); //METODE PER FER LES RONDES
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -139,25 +139,15 @@ public class Main {
      */
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
 
-
+    for(int i = 0; i < jugadors.size(); i++) {
+        jugadors.get(i).intertJugador();
+    }
+    identificarSeus(tauler);
+    inserts.insertPartida( numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
         for (int i = 0; i < jugadors.size(); i++) {
-            inserts.insertJugador(jugadors.get(i).getNom());
-            System.out.println("S'ha afegit un jugador" + jugadors.get(i).getNom() + "a la bd");
-        }
-
-
-        identificarSeus(tauler);
-        inserts.insertPartida(1, numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
-
-
-
-
-        for (int i = 0; i < jugadors.size(); i++) {
-
             inserts.insertTiene(jugadors.get(i).getNom(), ordenarGuanyador(jugadors).get(i), jugadors.size(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
         }
     }
-
 
     /**
      * @param tauler Pasem el tauler per veura la taula d'europa

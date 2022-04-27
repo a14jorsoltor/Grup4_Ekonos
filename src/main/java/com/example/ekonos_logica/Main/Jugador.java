@@ -1,5 +1,6 @@
 package com.example.ekonos_logica.Main;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Jugador {
@@ -126,5 +127,11 @@ public class Jugador {
         return "Jugador [nom=" + nom + ", id=" + id + "]";
     }
 
+
+
+    public void intertJugador() throws SQLException {
+            com.example.BaseDades.Inserts.Inserts.insertJugador(this);
+            //System.out.println("S'ha afegit un jugador " + getNom() + "a la bd");
+    }
 
 }
