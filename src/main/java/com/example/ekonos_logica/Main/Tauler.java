@@ -22,6 +22,11 @@ public class Tauler {
 
     private int numCaselles;
 
+    public Tauler() {
+
+    }
+
+
     public int getNumCaselles() {
         return numCaselles;
     }
@@ -236,13 +241,14 @@ public class Tauler {
 
     ////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////METODE PER VERUE TOT EL MAPA EUROPEU////////////////////////
-    public void taulerEuropeu() {
+    public int taulerEuropeu() {
         /**
          * Treuer per pantalla el tauler eurpoa.
          */
         for (int i = 0; i < caselles.size(); i++) {
            com.example.ekonos_logica.Missatges.Taulers.ensenyarCaselles(i,caselles);
         }
+        return 1;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////

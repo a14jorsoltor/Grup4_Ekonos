@@ -103,7 +103,7 @@ public class Carta {
      * @param caselles ArrayList de totes les caselles.
      * @return Retornarem un boolean dient si s'ha pogut fer la accio.
      */
-    private boolean accioEspecial2(int num, Empresa empresa, ArrayList<Casella> casellesPropietariEmpresa, ArrayList<Casella> casellesVeinesVuides, ArrayList<Casella> caselles) {
+    boolean accioEspecial2(int num, Empresa empresa, ArrayList<Casella> casellesPropietariEmpresa, ArrayList<Casella> casellesVeinesVuides, ArrayList<Casella> caselles) {
 
         int numCasella;
         boolean semaforAgafarCasella = false;

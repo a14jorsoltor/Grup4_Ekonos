@@ -17,6 +17,8 @@ public class Casella {
     }
 
 
+
+
     public int getID() {
         return ID;
     }
@@ -39,5 +41,6 @@ public class Casella {
         for (int i = 0; i < numCaselles.length; i++) {
             this.veines.add(casella.get(numCaselles[i] - 1));
         }
+
     }
 }
