@@ -83,9 +83,9 @@ public Persistencia(){
     }
 
 
-    public static void insereixPartida( int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
+    public static void insereixPartida( int numerosJUgadors,int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + "," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
+        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + numerosJUgadors+"," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
 
         try {
             sta = connection.createStatement();
@@ -125,9 +125,9 @@ public Persistencia(){
         }
     }
 
-    public static void insereixTiene(String nom, int id, int NumeroAssociacioAlpha, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int NumeroAssociacoEpsilon, int monedas, int numeroAssociacoEpsilon, int i) throws SQLException {
+    public static void insereixTiene(String nom, int posicion, int NumeroAssociacioAlpha, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int NumeroAssociacoEpsilon, int monedas, int numeroAssociacoEpsilon, int i) throws SQLException {
 
-        String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + nom + "," + id + "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
+        String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + nom + "," + posicion +"(SELECT Id_partida FORM Partida WHERE Id_partida=(SELECT Max(Id_partida) FORM Partida))"+ "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
 
         try {
             sta = connection.createStatement();
