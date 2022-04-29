@@ -78,6 +78,7 @@ public Persistencia(){
             semaforo = false;
         } finally {
             sta.close();
+            OTDB.cerrarbase(connection);
         }
     }
 
