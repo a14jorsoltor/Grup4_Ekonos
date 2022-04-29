@@ -29,6 +29,7 @@ public Persistencia(){
 }
 
 
+
     public static void obtenirNomJugadors(Connection con) throws SQLException {
 
         String query = "select *from Jugadors";
@@ -38,9 +39,28 @@ public Persistencia(){
                 String nom = rs.getString(1);
                 Jugadors jugador = new Jugadors(nom);
                 Jugador.add(jugador);
+
+
             }
         } catch (SQLException e) {
 
+        }
+    }
+
+    public static void estadistica1(Connection con) throws SQLException {
+        int posicion = 6;
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+        for (int i = 0; i < Jugador.size(); i++) {
+            for (int j = 0; j < posicion; j++) {
+                String query = "Select count(*) From Tiene t join Partida p on t.Id_Partida=p.Id_partida where p.numeros_jugadores=" + i + "and t.posicion= " + j + "and nom='adrian'";
+                try (Statement stmt = con.createStatement()) {
+                    ResultSet rs = stmt.executeQuery(query);
+                    while (rs.next()) {
+                        int numero = rs.getInt(1);
+                        numeros.add(numero);
+                    }
+                }
+            }
         }
     }
 
