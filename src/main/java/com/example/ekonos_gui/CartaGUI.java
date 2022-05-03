@@ -25,8 +25,14 @@ public class CartaGUI {
     public String getF3() {
         return f3;
     }
-    /*cositas*/
 
+    /**
+     *
+     * @param f1 funcio 1 de la carta
+     * @param f2 funcio 2 de la carta
+     * @param f3 funcio 3 de la carta
+     * @param id id de la carta
+     */
     private void funcioMesID(String f1, String f2, String f3, int id) {
         this.f1 = f1;
         this.f2 = f2;
@@ -39,8 +45,15 @@ public class CartaGUI {
     }
 
 
-
-
+    /**
+     *
+     * @param num numero de la accio
+     * @param empresa empresa afectada
+     * @param casellesPropietariEmpresa caselles propietraies de la empresa
+     * @param casellesVeinesVuides caselles vuides
+     * @param caselles totes les caselles
+     * @return si es true la funcio s'ha fet be si es falss s'ha fet malament
+     */
     public boolean accioEspecial1(int num, EmpresaGUI empresa, ArrayList<CasellaGUI> casellesPropietariEmpresa, ArrayList<CasellaGUI> casellesVeinesVuides, ArrayList<CasellaGUI> caselles) {
         int numCasella;
         boolean semaforAgafarCasella = false;
@@ -102,6 +115,13 @@ public class CartaGUI {
     }
 
 
+    /**
+     *
+     * @param empresa empresa que afectara
+     * @param funcio funcio que fara la carta
+     * @param casellaAfectada casella afectada
+     * @param caselles totes les caselles
+     */
     public void accioCarta(EmpresaGUI empresa, int funcio, CasellaGUI casellaAfectada, ArrayList<CasellaGUI> caselles) {
 
         boolean segir = false, semaforAgafarCasella1 = false, semaforAgafarCasella2 = false, semaforAgafarCaselles = false, semaforAgafarCasella3 = false;
@@ -184,7 +204,9 @@ public class CartaGUI {
     }
 
 
-
+    /**
+     * @param opcio quina carta es
+     */
     public void crearCarta(int opcio) {
         switch (opcio) {
 //---------------------------------------------------------------------\\

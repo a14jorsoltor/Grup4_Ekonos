@@ -8,8 +8,8 @@ import java.sql.SQLException;
 public class Inserts {
 
     public void insertPartida( int NumFilialAlpha,int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama,int NumFilialEpsilon) throws SQLException, SQLException {
-        System.out.println();
-        com.example.BaseDades.Capa_Dades.Persistencia.insereixPartida(  NumFilialAlpha,  NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama,NumFilialEpsilon);
+
+        com.example.BaseDades.Capa_Dades.Persistencia.insereixPartida(NumFilialAlpha,  NumFilialDelta, NumFilialOmicron, NumFilialBeta, NumFilialGama,NumFilialEpsilon);
 
     }
 

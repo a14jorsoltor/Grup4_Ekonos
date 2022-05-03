@@ -89,7 +89,12 @@ public class EmpresaGUI {
         }
     }
 
-    //
+    /**
+     *
+     *  @param jugador jugador a qui interactua
+     *  @param jugadors llista de tots el jugador
+     *  @return retornem el numero de las accions
+     */
     public int posarAccio(JugadorGUI jugador, ArrayList<JugadorGUI> jugadors) {
         accions.add(jugador);
         jugador.setNumAccions(jugador.getNumAccions() + 1);
@@ -97,6 +102,11 @@ public class EmpresaGUI {
         return accions.size();
     }
 
+    /**
+     *
+     * @param jugador jugador de qui treu la accio
+     * @param jugadors array de tots els jugadors
+     */
     public void treureAccio(JugadorGUI jugador, ArrayList<JugadorGUI> jugadors) {
         int numAccio = 0;
         for (int i = 0; i < accions.size(); i++) {
@@ -109,6 +119,10 @@ public class EmpresaGUI {
         jugador.setNumAccions(jugador.getNumAccions() - 1);
     }
 
+    /**
+     *
+     * @param jugadors array de tots els jugadors
+     */
     //CAMBIAR DE PRESIDENT
     public void cambiPresi(ArrayList<JugadorGUI> jugadors) {
         int contador = 0;

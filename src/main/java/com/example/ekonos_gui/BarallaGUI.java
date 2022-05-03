@@ -21,6 +21,12 @@ public class BarallaGUI {
 		}
 	}
 	//METODE PER REPARTIR LES CARTES A LA MA DELS JUGADORS
+
+	/**
+	 *
+	 * @param player Array list de jugadors
+	 * @param midaMa mida de la ma
+	 */
 	public void repartirMa(ArrayList<JugadorGUI> player, int midaMa) {
 
 		for (int i = 0; i < midaMa; i++) {

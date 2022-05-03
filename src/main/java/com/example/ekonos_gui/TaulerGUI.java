@@ -27,6 +27,15 @@ public class TaulerGUI {
         this.numCaselles = numCaselles;
     }
 
+
+    /**
+     *
+     * @param baralla baralla de la partida
+     * @param jugador tots els jugadors
+     * @param empresas totes les empreses
+     * @param empresaVuit empresa vuida
+     */
+
     public TaulerGUI(BarallaGUI baralla, ArrayList<JugadorGUI> jugador, ArrayList<EmpresaGUI> empresas, EmpresaGUI empresaVuit) {
         super();
         this.baralla = baralla;
@@ -40,6 +49,11 @@ public class TaulerGUI {
     }
 
     //METODE PER COMENÇAR LES RONDES
+
+    /**
+     *
+     * @param numsRonda Numero de rones
+     */
     public void ronda(int numsRonda) throws Exception {
         remenarBaralla(baralla);
 
@@ -54,7 +68,10 @@ public class TaulerGUI {
 
     }
 
-
+    /**
+     *
+     * @param jugador jugador de qui es la ronda
+     */
     //////////////////////////////////////////////////////////////////////////////////
     ////////////////////////// METODE PER FER ELS TORNS//////////////////////////////
     private void torn(JugadorGUI jugador) throws Exception {
@@ -62,6 +79,9 @@ public class TaulerGUI {
         compraVenta(jugador);
     }
 
+    /**
+     * @param jugador jugador qui tira la carta
+     */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////// AQUEST METODE ES EL QUE FARA QUE EL JUGADOR TIRI LA CARTA//////////////////////////////////////////////////
     private void tirarCarta(JugadorGUI jugador) {
@@ -134,6 +154,9 @@ public class TaulerGUI {
         cartaATirar.accioCarta(empresaAfectada, numFuncio, casellaAInteractuar, caselles);
     }
 
+    /**
+     * @param numCaselles Numero de caselles
+     */
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////// GENERAR TOTES LES CASELLES///////////////////////////////////////////////////////////////////////////
@@ -145,6 +168,10 @@ public class TaulerGUI {
 
     }
 
+    /**
+     * @param baralla baralla de la partida
+     * @param jugador tots els jugadors
+     */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////AQUI DIEM QUINA MIDA TE LA MA EL JUAGDOR I REPARTIM LA MA///////////////////////////////////////////////////
     private static void repartirCartes(BarallaGUI baralla, ArrayList<JugadorGUI> jugador) {
@@ -160,6 +187,11 @@ public class TaulerGUI {
         baralla.repartirMa(jugador, midaMa);
     }
 
+    /**
+     *
+     * @param baralla Barlla de la partida
+     * @throws Exception
+     */
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////FUNCIO PER REMENAR LA MA/////////////////////////////////////////////////////////////////////////////////////
     public static void remenarBaralla(BarallaGUI baralla) throws Exception {
@@ -169,6 +201,10 @@ public class TaulerGUI {
     }
 
 
+    /**
+     *
+     * @param jugador jugador que fa la accio
+     */
     //COMPRA VENTA DE ACCIONS MITJANCANT TOKENS
     public void compraVenta(JugadorGUI jugador) {
         int opcio;
@@ -232,6 +268,12 @@ public class TaulerGUI {
 
     }
 
+    /**
+     *
+      * @param jugador jugador qui la comprara
+     * @param empresaAfectada empresa a que comprara la accio
+     * @return retprma la empresa afectada
+     */
     public EmpresaGUI comprar(JugadorGUI jugador, EmpresaGUI empresaAfectada) {
         String colorCarta;
         if (jugador.getTokens() == 0) {

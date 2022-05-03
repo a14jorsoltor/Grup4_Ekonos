@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 //CASELLES DEL MAPA D'EUROPA
 public class CasellaGUI {
-
+    /**
+     *
+     * @param ID ID de la casella
+     * @param empresa casella qui la te ocupada
+     */
     public CasellaGUI(int ID, EmpresaGUI empresa) {
         super();
         this.ID = ID;
@@ -23,7 +27,10 @@ public class CasellaGUI {
         this.ID = ID;
     }
 
-    //
+    /**
+     * @param tauler pasem el tauler
+     * @param numCaselles i el numero de caselles
+     */
     public void afegirVeines(TaulerGUI tauler, int... numCaselles) {
         ArrayList<CasellaGUI> casella = tauler.caselles;
         for (int i = 0; i < numCaselles.length; i++) {
