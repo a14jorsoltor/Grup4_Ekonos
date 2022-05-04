@@ -58,12 +58,22 @@ public class Main {
         Tauler tauler = new Tauler(baralla, jugadors, empresas, empresaVuit); //CREEM EL TAULER AQUI PASSANT-LI LA BARALLA CREADA ELS JUGADORS CREATS LAS EMPRESAS CREADES I LA EMPRESA "FANTASMA"
         try {
          //   tauler.ronda(2); //METODE PER FER LES RONDES
+
+            tauler.ronda(1);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         for (int i = 0; i < jugadors.size(); i++) {
             jugadors.get(i).setPuntsTotals(calcularGuanyador(jugadors.get(i), numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon, numFilialsnull));
         }
+
+
+
+
+
+
         ordenarGuanyador(jugadors);
 
         finalPartida(jugadors, tauler);
@@ -71,7 +81,7 @@ public class Main {
     }
 
     private static ArrayList<Integer> ordenarGuanyador(ArrayList<Jugador> jugadors) {
-        ArrayList<Jugador> podiJug = new ArrayList<>();
+        ArrayList<Jugador> podiJug;
         ArrayList<Integer> podi = new ArrayList<>();
         podiJug = jugadors;
         for (int i = 0; i < podiJug.size(); i++) {
@@ -143,7 +153,7 @@ public class Main {
         jugadors.get(i).intertJugador();
     }
     identificarSeus(tauler);
-    inserts.insertPartida( numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
+    inserts.insertPartida( jugadors.size(), numFilialsAlpha, numFilialsDelta, numFilialBeta, numFilialsGama, numFilialsOmicron, numFilialsEpsilon);
         for (int i = 0; i < jugadors.size(); i++) {
             inserts.insertTiene(jugadors.get(i).getNom(), ordenarGuanyador(jugadors).get(i), jugadors.size(), jugadors.get(i).getId(), jugadors.get(i).getNumAccionsAlpha(), jugadors.get(i).getNumAccionsDelta(), jugadors.get(i).getNumAccionsOmicron(), jugadors.get(i).getNumAccionsBeta(), jugadors.get(i).getNumAccionsGamma(), jugadors.get(i).getNumAccionsEpsilon(), jugadors.get(i).getTokens());
         }
