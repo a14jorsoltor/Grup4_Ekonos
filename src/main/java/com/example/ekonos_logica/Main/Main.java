@@ -104,6 +104,7 @@ public class Main {
 
         return podi;
     }
+//hola
 
     private static int calcularGuanyador(Jugador jugador, int numFilialsAlpha, int numFilialsDelta, int numFilialBeta, int numFilialsGama, int numFilialsOmicron, int numFilialsEpsilon, int numFilialsnull) {
         int totalPunts = 0;
