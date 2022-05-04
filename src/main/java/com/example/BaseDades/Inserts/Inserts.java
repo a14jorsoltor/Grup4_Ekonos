@@ -5,10 +5,10 @@ import com.example.ekonos_logica.Main.Jugador;
 
 import java.sql.SQLException;
 
+
 public class Inserts {
 
     /**
-     *
      * @param numJugador Numero de jugadros
      * @param NumFilialAlpha numero de afilials de la empresa alpha
      * @param NumFilialDelta numero de afilials de la empresa delta

@@ -12,6 +12,6 @@ class MainTest {
 
 
         var testBd= new Tauler();
-        assertEquals(2, testBd.taulerEuropeu());
+        assertEquals(1, testBd.taulerEuropeu());
     }
 }

@@ -1,5 +1,8 @@
 package com.example.BaseDades.Capa_Domini;
 
+/**
+ * Aquesta classe 
+ */
 public class Jugadors {
 
 String nom;

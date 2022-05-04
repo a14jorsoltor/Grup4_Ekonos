@@ -24,14 +24,16 @@ public class Persistencia {
     static ArrayList<Jugadors> Jugador = new ArrayList<Jugadors>();
     static ArrayList<Partida> partida = new ArrayList<Partida>();
     static ArrayList<Tiene> tener = new ArrayList<Tiene>();
+    static ArrayList<Integer> numeros = new ArrayList<Integer>();
     static Connection connection;
     static Statement sta = null;
     public static void main(String[] args) throws SQLException {
 
 
-        insereixPartida(5,4,5,6,7,8,9);
-        insereixJugadors("Jordi");
-        insereixTiene("Jordi",1,1,1,1,1,1,11,1,1,1);
+
+//        insereixPartida(5,4,5,6,7,8,9);
+//        insereixJugadors("Jordi");
+//        insereixTiene("Jordi",1,1,1,1,1,1,11,1,1,1);
 
     }
 
@@ -57,10 +59,10 @@ public class Persistencia {
 
     public static void estadistica1(Connection con) throws SQLException {
         int posicion = 6;
-        ArrayList<Integer> numeros = new ArrayList<Integer>();
+
         for (int i = 0; i < Jugador.size(); i++) {
             for (int j = 0; j < posicion; j++) {
-                String query = "Select count(*) From Tiene t join Partida p on t.Id_Partida=p.Id_partida where p.numeros_jugadores=" + i + "and t.posicion= " + j + "and nom='adrian'";
+                String query = "Select count(*) From Tiene t join Partida p on t.Id_Partida=p.Id_partida where p.numeros_jugadores=" + i + "and t.posicion= " + j + "and nom='Jordi'";
                 try (Statement stmt = con.createStatement()) {
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next()) {
