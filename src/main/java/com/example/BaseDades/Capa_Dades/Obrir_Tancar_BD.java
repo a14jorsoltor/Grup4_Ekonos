@@ -10,9 +10,10 @@ import java.sql.SQLException;
 
 public class Obrir_Tancar_BD {
 
-     Connection conexioBase( Connection connection) {
+     public Connection conexioBase( Connection connection) {
 
         try {
+
             connection = DriverManager.getConnection(fitxerUrl(), fitxerUsuari(), fitxerPass());
             System.out.println("Connecio realitzada usant" + "DriverManager");
         } catch (SQLException e) {
@@ -25,6 +26,7 @@ public class Obrir_Tancar_BD {
 
      Connection cerrarbase( Connection connection ) {
         try {
+            System.out.println("hola");
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();

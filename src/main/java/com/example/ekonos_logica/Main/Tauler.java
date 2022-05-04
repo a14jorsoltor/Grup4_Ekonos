@@ -64,6 +64,8 @@ public class Tauler {
 
 
         for (int i = 0; i < numsRonda; i++) {
+
+
             afegirTokenIniciRonda();
             repartirCartes(baralla, jugadors);
            do {
@@ -205,9 +207,9 @@ public class Tauler {
 
         int midaMa = 0;
         if (jugador.size() == 3 || jugador.size() == 4 || jugador.size() == 6)
-            midaMa = 6;
+            midaMa = 1;
         else if (jugador.size() == 5)
-            midaMa = 5;
+            midaMa = 1;
         else
             com.example.ekonos_logica.Missatges.Errors.errorMidaMa();
 

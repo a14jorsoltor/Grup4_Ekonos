@@ -150,6 +150,7 @@ public class Main {
      */
     public static void finalPartida(ArrayList<Jugador> jugadors, Tauler tauler) throws SQLException {
 
+
     for(int i = 0; i < jugadors.size(); i++) {
         jugadors.get(i).intertJugador();
     }

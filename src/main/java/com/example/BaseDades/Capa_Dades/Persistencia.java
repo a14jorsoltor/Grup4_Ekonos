@@ -11,7 +11,11 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
+
+
 public class Persistencia {
+
+
     static final String Taula_Jugadors = "Jugadors";
     static final String Taula_Partida = "Partida";
     static final String Taula_Tiene = "Tiene";
@@ -22,11 +26,15 @@ public class Persistencia {
     static ArrayList<Tiene> tener = new ArrayList<Tiene>();
     static Connection connection;
     static Statement sta = null;
+    public static void main(String[] args) throws SQLException {
 
-public Persistencia(){
 
-    connection = OTDB.conexioBase(connection);
-}
+        insereixPartida(5,4,5,6,7,8,9);
+        insereixJugadors("Jordi");
+        insereixTiene("Jordi",1,1,1,1,1,1,11,1,1,1);
+
+    }
+
 
 
 
@@ -63,30 +71,49 @@ public Persistencia(){
             }
         }
     }
-
+    public static void estadistica2(Connection con) throws SQLException {
+        int posicion = 6;
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+        for (int i = 0; i < Jugador.size(); i++) {
+            for (int j = 0; j < posicion; j++) {
+                String query = "Select avg() From Tiene t join Partida p on t.Id_Partida=p.Id_partida where p.numeros_jugadores=" + i + "and t.posicion= " + j + "and nom='adrian'";
+                try (Statement stmt = con.createStatement()) {
+                    ResultSet rs = stmt.executeQuery(query);
+                    while (rs.next()) {
+                        int numero = rs.getInt(1);
+                        numeros.add(numero);
+                    }
+                }
+            }
+        }
+    }
 
     public static void insereixJugadors(String nom) throws SQLException {
-
-        String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES(" + nom + "); ";
+        connection = OTDB.conexioBase(connection);
+        String sentenciaSql = "INSERT INTO " + Taula_Jugadors + " VALUES(" +  "'" + nom + "'" +"); ";
 
         try {
+            System.out.println("ENTRO EN EL TRY");
             sta = connection.createStatement();
+            System.out.println("DESPRES DEL STATEMENT");
             sta.executeUpdate(sentenciaSql);
+            System.out.println("DESPRES DEL EXECUTE");
             semaforo = true;
         } catch (SQLException e) {
             System.out.println("Error");
             semaforo = false;
         } finally {
+            if(sta!=null)
             sta.close();
-            OTDB.cerrarbase(connection);
+            connection = OTDB.cerrarbase(connection);
         }
     }
 
 
     public static void insereixPartida( int numerosJUgadors,int NumFilialAlpha, int NumFilialDelta, int NumFilialOmicron, int NumFilialBeta, int NumFilialGama, int NumFilialEpsilon) throws SQLException {
-
-        String sentenciaSql = "INSERT INTO " + Taula_Partida + " VALUES(" + numerosJUgadors+"," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + NumFilialEpsilon + ") ";
-
+        connection = OTDB.conexioBase(connection);
+        String sentenciaSql ="INSERT INTO " +Taula_Partida +" (" +"numeros_jugadores" + "," + "NumFilialAlpha" + "," + "NumFilialDelta"  +","+"NumFilialOmicron"  +","+"NumFilialBeta" +"," + "NumFilialGama" +","+ "NumFilialEpsilon" + ")VALUES(" + numerosJUgadors+"," + NumFilialAlpha + "," + NumFilialDelta + "," + NumFilialOmicron + "," + NumFilialBeta + "," + NumFilialGama + "," +  NumFilialEpsilon + "); ";
+        System.out.println(sentenciaSql);
         try {
             sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
@@ -96,7 +123,7 @@ public Persistencia(){
             semaforo = false;
         } finally {
             sta.close();
-            OTDB.cerrarbase(connection);
+            connection = OTDB.cerrarbase(connection);
         }
     }
 
@@ -126,19 +153,19 @@ public Persistencia(){
     }
 
     public static void insereixTiene(String nom, int posicion, int NumeroAssociacioAlpha, int NumeroAssociacioDelta, int NumeroAssociacioOmicron, int NumeroAssociacioBeta, int NumeroAssociacioGama, int NumeroAssociacoEpsilon, int monedas, int numeroAssociacoEpsilon, int i) throws SQLException {
-
-        String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + nom + "," + posicion +"(SELECT Id_partida FORM Partida WHERE Id_partida=(SELECT Max(Id_partida) FORM Partida))"+ "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
-
+        connection = OTDB.conexioBase(connection);
+        String sentenciaSql = "INSERT INTO " + Taula_Tiene + " VALUES(" + "'" + nom  + "'" + "," + posicion +","+"(SELECT id_partida FROM Partida WHERE id_partida=(SELECT Max(id_partida) FROM Partida))"+ "," + NumeroAssociacioAlpha + "," + NumeroAssociacioDelta + "," + NumeroAssociacioOmicron + "," + NumeroAssociacioBeta + "," + NumeroAssociacioGama + "," + NumeroAssociacoEpsilon + "," + monedas + "); ";
+        System.out.println(sentenciaSql);
         try {
             sta = connection.createStatement();
             sta.executeUpdate(sentenciaSql);
             semaforo = true;
         } catch (SQLException e) {
-            System.out.println("Error");
+            System.out.println("Error"+e.getMessage());
             semaforo = false;
         } finally {
             sta.close();
-            OTDB.cerrarbase(connection);
+            connection = OTDB.cerrarbase(connection);
         }
     }
 
